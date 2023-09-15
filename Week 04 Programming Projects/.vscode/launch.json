@@ -1,0 +1,52 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "type": "java",
+            "name": "AJ_Week04_GUI_Program_2_House",
+            "request": "launch",
+            "vmArgs": "--module-path C:/Users/Student/Desktop/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/lib --add-modules javafx.controls,javafx.fxml",
+            "mainClass": "AJ_Week04_GUI_Program_2_House",
+            "projectName": "Week 04 Programming Projects_217c86f8"
+        },
+        {
+            "type": "java",
+            "name": "AJ_Week04_GUI_Program_1_Logo",
+            "request": "launch",
+            "vmArgs": "--module-path C:/Users/Student/Desktop/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/lib --add-modules javafx.controls,javafx.fxml",
+            "mainClass": "AJ_Week04_GUI_Program_1_Logo",
+            "projectName": "Week 04 Programming Projects_217c86f8"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "AJ_StringsRandomAndMath",
+            "request": "launch",
+            "mainClass": "AJ_StringsRandomAndMath",
+            "projectName": "Week 04 Programming Projects_217c86f8"
+        },
+        {
+            "type": "java",
+            "name": "AJ_Week04_Program_1_Substring",
+            "request": "launch",
+            "mainClass": "AJ_Week04_Program_1_Substring",
+            "projectName": "Week 04 Programming Projects_217c86f8"
+        },
+        {
+            "type": "java",
+            "name": "AJ_Week04_Program_2_SumOfCubes",
+            "request": "launch",
+            "mainClass": "AJ_Week04_Program_2_SumOfCubes",
+            "projectName": "Week 04 Programming Projects_217c86f8"
+        }
+    ]
+}
