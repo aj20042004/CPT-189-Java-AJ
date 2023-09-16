@@ -1,0 +1,12 @@
+{
+    "java.project.sourcePaths": ["src"],
+    "java.project.outputPath": "bin",
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar"
+    ],
+    "java.project.referencedLibraries": [
+        "C:/Users/Student/Desktop/Java/Java FX/jdk-17.0.8+7/lib"
+    ]
+
+
+}
