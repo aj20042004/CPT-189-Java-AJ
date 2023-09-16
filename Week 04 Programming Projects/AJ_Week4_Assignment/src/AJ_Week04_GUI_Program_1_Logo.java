@@ -27,42 +27,42 @@ public class AJ_Week04_GUI_Program_1_Logo extends Application{
     public void start(Stage appStage) { 
         
         // Olympic Top Front Blue Circle
-        Circle blueCircle = new Circle(150,150,63,Color.WHITE);
-        blueCircle.getStrokeLineCap();                  
-        blueCircle.setStrokeWidth(3);
-        blueCircle.setStroke(Color.BLUE);
-        Group group = new Group(blueCircle);
+        Circle circleBlue = new Circle(150,150,63,Color.TRANSPARENT);
+        circleBlue.getStrokeLineCap();                  
+        circleBlue.setStrokeWidth(3);
+        circleBlue.setStroke(Color.BLUE);
+        Group grpOlympic = new Group(circleBlue); // rename this as grpOlympic
 
         // Olympic Top Middle Black Circle
-        Circle blackCircle = new Circle(287,150,63,Color.WHITE);
-        blackCircle.getStrokeLineCap();                  
-        blackCircle.setStrokeWidth(3);
-        blackCircle.setStroke(Color.BLACK);
-        group.getChildren().add(blackCircle);
+        Circle circleBlack = new Circle(287,150,63,Color.TRANSPARENT);
+        circleBlack.getStrokeLineCap();                  
+        circleBlack.setStrokeWidth(3);
+        circleBlack.setStroke(Color.BLACK);
+        grpOlympic.getChildren().add(circleBlack);
 
         // Olympic Top End Red Circle
-        Circle redCircle = new Circle(424,150,63,Color.WHITE);
-        redCircle.getStrokeLineCap();              
-        redCircle.setStrokeWidth(3);
-        redCircle.setStroke(Color.RED);
-        group.getChildren().add(redCircle);
+        Circle circleRed = new Circle(424,150,63,Color.TRANSPARENT);
+        circleRed.getStrokeLineCap();              
+        circleRed.setStrokeWidth(3);
+        circleRed.setStroke(Color.RED);
+        grpOlympic.getChildren().add(circleRed);
 
         // Olympic Bottom front Yellow Circle
-        Circle yellowCircle = new Circle(219,230,63,Color.WHITE);
-        yellowCircle.getStrokeLineCap();                  
-        yellowCircle.setStrokeWidth(3);
-        yellowCircle.setStroke(Color.YELLOW);
-        group.getChildren().add(yellowCircle);
+        Circle circleYellow = new Circle(219,230,63,Color.TRANSPARENT);
+        circleYellow.getStrokeLineCap();                  
+        circleYellow.setStrokeWidth(3);
+        circleYellow.setStroke(Color.YELLOW);
+        grpOlympic.getChildren().add(circleYellow);
 
         // Olympic Bottom End Green Circle
-        Circle greenCircle = new Circle(356,230,63,Color.WHITE);
-        greenCircle.getStrokeLineCap();                  
-        greenCircle.setStrokeWidth(3);
-        greenCircle.setStroke(Color.GREEN);
-        group.getChildren().add(greenCircle);
+        Circle circleGreen = new Circle(356,230,63,Color.TRANSPARENT);
+        circleGreen.getStrokeLineCap();                  
+        circleGreen.setStrokeWidth(3);
+        circleGreen.setStroke(Color.GREEN);
+        grpOlympic.getChildren().add(circleGreen);
         
         // Creating scene
-        Scene scene = new Scene(group,600,600);
+        Scene scene = new Scene(grpOlympic,600,600);
 
         // Adding scene to the stage
         appStage.setScene(scene);

@@ -31,147 +31,147 @@ public class AJ_Week04_GUI_Program_2_House extends Application{
         
         // Main base of the house
         // Creating the Base rectangle shape. 
-        Rectangle baseRectangle = new Rectangle(370,200);
-        baseRectangle.setX(150); 
-        baseRectangle.setY(400);                         
-        baseRectangle.setFill(Color.LIGHTSKYBLUE);              
-        Group group = new Group(baseRectangle);    
+        Rectangle rectangleBase = new Rectangle(370,200);
+        rectangleBase.setX(150); 
+        rectangleBase.setY(400);                         
+        rectangleBase.setFill(Color.LIGHTSKYBLUE);              
+        Group groupHouse = new Group(rectangleBase);    
 
         // Door of the house
         // Creating the rectangle shape for door
-        Rectangle doorRectangle = new Rectangle(55,90);
-        doorRectangle.setX(300); 
-        doorRectangle.setY(510);                         
-        doorRectangle.setFill(Color.BROWN); 
-        group.getChildren().add(doorRectangle);  
+        Rectangle rectangleDoor = new Rectangle(55,90);
+        rectangleDoor.setX(300); 
+        rectangleDoor.setY(510);                         
+        rectangleDoor.setFill(Color.BROWN); 
+        groupHouse.getChildren().add(rectangleDoor);  
 
         // Doorknob of the house
         // Creating a small circle for doorknob
-        Circle doorknobCircle = new Circle(343,555,4,Color.YELLOW);
-        doorknobCircle.getStrokeLineCap();                  
-        doorknobCircle.setStrokeWidth(3);
-        doorknobCircle.setStroke(Color.YELLOW);
-        group.getChildren().add(doorknobCircle);
+        Circle circleDoorknob = new Circle(343,555,4,Color.YELLOW);
+        circleDoorknob.getStrokeLineCap();                  
+        circleDoorknob.setStrokeWidth(3);
+        circleDoorknob.setStroke(Color.YELLOW);
+        groupHouse.getChildren().add(circleDoorknob);
 
         // Chimney of the house
         // Creating vertical shaped rectangle for chimney
-        Rectangle chimneyRectangle = new Rectangle(55,90);
-        chimneyRectangle.setX(460); 
-        chimneyRectangle.setY(310);                         
-        chimneyRectangle.setFill(Color.GREY); 
-        group.getChildren().add(chimneyRectangle); 
+        Rectangle rectangleChimney = new Rectangle(55,90);
+        rectangleChimney.setX(460); 
+        rectangleChimney.setY(310);                         
+        rectangleChimney.setFill(Color.GREY); 
+        groupHouse.getChildren().add(rectangleChimney); 
 
         // Middle Cloud in the Sky
-        Circle cloudCircle1 = new Circle(450, 180, 30,Color.LIGHTBLUE);
-        Circle cloudCircle2 = new Circle(480, 180, 30,Color.LIGHTBLUE);
-        Circle cloudCircle3 = new Circle(510, 180, 30,Color.LIGHTBLUE);
-        Circle cloudCircle4 = new Circle(475, 150, 30,Color.LIGHTBLUE);
-        group.getChildren().add(cloudCircle1);
-        group.getChildren().add(cloudCircle2);
-        group.getChildren().add(cloudCircle3);
-        group.getChildren().add(cloudCircle4);
+        Circle circleCloud1 = new Circle(450, 180, 30,Color.LIGHTBLUE);
+        Circle circleCloud2 = new Circle(480, 180, 30,Color.LIGHTBLUE);
+        Circle circleCloud3 = new Circle(510, 180, 30,Color.LIGHTBLUE);
+        Circle circleCloud4 = new Circle(475, 150, 30,Color.LIGHTBLUE);
+        groupHouse.getChildren().add(circleCloud1);
+        groupHouse.getChildren().add(circleCloud2);
+        groupHouse.getChildren().add(circleCloud3);
+        groupHouse.getChildren().add(circleCloud4);
 
         // Left Cloud in the Sky
-        Circle cloudCircle5 = new Circle(250, 180, 30,Color.LIGHTBLUE);
-        Circle cloudCircle6 = new Circle(280, 180, 30,Color.LIGHTBLUE);
-        Circle cloudCircle7 = new Circle(310, 180, 30,Color.LIGHTBLUE);
-        Circle cloudCircle8 = new Circle(275, 150, 30,Color.LIGHTBLUE);
-        group.getChildren().add(cloudCircle5);
-        group.getChildren().add(cloudCircle6);
-        group.getChildren().add(cloudCircle7);
-        group.getChildren().add(cloudCircle8);
+        Circle circleCloud5 = new Circle(250, 180, 30,Color.LIGHTBLUE);
+        Circle circleCloud6 = new Circle(280, 180, 30,Color.LIGHTBLUE);
+        Circle circleCloud7 = new Circle(310, 180, 30,Color.LIGHTBLUE);
+        Circle circleCloud8 = new Circle(275, 150, 30,Color.LIGHTBLUE);
+        groupHouse.getChildren().add(circleCloud5);
+        groupHouse.getChildren().add(circleCloud6);
+        groupHouse.getChildren().add(circleCloud7);
+        groupHouse.getChildren().add(circleCloud8);
 
-        // Red Cloud in the Sky
-        Circle cloudCircle9 = new Circle(650, 180, 30,Color.LIGHTBLUE);
-        Circle cloudCircle10 = new Circle(680, 180, 30,Color.LIGHTBLUE);
-        Circle cloudCircle11 = new Circle(710, 180, 30,Color.LIGHTBLUE);
-        Circle cloudCircle12 = new Circle(675, 150, 30,Color.LIGHTBLUE);
-        group.getChildren().add(cloudCircle9);
-        group.getChildren().add(cloudCircle10);
-        group.getChildren().add(cloudCircle11);
-        group.getChildren().add(cloudCircle12);
+        // Right Cloud in the Sky
+        Circle circleCloud9 = new Circle(650, 180, 30,Color.LIGHTBLUE);
+        Circle circleCloud10 = new Circle(680, 180, 30,Color.LIGHTBLUE);
+        Circle circleCloud11 = new Circle(710, 180, 30,Color.LIGHTBLUE);
+        Circle circleCloud12 = new Circle(675, 150, 30,Color.LIGHTBLUE);
+        groupHouse.getChildren().add(circleCloud9);
+        groupHouse.getChildren().add(circleCloud10);
+        groupHouse.getChildren().add(circleCloud11);
+        groupHouse.getChildren().add(circleCloud12);
 
         // Smoke 1 in the sky using circle
-        Circle smokeCircle1 = new Circle(490,300,4,Color.BLACK);
-        smokeCircle1.getStrokeLineCap();                  
-        smokeCircle1.setStrokeWidth(3);
-        smokeCircle1.setStroke(Color.BLACK);
-        group.getChildren().add(smokeCircle1);
+        Circle circleSmoke1 = new Circle(490,300,4,Color.BLACK);
+        circleSmoke1.getStrokeLineCap();                  
+        circleSmoke1.setStrokeWidth(3);
+        circleSmoke1.setStroke(Color.BLACK);
+        groupHouse.getChildren().add(circleSmoke1);
         
         // Smoke 2 in the sky using circle
-        Circle smokeCircle2 = new Circle(500,280,4,Color.BLACK);
-        smokeCircle2.getStrokeLineCap();                  
-        smokeCircle2.setStrokeWidth(3);
-        smokeCircle2.setStroke(Color.BLACK);
-        group.getChildren().add(smokeCircle2);
+        Circle circleSmoke2 = new Circle(500,280,4,Color.BLACK);
+        circleSmoke2.getStrokeLineCap();                  
+        circleSmoke2.setStrokeWidth(3);
+        circleSmoke2.setStroke(Color.BLACK);
+        groupHouse.getChildren().add(circleSmoke2);
         
         // Smoke 3 in the sky using circle
-        Circle smokeCircle3 = new Circle(515,265,4,Color.BLACK);
-        smokeCircle3.getStrokeLineCap();                  
-        smokeCircle3.setStrokeWidth(3);
-        smokeCircle3.setStroke(Color.BLACK);
-        group.getChildren().add(smokeCircle3);
+        Circle circleSmoke3 = new Circle(515,265,4,Color.BLACK);
+        circleSmoke3.getStrokeLineCap();                  
+        circleSmoke3.setStrokeWidth(3);
+        circleSmoke3.setStroke(Color.BLACK);
+        groupHouse.getChildren().add(circleSmoke3);
         
         // Smoke 4 in the sky using circle
-        Circle smokeCircle4 = new Circle(530,245,4,Color.BLACK);
-        smokeCircle4.getStrokeLineCap();                  
-        smokeCircle4.setStrokeWidth(3);
-        smokeCircle4.setStroke(Color.BLACK);
-        group.getChildren().add(smokeCircle4);
+        Circle circleSmoke4 = new Circle(530,245,4,Color.BLACK);
+        circleSmoke4.getStrokeLineCap();                  
+        circleSmoke4.setStrokeWidth(3);
+        circleSmoke4.setStroke(Color.BLACK);
+        groupHouse.getChildren().add(circleSmoke4);
         
         // Smoke 5 in the sky using circle
-        Circle smokeCircle5 = new Circle(540,232,4,Color.BLACK);
-        smokeCircle5.getStrokeLineCap();                  
-        smokeCircle5.setStrokeWidth(3);
-        smokeCircle5.setStroke(Color.BLACK);
-        group.getChildren().add(smokeCircle5);
+        Circle circleSmoke5 = new Circle(540,232,4,Color.BLACK);
+        circleSmoke5.getStrokeLineCap();                  
+        circleSmoke5.setStrokeWidth(3);
+        circleSmoke5.setStroke(Color.BLACK);
+        groupHouse.getChildren().add(circleSmoke5);
 
         // Smoke 6 in the sky using circle
-        Circle smokeCircle6 = new Circle(555,220,4,Color.BLACK);
-        smokeCircle6.getStrokeLineCap();                  
-        smokeCircle6.setStrokeWidth(3);
-        smokeCircle6.setStroke(Color.BLACK);
-        group.getChildren().add(smokeCircle6);
+        Circle circleSmoke6 = new Circle(555,220,4,Color.BLACK);
+        circleSmoke6.getStrokeLineCap();                  
+        circleSmoke6.setStrokeWidth(3);
+        circleSmoke6.setStroke(Color.BLACK);
+        groupHouse.getChildren().add(circleSmoke6);
 
         // Smoke 7 in the sky using circle
-        Circle smokeCircle7= new Circle(570,208,4,Color.BLACK);
-        smokeCircle7.getStrokeLineCap();                  
-        smokeCircle7.setStrokeWidth(3);
-        smokeCircle7.setStroke(Color.BLACK);
-        group.getChildren().add(smokeCircle7);
+        Circle circleSmoke7= new Circle(570,208,4,Color.BLACK);
+        circleSmoke7.getStrokeLineCap();                  
+        circleSmoke7.setStrokeWidth(3);
+        circleSmoke7.setStroke(Color.BLACK);
+        groupHouse.getChildren().add(circleSmoke7);
 
         // Creating the Outer Window 1 for the house
-        Rectangle outerWindowRectangle1 = new Rectangle(90,60);
-        outerWindowRectangle1.setX(190); 
-        outerWindowRectangle1.setY(430);                         
-        outerWindowRectangle1.setFill(Color.BLACK);              
-        group.getChildren().add(outerWindowRectangle1);
+        Rectangle rectangleOuterWindow1 = new Rectangle(90,60);
+        rectangleOuterWindow1.setX(190); 
+        rectangleOuterWindow1.setY(430);                         
+        rectangleOuterWindow1.setFill(Color.BLACK);              
+        groupHouse.getChildren().add(rectangleOuterWindow1);
         
         // Creating the Inner window 1 for the house
-        Rectangle innerWindowRectangle1 = new Rectangle(50,30);
-        innerWindowRectangle1.setX(210); 
-        innerWindowRectangle1.setY(445);                         
-        innerWindowRectangle1.setFill(Color.WHITE);              
-        group.getChildren().add(innerWindowRectangle1);
+        Rectangle rectangleInnerWindow1 = new Rectangle(50,30);
+        rectangleInnerWindow1.setX(210); 
+        rectangleInnerWindow1.setY(445);                         
+        rectangleInnerWindow1.setFill(Color.WHITE);              
+        groupHouse.getChildren().add(rectangleInnerWindow1);
 
 
         // Creating the Outer Window 2 for the house
-        Rectangle outerWindowRectangle2 = new Rectangle(90,60);
-        outerWindowRectangle2.setX(390); 
-        outerWindowRectangle2.setY(430);                         
-        outerWindowRectangle2.setFill(Color.BLACK);              
-        group.getChildren().add(outerWindowRectangle2);
+        Rectangle rectangleOuterWindow2 = new Rectangle(90,60);
+        rectangleOuterWindow2.setX(390); 
+        rectangleOuterWindow2.setY(430);                         
+        rectangleOuterWindow2.setFill(Color.BLACK);              
+        groupHouse.getChildren().add(rectangleOuterWindow2);
         
         // Creating the Inner window 2 for the house
-        Rectangle innerWindowRectangle2 = new Rectangle(50,30);
-        innerWindowRectangle2.setX(410); 
-        innerWindowRectangle2.setY(445);                         
-        innerWindowRectangle2.setFill(Color.WHITE);              
-        group.getChildren().add(innerWindowRectangle2);
+        Rectangle rectangleInnerWindow2 = new Rectangle(50,30);
+        rectangleInnerWindow2.setX(410); 
+        rectangleInnerWindow2.setY(445);                         
+        rectangleInnerWindow2.setFill(Color.WHITE);              
+        groupHouse.getChildren().add(rectangleInnerWindow2);
 
         
         // Creating a scene and adding the group which has all the elements
-        Scene scnMyScene = new Scene(group, 900, 700);
+        Scene scnMyScene = new Scene(groupHouse, 900, 700);
 
         // Adding the scene to the stage
         appStage.setScene(scnMyScene);                    
