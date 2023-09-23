@@ -1,0 +1,54 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "MoveCircleApp",
+            "request": "launch",
+            "mainClass": "MoveCircleApp",
+            "vmArgs": "--module-path C:/Users/Student/Desktop/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/lib --add-modules javafx.controls,javafx.fxml",
+            "projectName": "Classes and Constructors_83676a23"
+        },
+        {
+            "type": "java",
+            "name": "RandomNumberApp",
+            "request": "launch",
+            "vmArgs": "--module-path C:/Users/Student/Desktop/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/lib --add-modules javafx.controls,javafx.fxml",
+            "mainClass": "RandomNumberApp",
+            "projectName": "Classes and Constructors_83676a23"
+        },
+        {
+            "type": "java",
+            "name": "EW_GraphicsShapesAndColors",
+            "request": "launch",
+            "vmArgs": "--module-path C:/Users/Student/Desktop/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/lib --add-modules javafx.controls,javafx.fxml",
+            "mainClass": "EW_GraphicsShapesAndColors",
+            "projectName": "Classes and Constructors_83676a23"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "vmArgs": "--module-path C:/Users/Student/Desktop/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/lib --add-modules javafx.controls,javafx.fxml",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "EW_FruitStand",
+            "request": "launch",
+            "mainClass": "EW_FruitStand",
+            "projectName": "Classes and Constructors_83676a23"
+        },
+        {
+            "type": "java",
+            "name": "EW_GraphicsArcsImagesAndGUIs",
+            "request": "launch",
+            "vmArgs": "--module-path C:/Users/Student/Desktop/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/lib --add-modules javafx.controls,javafx.fxml",
+            "mainClass": "EW_GraphicsArcsImagesAndGUIs",
+            "projectName": "Classes and Constructors_83676a23"
+        }
+    ]
+}

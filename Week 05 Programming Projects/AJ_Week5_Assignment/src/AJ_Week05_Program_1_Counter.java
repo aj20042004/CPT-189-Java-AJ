@@ -4,7 +4,8 @@
     Author:		AJ
     Language:	Java
     Date:		2023-09-21
-    Purpose:	The purpose of this program is to 
+    Purpose:	The purpose of this program is to define a Counter class that will be used by other programs 
+                and will have constructors, accessors, and mutators 
 ----------------------------------------------------------------------------------------------------------
     Change Log
 ----------------------------------------------------------------------------------------------------------
@@ -24,12 +25,12 @@ public class AJ_Week05_Program_1_Counter {
         intCounter = 0;
     }
     
-    // Click Method
+    // Click Method for adding 1 to the counter
     public void click(){
         intCounter = intCounter + 1;
     }
     
-    // Reset Method
+    // Reset Method for setting the counter to 0
     public void reset() {
         intCounter = 0;
     }

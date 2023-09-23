@@ -1,0 +1,45 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "AJ_Week05_GUI_Program_4_CircleAndButton",
+            "request": "launch",
+            "vmArgs": "--module-path C:/Users/Student/Desktop/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/lib --add-modules javafx.controls,javafx.fxml",
+            "mainClass": "AJ_Week05_GUI_Program_4_CircleAndButton",
+            "projectName": "Week 05 Programming Projects_a8024197"
+        },
+        {
+            "type": "java",
+            "name": "AJ_Week05_GUI_Program_3_RandNumBtw1And100",
+            "request": "launch",
+            "vmArgs": "--module-path C:/Users/Student/Desktop/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/lib --add-modules javafx.controls,javafx.fxml",
+            "mainClass": "AJ_Week05_GUI_Program_3_RandNumBtw1And100",
+            "projectName": "Week 05 Programming Projects_a8024197"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "vmArgs": "--module-path C:/Users/Student/Desktop/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/lib --add-modules javafx.controls,javafx.fxml",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "AJ_Week05_Program_1_CounterTest",
+            "request": "launch",
+            "mainClass": "AJ_Week05_Program_1_CounterTest",
+            "projectName": "Week 05 Programming Projects_a8024197"
+        },
+        {
+            "type": "java",
+            "name": "AJ_Week05_Program_3_Kennel",
+            "request": "launch",
+            "mainClass": "AJ_Week05_Program_3_Kennel",
+            "projectName": "Week 05 Programming Projects_a8024197"
+        }
+    ]
+}
