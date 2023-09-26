@@ -21,12 +21,15 @@ import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Arc;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -67,11 +70,11 @@ public class EW_GraphicsArcsImagesAndGUIs extends Application{
         //  This code is commented out now... when we uncomment it, it will further manipulate the window
         //  Create a HBox layout control object and populate it with two images and add it to the VBox
         HBox hboxImages = new HBox();                               // create empty horizontal box container
-        Image imgMyLogo = new Image("lion.JPG",true);  // must exist for both src and bin!
+        Image imgMyLogo = new Image("lion.jpg",true);  // must exist for both src and bin!
         ImageView imvMyLogo = new ImageView(imgMyLogo);             // image view is needed to view image objects
         imvMyLogo.setFitWidth(210);                                 // resize to fit 210 wide
         imvMyLogo.setFitHeight(200);                                // resize to fit 200 high
-        Image imgMyFam = new Image("tiger.JPG",true); 
+        Image imgMyFam = new Image("tiger.jpg",true); 
         ImageView imvMyFam = new ImageView(imgMyFam);
         imvMyFam.setFitWidth(210);                                  // resize to fit 210 wide
         imvMyFam.setFitHeight(200);                                 // resize to fit 200 high
@@ -94,24 +97,70 @@ public class EW_GraphicsArcsImagesAndGUIs extends Application{
         hboxGUI.setMinHeight(50);
         hboxGUI.getChildren().addAll(txtInstructions,btnSwitchPics);
         vboxParentConatiner.getChildren().add(hboxGUI);
-        
-        btnSwitchPics.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent e) {
-                if(blnPicSwitch){
+        btnSwitchPics.setOnAction(new EventHandler<ActionEvent>() {     // add an EventHandler object
+            @Override public void handle(ActionEvent e){    // needs to have the default handle overridden
+                if(blnPicSwitch){                // the switch is true so flip the images
                     imvMyFam.setImage(imgMyLogo);
                     imvMyLogo.setImage(imgMyFam);
-                    blnPicSwitch = false;
-                } else {
+                    blnPicSwitch = false;       // remember to switch the switch itself!
+                } else {                        // the switch is false so flip them back
                     imvMyFam.setImage(imgMyFam);
                     imvMyLogo.setImage(imgMyLogo);
                     blnPicSwitch = true;      
                 }
             }
         });
-        
-   
+
+
+        //  This code is commented out now... when we uncomment it, it will further manipulate the window
+        //  Create some radio buttons to change the color of a rectangle
+        //  Add an event handler for the OnClick event to process the radio buttons
+        //  Add these both to another HBox and add that group to the Vbox
+        Rectangle rectColorBlock = new Rectangle(400,100,Color.WHITE);
+        vboxParentConatiner.getChildren().add(rectColorBlock);      // add the rectangle into the vbox
+        HBox hboxGUIRadio = new HBox();
+        hboxGUIRadio.setAlignment(Pos.CENTER);
+        hboxGUIRadio.setSpacing(10);
+        ToggleGroup tglColors = new ToggleGroup();                  // create the group to hold the radios 
+        RadioButton rbRed = new RadioButton("Red");            // create radiobuttons with their labels
+        RadioButton rbOrange = new RadioButton("Orange");
+        RadioButton rbYellow = new RadioButton("Yellow");
+        RadioButton rbGreen = new RadioButton("Green");
+        RadioButton rbBlue = new RadioButton("Blue");
+        RadioButton rbViolet = new RadioButton("Violet");
+        rbRed.setToggleGroup(tglColors);                            // add the radios into the group
+        rbOrange.setToggleGroup(tglColors);
+        rbYellow.setToggleGroup(tglColors);
+        rbGreen.setToggleGroup(tglColors);
+        rbBlue.setToggleGroup(tglColors);
+        rbViolet.setToggleGroup(tglColors);
+        hboxGUIRadio.getChildren().addAll(rbRed,rbOrange,rbYellow,rbGreen,rbBlue,rbViolet);
+        vboxParentConatiner.getChildren().add(hboxGUIRadio);
+        //  This next section sets the action handlers for the radio buttons
+        rbRed.setOnAction(e->{  
+                rectColorBlock.setFill(Color.RED);
+            }); 
+        rbOrange.setOnAction(e->{ 
+                rectColorBlock.setFill(Color.ORANGE);
+            }); 
+        rbYellow.setOnAction(e->{ 
+                rectColorBlock.setFill(Color.YELLOW);
+            }); 
+        rbGreen.setOnAction(e->{ 
+                rectColorBlock.setFill(Color.GREEN);
+            }); 
+        rbBlue.setOnAction(e->{ 
+                rectColorBlock.setFill(Color.BLUE);
+            }); 
+        rbViolet.setOnAction(e->{ 
+                rectColorBlock.setFill(Color.VIOLET);
+            }); 
+
+
+    
     }
+
+    
 
     public static void main(String[] args) {
         launch(args);

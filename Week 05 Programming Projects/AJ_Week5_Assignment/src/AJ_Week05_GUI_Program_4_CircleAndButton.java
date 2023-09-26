@@ -50,7 +50,7 @@ public class AJ_Week05_GUI_Program_4_CircleAndButton extends Application{
         // Creating a text node
         txtInstructions = new Text("Click the Button on the Bottom to Move the circle ->");
         txtInstructions.setFont(Font.font("Arial", FontWeight.BOLD, 18));
-        txtInstructions.setStroke(Color.BLACK);
+        
 
         // Creating a Button
         Button btnGenerateRandNum = new Button("Move the Circle");
