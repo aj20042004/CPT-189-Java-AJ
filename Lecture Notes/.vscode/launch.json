@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "AJ_Notes",
+            "request": "launch",
+            "mainClass": "AJ_Notes",
+            "projectName": "Lecture Notes_5d7a89f8"
+        },
+        {
+            "type": "java",
             "name": "MoveCircleApp",
             "request": "launch",
             "mainClass": "MoveCircleApp",

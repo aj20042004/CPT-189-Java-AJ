@@ -66,15 +66,15 @@ public class EW_GraphicsArcsImagesAndGUIs extends Application{
         stgMyStage.setTitle("JavaFX Arcs, Images, and GUIs");    
         stgMyStage.show();                                 
 
-
+/*
         //  This code is commented out now... when we uncomment it, it will further manipulate the window
         //  Create a HBox layout control object and populate it with two images and add it to the VBox
         HBox hboxImages = new HBox();                               // create empty horizontal box container
-        Image imgMyLogo = new Image("lion.jpg",true);  // must exist for both src and bin!
+        Image imgMyLogo = new Image("./media/LogoSmall.JPG",true);  // must exist for both src and bin!
         ImageView imvMyLogo = new ImageView(imgMyLogo);             // image view is needed to view image objects
         imvMyLogo.setFitWidth(210);                                 // resize to fit 210 wide
         imvMyLogo.setFitHeight(200);                                // resize to fit 200 high
-        Image imgMyFam = new Image("tiger.jpg",true); 
+        Image imgMyFam = new Image("./media/GizWidgKimAndEd.png",true); 
         ImageView imvMyFam = new ImageView(imgMyFam);
         imvMyFam.setFitWidth(210);                                  // resize to fit 210 wide
         imvMyFam.setFitHeight(200);                                 // resize to fit 200 high
@@ -157,7 +157,7 @@ public class EW_GraphicsArcsImagesAndGUIs extends Application{
             }); 
 
 
-    
+*/        
     }
 
     
