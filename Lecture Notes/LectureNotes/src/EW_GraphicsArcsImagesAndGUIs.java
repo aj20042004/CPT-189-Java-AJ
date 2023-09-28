@@ -66,7 +66,7 @@ public class EW_GraphicsArcsImagesAndGUIs extends Application{
         stgMyStage.setTitle("JavaFX Arcs, Images, and GUIs");    
         stgMyStage.show();                                 
 
-/*
+
         //  This code is commented out now... when we uncomment it, it will further manipulate the window
         //  Create a HBox layout control object and populate it with two images and add it to the VBox
         HBox hboxImages = new HBox();                               // create empty horizontal box container
@@ -157,7 +157,7 @@ public class EW_GraphicsArcsImagesAndGUIs extends Application{
             }); 
 
 
-*/        
+     
     }
 
     
