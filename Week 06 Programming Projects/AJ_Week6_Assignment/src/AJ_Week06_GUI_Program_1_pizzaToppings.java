@@ -4,7 +4,7 @@
     Author:		AJ
     Language:	Java
     Date:		2023-09-26
-    Purpose:	The purpose of this program is to 
+    Purpose:	The purpose of this program is to design a application which allows user to pick pizza toppings
 ----------------------------------------------------------------------------------------------------------
     Change Log
 ----------------------------------------------------------------------------------------------------------
@@ -93,8 +93,8 @@ public class AJ_Week06_GUI_Program_1_pizzaToppings extends Application {
         }
 
         txtCurrentPrice.setText("Your Current Total Price: $" + String.format("%.2f",dblPizzaCost));
-
     }
+
 
     private void increaseCheckBoxFont(CheckBox checkBox) { 
         checkBox.setStyle("-fx-font-size: 16;");

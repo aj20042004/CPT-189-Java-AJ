@@ -6,6 +6,30 @@
     "configurations": [
         {
             "type": "java",
+            "name": "TrafficLightApp",
+            "request": "launch",
+            "vmArgs": "--module-path C:/Users/Student/Desktop/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/lib --add-modules javafx.controls,javafx.fxml",
+            "mainClass": "TrafficLightApp",
+            "projectName": "Week 06 Programming Projects_2e87fc36"
+        },
+        {
+            "type": "java",
+            "name": "LightYellowColorExample",
+            "request": "launch",
+            "vmArgs": "--module-path C:/Users/Student/Desktop/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/lib --add-modules javafx.controls,javafx.fxml",
+            "mainClass": "LightYellowColorExample",
+            "projectName": "Week 06 Programming Projects_2e87fc36"
+        },
+        {
+            "type": "java",
+            "name": "AJ_Week06_GUI_Program_3_trafficLight",
+            "request": "launch",
+            "vmArgs": "--module-path C:/Users/Student/Desktop/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/lib --add-modules javafx.controls,javafx.fxml",
+            "mainClass": "AJ_Week06_GUI_Program_3_trafficLight",
+            "projectName": "Week 06 Programming Projects_2e87fc36"
+        },
+        {
+            "type": "java",
             "name": "PizzaToppingsCalculator",
             "request": "launch",
             "vmArgs": "--module-path C:/Users/Student/Desktop/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/lib --add-modules javafx.controls,javafx.fxml",
