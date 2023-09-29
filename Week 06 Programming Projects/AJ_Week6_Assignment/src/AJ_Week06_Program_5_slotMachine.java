@@ -4,7 +4,7 @@
     Author:		AJ
     Language:	Java
     Date:		2023-09-26
-    Purpose:	The purpose of this program is to 
+    Purpose:	The purpose of this program is to create a slot machine
 ----------------------------------------------------------------------------------------------------------
     Change Log
 ----------------------------------------------------------------------------------------------------------

@@ -43,6 +43,8 @@ public class EW_GraphicsArcsImagesAndGUIs extends Application{
          * This first part of the program will define a series of overlapping arcs to create a rainbow
          * It will also create a VBox container to hold the three gropus of things we are adding
          */
+
+        
         Arc arcRedArc = new Arc(200, 100, 180, 90, 0, 180);  // x,y - center, x-radius, y-radius, start angle, end angle
         arcRedArc.setFill(Color.RED);
         Arc arcOrangeArc = new Arc(200, 100, 170, 80, 0, 180);
@@ -70,11 +72,11 @@ public class EW_GraphicsArcsImagesAndGUIs extends Application{
         //  This code is commented out now... when we uncomment it, it will further manipulate the window
         //  Create a HBox layout control object and populate it with two images and add it to the VBox
         HBox hboxImages = new HBox();                               // create empty horizontal box container
-        Image imgMyLogo = new Image("./media/LogoSmall.JPG",true);  // must exist for both src and bin!
+        Image imgMyLogo = new Image("./media/lion.jpg",true);  // must exist for both src and bin!
         ImageView imvMyLogo = new ImageView(imgMyLogo);             // image view is needed to view image objects
         imvMyLogo.setFitWidth(210);                                 // resize to fit 210 wide
         imvMyLogo.setFitHeight(200);                                // resize to fit 200 high
-        Image imgMyFam = new Image("./media/GizWidgKimAndEd.png",true); 
+        Image imgMyFam = new Image("./media/tiger.jpg",true); 
         ImageView imvMyFam = new ImageView(imgMyFam);
         imvMyFam.setFitWidth(210);                                  // resize to fit 210 wide
         imvMyFam.setFitHeight(200);                                 // resize to fit 200 high
@@ -128,6 +130,7 @@ public class EW_GraphicsArcsImagesAndGUIs extends Application{
         RadioButton rbGreen = new RadioButton("Green");
         RadioButton rbBlue = new RadioButton("Blue");
         RadioButton rbViolet = new RadioButton("Violet");
+        
         rbRed.setToggleGroup(tglColors);                            // add the radios into the group
         rbOrange.setToggleGroup(tglColors);
         rbYellow.setToggleGroup(tglColors);
@@ -156,8 +159,6 @@ public class EW_GraphicsArcsImagesAndGUIs extends Application{
                 rectColorBlock.setFill(Color.VIOLET);
             }); 
 
-
-     
     }
 
     
