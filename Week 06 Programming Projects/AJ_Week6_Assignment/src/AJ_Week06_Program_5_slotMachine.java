@@ -4,7 +4,9 @@
     Author:		AJ
     Language:	Java
     Date:		2023-09-26
-    Purpose:	The purpose of this program is to create a slot machine
+    Purpose:	The purpose of this program is to design a simple slot machine in which three numbers 
+                between 0 and 9 are randomly selected and printed side by side. If all three numbers or 
+                any two numbers matched, we are printing an appropriate print statement.
 ----------------------------------------------------------------------------------------------------------
     Change Log
 ----------------------------------------------------------------------------------------------------------
@@ -37,55 +39,50 @@ public class AJ_Week06_Program_5_slotMachine {
 
             if (intRandNum1 == intRandNum2 & intRandNum1 == intRandNum3 && intRandNum2 == intRandNum3) {
 
-                System.out.println("The Numbers matched !!! Congratulations");
-                System.out.println();
-                System.out.println("Here are your Numbers !!! \n");
-                System.out.print(intRandNum1 + " | " + intRandNum2 + " | " + intRandNum3 + "|");
+                System.out.println("Here are your Numbers !!!\n");
+                System.out.println(intRandNum1 + " | " + intRandNum2 + " | " + intRandNum3 + "|\n");
+                System.out.println("The Numbers matched !!! Congratulations... You Won.\n");
+
 
             }
 
 
             else if (intRandNum1 == intRandNum3) {
 
-                System.out.println("Two Numbers matched !!! ");
-                System.out.println();
-                System.out.println("Here are your Numbers !!! \n");
-                System.out.print(intRandNum1 + " | " + intRandNum2 + " | " + intRandNum3 + "|");
+                System.out.println("Here are your Numbers !!!\n");
+                System.out.println(intRandNum1 + " | " + intRandNum2 + " | " + intRandNum3 + "|\n");
+                System.out.println("Two Numbers matched !!!\n");
 
             }
 
 
             else if (intRandNum1 == intRandNum2) {
 
-                System.out.println("Two Numbers matched !!! ");
-                System.out.println();
-                System.out.println("Here are your Numbers !!! \n");
-                System.out.print(intRandNum1 + " | " + intRandNum2 + " | " + intRandNum3 + "|");
+                System.out.println("Here are your Numbers !!!\n");
+                System.out.println(intRandNum1 + " | " + intRandNum2 + " | " + intRandNum3 + "|\n");
+                System.out.println("Two Numbers matched !!!\n");
 
             }
 
 
             else if (intRandNum2 == intRandNum3) {
 
-                System.out.println("Two Numbers matched !!! ");
-                System.out.println();
-                System.out.println("Here are your Numbers !!! \n");
-                System.out.print(intRandNum1 + " | " + intRandNum2 + " | " + intRandNum3 + "|");
+                System.out.println("Here are your Numbers !!!\n");
+                System.out.println(intRandNum1 + " | " + intRandNum2 + " | " + intRandNum3 + "|\n");
+                System.out.println("Two Numbers matched !!!\n");
 
             }
 
 
             else {
 
-                System.out.println("Sorry the Numbers did not match. ");
-                System.out.println();
-                System.out.println("Here are your Numbers !!! \n");
-                System.out.print(intRandNum1 + " | " + intRandNum2 + " | " + intRandNum3 + " |");
+                System.out.println("Here are your Numbers !!!\n");
+                System.out.println(intRandNum1 + " | " + intRandNum2 + " | " + intRandNum3 + " |\n");
+                System.out.println("Sorry the Numbers did not match.\n");
 
             }
 
 
-            System.out.println();
             System.out.print("To Continue playing the game (type '0') or press '-1' to quit the game: ");
             int intUsrInput = scnr.nextInt();
             System.out.println();

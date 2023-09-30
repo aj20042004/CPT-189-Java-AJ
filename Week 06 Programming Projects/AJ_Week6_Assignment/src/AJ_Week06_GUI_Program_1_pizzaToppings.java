@@ -4,7 +4,10 @@
     Author:		AJ
     Language:	Java
     Date:		2023-09-26
-    Purpose:	The purpose of this program is to design a application which allows user to pick pizza toppings
+    Purpose:	The purpose of this program is to design a JavaFX application that allows the user to pick
+                a set of pizza toppings using a set of check boxes. We are going to assume that, each 
+                toppings cost $1.50 and a plain pizza cost $10.50. We are displaying the cost of pizza
+                and update the value as the user change selections.
 ----------------------------------------------------------------------------------------------------------
     Change Log
 ----------------------------------------------------------------------------------------------------------
