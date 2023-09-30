@@ -37,7 +37,7 @@ public class AJ_Week06_Program_5_slotMachine {
         System.out.println("---------------------------------------------");
         System.out.println();
    
-        // Starting the While Loop 
+        // Starting the while Loop 
         while (blnSwitchLoop){
             
             // Generating three random values between 0 and 9 for every iteration
