@@ -14,24 +14,29 @@
 ----------------------------------------------------------------------------------------------------------
 */
 
+// Importing the module
 import java.util.Scanner;
 
 public class AJ_Week07_Program_2_OneCharacterPerLine {
-
+    
+    // Main method
     public static void main(String[] args) {
-
+        
+        // Creating a Scanner object
         Scanner scnr = new Scanner(System.in);
-
+        
+        // Getting an user input
         System.out.print("\nPlease Type a String: ");
         String strUsrInput = scnr.next();
         System.out.println(strUsrInput);
         
+        // Printing each character on each line using for loop
         System.out.println("\nYour characters: ");
         for (int i = 0; i < strUsrInput.length(); i++) { 
-
             System.out.println(strUsrInput.charAt(i));
         }
-
+        
+        // Closing the scanner object
         scnr.close();
         
     }

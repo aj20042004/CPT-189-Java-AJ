@@ -37,13 +37,19 @@ public class AJ_Week07_Program_1_sumOfEvenNums {
         
         // Creating a do-while loop
         do {
-
-            if (intUsrVal > 2){
+            
+            // Checking if the user input value is greater than or equal to 2
+            if (intUsrVal >= 2){
                 
                 System.out.print(intDefaultValue + " ");
+
+                //  Calculating the sum
                 intSumOfEvenNum += intDefaultValue;
+
+                // Adding 2 to the intDefaultValue until it is greater than intUsrVal
                 intDefaultValue += 2;
                 
+                // breaking the loop when intDefaultValue is greater than intUsrVal
                 if (intDefaultValue > intUsrVal) { 
                     System.out.println("\n");
                     System.out.println("Sum of All Even Numbers between 2 and user input number is: " + intSumOfEvenNum);
@@ -53,12 +59,13 @@ public class AJ_Week07_Program_1_sumOfEvenNums {
 
             }
             
+            // Breaking the loop if user input value is less than 2
             else { 
 
                 System.out.println("Error ! Input value cannot be less than 2.");
                 blnLoopSwitch = false;
                 
-              /*   Optional step "Prompting user whether he wants to continue or not"
+                /*  Question here Optional step "Prompting user whether he wants to continue or not"
                 System.out.print("Do you want to try again ? (Type '0' to try again or type '-1' to exit): ");
                 int intToContinue = scnr.nextInt();
 
@@ -72,13 +79,13 @@ public class AJ_Week07_Program_1_sumOfEvenNums {
                 else{ 
                     break; 
                 } */
-                
-
             }
 
 
         } while (blnLoopSwitch);
 
+
+        // Closing the scanner object
         scnr.close();
     }
     
