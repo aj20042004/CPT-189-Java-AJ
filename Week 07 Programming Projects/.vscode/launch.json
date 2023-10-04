@@ -1,0 +1,45 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "vmArgs": "--module-path C:/Users/Student/Desktop/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/lib --add-modules javafx.controls,javafx.fxml",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "AJ_Week07_GUI_Program_1_ParallelLines",
+            "request": "launch",
+            "vmArgs": "--module-path C:/Users/Student/Desktop/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/lib --add-modules javafx.controls,javafx.fxml",
+            "mainClass": "AJ_Week07_GUI_Program_1_ParallelLines",
+            "projectName": "Week 07 Programming Projects_b50db6d5"
+        },
+        {
+            "type": "java",
+            "name": "AJ_Week07_GUI_Program_2_CheckerBoard",
+            "request": "launch",
+             "vmArgs": "--module-path C:/Users/Student/Desktop/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/lib --add-modules javafx.controls,javafx.fxml",
+            "mainClass": "AJ_Week07_GUI_Program_2_CheckerBoard",
+            "projectName": "Week 07 Programming Projects_b50db6d5"
+        },
+        {
+            "type": "java",
+            "name": "AJ_Week07_Program_1_sumOfEvenNums",
+            "request": "launch",
+            "mainClass": "AJ_Week07_Program_1_sumOfEvenNums",
+            "projectName": "Week 07 Programming Projects_b50db6d5"
+        },
+        {
+            "type": "java",
+            "name": "AJ_Week07_Program_2_OneCharacterPerLine",
+            "request": "launch",
+            "mainClass": "AJ_Week07_Program_2_OneCharacterPerLine",
+            "projectName": "Week 07 Programming Projects_b50db6d5"
+        }
+    ]
+}

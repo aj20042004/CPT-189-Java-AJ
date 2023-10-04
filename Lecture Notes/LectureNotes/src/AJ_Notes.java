@@ -48,6 +48,7 @@ public class AJ_Notes {
         // While loop
         int k = 0;
         boolean switchOne = true;
+        
         while (switchOne){
             System.out.println("Success using While loop");
             k++;
