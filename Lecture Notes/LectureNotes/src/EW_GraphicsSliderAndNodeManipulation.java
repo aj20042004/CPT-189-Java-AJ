@@ -118,6 +118,7 @@ public class EW_GraphicsSliderAndNodeManipulation extends Application{
         stMyStage.setScene(scnMyScene);
         stMyStage.show();
     }
+    
     public static void main(String[] args) {
         launch(args);
     }    

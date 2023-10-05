@@ -32,6 +32,7 @@ public class AJ_Week07_Program_2_OneCharacterPerLine {
         
         // Printing each character on each line using for loop
         System.out.println("\nYour characters: ");
+        System.out.println("-----------------------------");
         for (int i = 0; i < strUsrInput.length(); i++) { 
             System.out.println(strUsrInput.charAt(i));
         }

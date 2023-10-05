@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Duplicate",
+            "request": "launch",
+            "mainClass": "Duplicate",
+            "projectName": "Week 07 Programming Projects_b50db6d5"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "vmArgs": "--module-path C:/Users/Student/Desktop/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/lib --add-modules javafx.controls,javafx.fxml",
@@ -23,7 +30,7 @@
             "type": "java",
             "name": "AJ_Week07_GUI_Program_2_CheckerBoard",
             "request": "launch",
-             "vmArgs": "--module-path C:/Users/Student/Desktop/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/lib --add-modules javafx.controls,javafx.fxml",
+            "vmArgs": "--module-path C:/Users/Student/Desktop/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/lib --add-modules javafx.controls,javafx.fxml",
             "mainClass": "AJ_Week07_GUI_Program_2_CheckerBoard",
             "projectName": "Week 07 Programming Projects_b50db6d5"
         },
