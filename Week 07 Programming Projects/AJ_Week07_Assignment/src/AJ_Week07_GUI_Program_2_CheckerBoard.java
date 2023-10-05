@@ -38,7 +38,7 @@ public class AJ_Week07_GUI_Program_2_CheckerBoard extends Application{
         for(int row = 0; row < 8; row++) {
             for(int col = 0; col < 8; col++){ 
 
-                // Creating Reactangle object
+                // Creating Rectangle object
                 Rectangle rectangleSquare = new Rectangle();
                 rectangleSquare.setWidth(50);
                 rectangleSquare.setHeight(50);

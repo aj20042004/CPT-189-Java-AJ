@@ -29,7 +29,7 @@ public class AJ_Week07_Program_1_sumOfEvenNums {
         // Getting the user input
         System.out.print("\nEnter an Integer Value greater than 2: ");
         int intUsrVal = scnr.nextInt();
-        System.out.println("----------------------------------------");
+        System.out.println("-------------------------------------------------");
         
         // Intializing the variables
         int intDefaultValue = 2;
@@ -39,43 +39,41 @@ public class AJ_Week07_Program_1_sumOfEvenNums {
         // Creating a do-while loop
         do {
             
-            // Checking if the user input value is greater than or equal to 2
+            // Checking if the user input value is less than 2
             if (intUsrVal < 2){
-
+                
+                // Printing the error message
                 System.out.println("Error ! Input value cannot be less than 2.");
                 blnLoopSwitch = false;
 
-                /*  Question here Optional step "Prompting user whether he wants to continue or not" */
-                System.out.print("Do you want to try again ? (Type '0' to try again or type '-1' to exit): ");
-                int intToContinue = scnr.nextInt();
-
-                if (intToContinue == 0){
-                    blnLoopSwitch = true;
-                    System.out.print("\nEnter an Integer Value: ");
-                    intUsrVal = scnr.nextInt();
-                    System.out.println("----------------------------------------");
-
-                }
-
-                else if (intToContinue == -1) { 
+                // Prompting the user whether they want to continue or not
+                System.out.print("Do you want to try again ? ( Type '-1' to exit) or (Type an Integer Value greater than 2): ");
+                intUsrVal = scnr.nextInt();
+                            
+                // If user type's -1, we are ending the loop
+                if (intUsrVal == -1) { 
                     System.out.println("\nThank you !");
                     System.out.println("--------------------------------------------");
+                    blnLoopSwitch = false;
                 }
-
+                
+                // If the user wants to continue, the loop restarts
                 else{
-                    System.out.println("\nSorry! Invalid Number Entered in option"); 
-                    System.out.println("--------------------------------------------------");
-                    break; 
-                }   
-
+                    
+                    blnLoopSwitch = true;
+                    System.out.println("-------------------------------------------------------");
+                }
                 
             }
 
+
+            // If the user input value is greater than or equal to 2
             else { 
 
+                // Displaying all the numbers
                 System.out.print(intDefaultValue + " ");
                 
-                //  Calculating the sum
+                //  Calculating the sum of all even numbers
                 intSumOfEvenNum += intDefaultValue;
                 
                 // Adding 2 to the intDefaultValue until it is greater than intUsrVal
