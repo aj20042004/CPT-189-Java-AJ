@@ -31,7 +31,7 @@ public class AJ_Week07_GUI_Program_1_ParallelLines extends Application {
         Pane pane = new Pane();
         Random randGen = new Random();
         
-        // Creating a "For" Loop to print 20 horizontal parallel lines
+        // Creating a "for" Loop to print 20 horizontal parallel lines
         for (int i = 0; i < 20; i++) { 
 
             int length = randGen.nextInt(600);

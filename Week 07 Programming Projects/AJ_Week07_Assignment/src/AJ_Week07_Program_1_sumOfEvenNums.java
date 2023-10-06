@@ -23,7 +23,7 @@ public class AJ_Week07_Program_1_sumOfEvenNums {
     // Main method
     public static void main(String[] args) {
         
-        // Intializing the Scanner objects
+        // Initializing the Scanner objects
         Scanner scnr = new Scanner(System.in);
 
         // Getting the user input
@@ -31,7 +31,7 @@ public class AJ_Week07_Program_1_sumOfEvenNums {
         int intUsrVal = scnr.nextInt();
         System.out.println("-------------------------------------------------");
         
-        // Intializing the variables
+        // Initializing the variables
         int intDefaultValue = 2;
         int intSumOfEvenNum = 0;
         boolean blnLoopSwitch = true;
