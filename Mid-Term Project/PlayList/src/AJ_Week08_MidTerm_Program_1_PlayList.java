@@ -32,9 +32,8 @@ public class AJ_Week08_MidTerm_Program_1_PlayList {
             System.out.println("\nWelcome to Playlist App !");
             System.out
                     .println("--------------------------------------------------------------------------------------");
-            System.out.print("Do you want to create a Music Play List ? Type '0' to create or type '-1' to exit: "); // Need
-                                                                                                                     // to
-                                                                                                                     // Clarify
+            System.out.print("Do you want to create a Music Play List ? Type '0' to create or type '-1' to exit: ");       // Need to clarify
+                                                                                                                                                                                                                                         
             int intUsrOption = scnr.nextInt();
             scnr.nextLine();
 
@@ -89,7 +88,8 @@ public class AJ_Week08_MidTerm_Program_1_PlayList {
                         strArraySongArtistName.add(strSongArtist);
 
                         // Song Duration
-                        System.out.print("\nEnter the Song Duration (In Minutes): "); // Need to clarify the minutes or seconds ?
+                        System.out.print("\nEnter the Song Duration (In Seconds): "); // Need to clarify the minutes or
+                                                                                      // seconds ?
                         int intDurationSongData = scnr.nextInt();
                         intArraySongDuration.add(intDurationSongData);
                         scnr.nextLine();
@@ -114,19 +114,21 @@ public class AJ_Week08_MidTerm_Program_1_PlayList {
 
                         System.out.print("Song Name: " + strArraySongNameTracker.get(k) + "\n");
                         System.out.print("Song Artist: " + strArraySongArtistName.get(k) + "\n");
-                        System.out.print("Song Duration in Minutes: " + intArraySongDuration.get(k) + "\n");
+                        System.out.print("Song Duration in Seconds: " + intArraySongDuration.get(k) + "\n");
                         System.out.print("Song Genre: " + strArraySongGenre.get(k) + "\n");
-                        System.out.println("-----------------------------------------------------------------------------------------------------------------------");
+                        System.out.println(
+                                "-----------------------------------------------------------------------------------------------------------------------");
 
                     }
 
-                    System.out.println("If you need to make any changes to songs data. Type the 'name of the song' to make changes otherwise type 'c': ");
+                    System.out.print(
+                            "If you need to make any changes to songs data. Type the 'name of the song' to make changes otherwise press 'Enter': ");
                     String strUsrEditOption = scnr.nextLine();
-                    
-                    // Need to check the options 
-                    
-                    if (strArraySongNameTracker.contains(strUsrEditOption) ) {
-                        
+
+                    // Need to check the options
+
+                    if (strArraySongNameTracker.contains(strUsrEditOption)) {
+
                         System.out.println("\nWhat Song data needs to be changed:");
                         System.out.println("------------------------------------------------");
                         System.out.println("1. Song Name");
@@ -137,37 +139,56 @@ public class AJ_Week08_MidTerm_Program_1_PlayList {
                         System.out.println("\nEnter the Option Number: ");
                         int intUsrEditOptionNumber = scnr.nextInt();
                         scnr.nextLine();
-                        
+
                         if (intUsrEditOptionNumber == 1) {
-                            
-                            int intIndexVal = strArraySongNameTracker.indexOf(strUsrEditOption);
+
+                            int intIndexValOfName = strArraySongNameTracker.indexOf(strUsrEditOption);
                             System.out.println("-----------------------------------------------------");
                             System.out.println("Enter new song name: ");
                             String strUpdatingSongName = scnr.nextLine();
 
-                            strArraySongNameTracker.set( intIndexVal, strUpdatingSongName);
-                            System.out.println("\nSuccessfully Updated the data\n");
-                            
-                            /* Testing here : Passed 
-                            System.out.println(strArraySongNameTracker.get(intIndexVal));
-                            System.out.println("Test passed ! "); */
+                            strArraySongNameTracker.set(intIndexValOfName, strUpdatingSongName);
+                            System.out.println("\nSuccessfully Updated the Song Name data\n");
+
                         }
-                        
+
                         else if (intUsrEditOptionNumber == 2) {
 
                             // Song Artist name update
+                            int intIndexValOfArtist = strArraySongNameTracker.indexOf(strUsrEditOption);
+                            System.out.println("----------------------------------------------------------");
+                            System.out.println("Enter new Artist name: ");
+                            String strUpdatingArtistName = scnr.nextLine();
+
+                            strArraySongArtistName.set(intIndexValOfArtist, strUpdatingArtistName);
+                            System.out.println("\nSuccessfully Updated the Song Artist data\n");
 
                         }
 
                         else if (intUsrEditOptionNumber == 3) {
 
                             // Song Duration update
+                            int intIndexValOfDuration = strArraySongNameTracker.indexOf(strUsrEditOption);
+                            System.out.println("----------------------------------------------------------");
+                            System.out.println("Enter new song duration in seconds: ");
+                            int strUpdatingSongDuration = scnr.nextInt();
+                            scnr.nextLine();
+
+                            intArraySongDuration.set(intIndexValOfDuration, strUpdatingSongDuration);
+                            System.out.println("\nSuccessfully Updated the Song Duration data\n");
 
                         }
 
                         else if (intUsrEditOptionNumber == 4) {
 
                             // Song genre update
+                            int intIndexValOfGenre = strArraySongNameTracker.indexOf(strUsrEditOption);
+                            System.out.println("----------------------------------------------------------");
+                            System.out.println("Enter new Genre name (eg: Pop, Rock, Rap, Country, etc..): ");
+                            String strUpdatingGenreName = scnr.nextLine();
+
+                            strArraySongGenre.set(intIndexValOfGenre, strUpdatingGenreName);
+                            System.out.println("\nSuccessfully Updated the Song Genre data");
 
                         }
 
@@ -177,43 +198,63 @@ public class AJ_Week08_MidTerm_Program_1_PlayList {
                         }
                     }
 
-                    else if (strUsrEditOption == "c") {
-                        
-                        // Needed to Work here
-                        System.out.println("Almost Over!");
+                    // Needed to Work here
+                    System.out.println("\n");
+                    System.out.println("-------------------------------------------------------");
+                    System.out.println("Playlist Name: " + strUsrPlayListName);
+                    System.out.println("--------------------------------------------------------");
+                    System.out.println("Final List of Songs data");
+                    System.out.println("--------------------------------------------------------");
+
+                    int intTotalSongDurationSec = 0; 
+
+                    // Printing all the data
+                    for (int p = 0; p < intUsrPlayListSongCnt; p++) {
+
+                        int intValCount2 = p + 1;
+                        System.out.println("\nSong " + intValCount2 + " Details:\n");
+                        System.out.print("Song Name: " + strArraySongNameTracker.get(p) + "\n");
+                        System.out.print("Song Artist: " + strArraySongArtistName.get(p) + "\n");
+                        System.out.print("Song Duration in Seconds: " + intArraySongDuration.get(p) + "\n");
+                        intTotalSongDurationSec += intArraySongDuration.get(p);
+                        System.out.print("Song Genre: " + strArraySongGenre.get(p) + "\n");
+
+                        System.out.println("-----------------------------------------------------------------------------------------------------------------------");
 
                     }
 
-                    else {
-                        System.out.println("Sorry! Invalid Entry");
-                    }
+                    int intAvgSongDurationSec = intTotalSongDurationSec / intArraySongDuration.size();
 
+                    System.out.println("\nYour Playlist name is " + strUsrPlayListName + ". It has total of " +
+                            strArraySongNameTracker.size()
+                            + " songs.\nThe Total Amount of time that this playlist would consume if all songs were played would be "
+                            +
+                            intTotalSongDurationSec + " second(s).\nThe average song duration would be " +
+                            intAvgSongDurationSec + " second(s).\n");
+
+                    System.out.println("-----------------------------------------------------------------------------------------------------------------------------");
+                    System.out.println("\n Thank you.");
+                    System.out.println("-----------------------------------------------------------------------------------------------------------------------------");
+                    blnMainLoopSwitch = false;
 
                 }
 
-
                 else {
-                    System.out.println("Sorry! Invalid Number Entered. Minimum of 3 songs needs to be in Playlist and Maximum of 10 songs can be added to playlist.");
+                    System.out.println(
+                            "Sorry! Invalid Number Entered. Minimum of 3 songs needs to be in Playlist and Maximum of 10 songs can be added to playlist.");
                     break;
                 }
 
-
-
-
-
             } // End of Main Else if statement
-
-
 
             // Invalid entry
             else {
-                System.out.println("Sorry ! Invalid Option");
+                System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------");
+                System.out.println("\nSorry ! Invalid Option");
                 break;
             }
 
-
         } // End of While loop
-        
 
         // Closing scanner object
         scnr.close();
