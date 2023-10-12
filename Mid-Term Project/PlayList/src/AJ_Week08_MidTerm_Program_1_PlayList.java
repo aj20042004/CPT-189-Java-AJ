@@ -172,7 +172,7 @@ public class AJ_Week08_MidTerm_Program_1_PlayList {
 
                     int intUsrEditOption = scnr.nextInt();
 
-                    // Checking the user entered the appropriate song number to edit
+                    // Checking whether user entered the appropriate song number to edit
                     if (intArraySongIdTracker.contains(intUsrEditOption)) {
 
                         // Intializing the second loop switch
@@ -324,19 +324,22 @@ public class AJ_Week08_MidTerm_Program_1_PlayList {
                     // Calculating the average song duration
                     int intAvgSongDurationSec = intTotalSongDurationSec / intArraySongDuration.size();
 
-                    // ************** Need Commenting ***************
                     // Creating a HashMap to store song count in each Genre
                     HashMap<String, Integer> hashMapGenreCounts = new HashMap<>();
-
+                    
+                    // Using "for" loop to add elements from strArraySongGenre array list to hashMapGenreCounts hashMap
                     for (int y = 0; y < strArraySongGenre.size(); y++) {
-
+                        
+                        // Capturing the data in variable strGenre
                         String strGenre = strArraySongGenre.get(y);
-
+                        
+                        // If hashMap contains the genre already, we're increasing the count by 1
                         if (hashMapGenreCounts.containsKey(strGenre)) {
 
                             hashMapGenreCounts.put(strGenre, hashMapGenreCounts.get(strGenre) + 1);
                         }
-
+                        
+                        // If hashMap does not contain the genre, we're adding it to the hashMap
                         else {
 
                             hashMapGenreCounts.put(strGenre, 1);
@@ -351,62 +354,84 @@ public class AJ_Week08_MidTerm_Program_1_PlayList {
                             +
                             intTotalSongDurationSec + " second(s).\nThe average song duration would be " +
                             intAvgSongDurationSec + " second(s).\n");
-
+                    
+                    // Printing the count of songs in each genre 
                     System.out.println("The Count of Songs in each genre: ");
                     System.out.println(
                             "-----------------------------------------------------------------------------------------------------------------");
 
-                    // ***************** Need Commenting ******************** //
+                    // Creating the "Set" and "Iterator" to get key and values from hash map
                     Set<Map.Entry<String, Integer>> setDisplay = hashMapGenreCounts.entrySet();
                     Iterator<Map.Entry<String, Integer>> iterator = setDisplay.iterator();
-
+                    
+                    // Creating the "while" loop for data retrieval from hashmap
                     while (iterator.hasNext()) {
 
                         Map.Entry<String, Integer> mapEntry = iterator.next();
+
+                        // Getting the key from hash map
                         String strKeyGenreVal = mapEntry.getKey();
+
+                        // Getting the value from hash map
                         int intCount = mapEntry.getValue();
+
+                        // Printing the data in correct format
                         System.out.println(strKeyGenreVal + ": " + intCount);
 
                     }
-
+                    
                     System.out.println(
                             "-----------------------------------------------------------------------------------------------------------------------------");
                     System.out.println("\n Thank you.");
                     System.out.println(
                             "-----------------------------------------------------------------------------------------------------------------------------");
 
-                    // ************** Need Commenting *****************
-                    String playlistName = strUsrPlayListName.replaceAll("\\s", "_");
-                    String fileName = playlistName + ".txt";
-
+                    // Creating a txt file to export the data
+                    String strplaylistName = strUsrPlayListName.replaceAll("\\s", "_");
+                    String strfileName = strplaylistName + ".txt";
+                    
+                    // Using Try and catch method 
                     try {
-                        FileWriter fileWriter = new FileWriter(fileName);
+
+                        // Creating the FileWriter
+                        FileWriter fileWriter = new FileWriter(strfileName);
+
+                        // Creating the BufferedWriter
                         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
-                        // Write individual song details
+                        // Writing individual song details to the txt file using "for" loop
                         for (int p = 0; p < intUsrPlayListSongCnt; p++) {
-
+                            
+                            // Calculating the song number
                             int intValCount2 = p + 1;
+        
                             bufferedWriter.write("Song " + intValCount2 + " Details:");
                             bufferedWriter.newLine();
                             bufferedWriter.write("------------------------------------------------------------");
                             bufferedWriter.newLine();
+                            
+                            // Writing the song name to txt file
                             bufferedWriter.write("Song Name: " + strArraySongNameTracker.get(p));
                             bufferedWriter.newLine();
+                            
+                            // Writing the song artist name to txt file
                             bufferedWriter.write("Song Artist: " + strArraySongArtistName.get(p));
                             bufferedWriter.newLine();
+                            
+                            // Writing the song duration to txt file
                             bufferedWriter.write("Song Duration (Seconds): " + intArraySongDuration.get(p));
                             bufferedWriter.newLine();
+                            
+                            // Writing the song genre to txt file
                             bufferedWriter.write("Song Genre: " + strArraySongGenre.get(p));
                             bufferedWriter.newLine();
                             bufferedWriter.newLine();
                             bufferedWriter.write("-------------------------------------------------------------");
                             bufferedWriter.newLine();
-
-                            bufferedWriter.newLine(); // Add a blank line for formatting
+                            bufferedWriter.newLine(); // Adding a blank line for formatting
                         }
 
-                        // Write the playlist data to the file
+                        // Writing the meaningful summary information about the playlist data to the txt file
                         bufferedWriter.write("Your playlist Name is " + strUsrPlayListName + ".It has a total of "
                                 + strArraySongNameTracker.size() + " songs.");
                         bufferedWriter.newLine();
@@ -419,26 +444,30 @@ public class AJ_Week08_MidTerm_Program_1_PlayList {
                                         + " second(s).");
                         bufferedWriter.newLine();
                         bufferedWriter.newLine();
-
+                        
+                        // Writing the count of songs in each genre to the txt file 
                         bufferedWriter.write("The Count of Songs in each genre: ");
                         bufferedWriter.newLine();
                         bufferedWriter.write(
                                 "-------------------------------------------------------------------------------------------");
                         bufferedWriter.newLine();
-
+                        
+                        // Using "for" loop to get the data from hash map and writing to the txt file
                         for (Map.Entry<String, Integer> mapEntry1 : hashMapGenreCounts.entrySet()) {
                             String strGenreTxtFile = mapEntry1.getKey();
                             int intCountTxtFile = mapEntry1.getValue();
                             bufferedWriter.write(strGenreTxtFile + ": " + intCountTxtFile);
                             bufferedWriter.newLine();
                         }
-
+                        
+                        // Formatting the lines in txt file
                         bufferedWriter.write("-------------------------------------------------------------");
                         bufferedWriter.newLine();
-
+                        
+                        // Closing the buffered Writer
                         bufferedWriter.close();
 
-                        System.out.println("\nPlaylist data written to file " + fileName + " \n");
+                        System.out.println("\nPlaylist data written to file " + strfileName + " \n");
 
                     } catch (IOException e) {
                         e.printStackTrace();
