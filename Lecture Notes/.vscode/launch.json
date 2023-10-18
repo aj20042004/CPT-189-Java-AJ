@@ -6,6 +6,14 @@
     "configurations": [
         {
             "type": "java",
+            "name": "EW_GraphicsComboAndPolylines",
+            "request": "launch",
+            "vmArgs": "--module-path C:/Users/Student/Desktop/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/lib --add-modules javafx.controls,javafx.fxml",
+            "mainClass": "EW_GraphicsComboAndPolylines",
+            "projectName": "Lecture Notes_5d7a89f8"
+        },
+        {
+            "type": "java",
             "name": "EW_GraphicsSliderAndNodeManipulation",
             "request": "launch",
             "vmArgs": "--module-path C:/Users/Student/Desktop/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/lib --add-modules javafx.controls,javafx.fxml",

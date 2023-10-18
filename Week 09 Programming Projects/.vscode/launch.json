@@ -1,0 +1,53 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "StarPolygonExample",
+            "request": "launch",
+            "vmArgs": "--module-path C:/Users/Student/Desktop/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/lib --add-modules javafx.controls,javafx.fxml",
+            "mainClass": "StarPolygonExample",
+            "projectName": "Week 09 Programming Projects_c2192c13"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "vmArgs": "--module-path C:/Users/Student/Desktop/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/lib --add-modules javafx.controls,javafx.fxml",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "AJ_Week09_GUI_Program_1_PolygonStars",
+            "request": "launch",
+            "mainClass": "AJ_Week09_GUI_Program_1_PolygonStars",
+            "vmArgs": "--module-path C:/Users/Student/Desktop/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/lib --add-modules javafx.controls,javafx.fxml",
+            "projectName": "Week 09 Programming Projects_c2192c13"
+        },
+        {
+            "type": "java",
+            "name": "AJ_Week09_Program_1_ArbitraryNumOfInts",
+            "request": "launch",
+            "mainClass": "AJ_Week09_Program_1_ArbitraryNumOfInts",
+            "projectName": "Week 09 Programming Projects_c2192c13"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "vmArgs": "--module-path C:/Users/Student/Desktop/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/lib --add-modules javafx.controls,javafx.fxml",
+            "mainClass": "Main",
+            "projectName": "Week 09 Programming Projects_c2192c13"
+        },
+        {
+            "type": "java",
+            "name": "Star",
+            "request": "launch",
+            "mainClass": "Star",
+            "projectName": "Week 09 Programming Projects_c2192c13"
+        }
+    ]
+}
