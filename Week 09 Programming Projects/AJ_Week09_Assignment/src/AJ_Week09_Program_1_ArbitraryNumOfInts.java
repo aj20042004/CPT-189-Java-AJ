@@ -36,7 +36,7 @@ public class AJ_Week09_Program_1_ArbitraryNumOfInts {
          */
         HashMap<Integer, Integer> HshMapStoreFrequency = new HashMap<>();
 
-        // Intializing the scanner object
+        // Initializing the scanner object
         Scanner scnr = new Scanner(System.in);
 
         System.out.println("\nEnter an Integer number within the range (0 - 50) inclusive to continue or Enter a number outside the given range to exit: ");
@@ -44,7 +44,7 @@ public class AJ_Week09_Program_1_ArbitraryNumOfInts {
         // Getting an user input using scanner
         int intNumOfRands = scnr.nextInt();
         
-        // Intializing the Loop Switch
+        // Initializing the Loop Switch
         boolean blnLoopSwitch = true;
         
         // Creating a "while" loop to process the data
