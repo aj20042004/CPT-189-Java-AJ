@@ -30,7 +30,7 @@ import javafx.scene.text.Text;
 
 public class AJ_Week09_GUI_Program_1_PolygonStars extends Application {
     
-    // Private variables
+    // Private variable
     private Text txtStarLabels;
 
     // start method
