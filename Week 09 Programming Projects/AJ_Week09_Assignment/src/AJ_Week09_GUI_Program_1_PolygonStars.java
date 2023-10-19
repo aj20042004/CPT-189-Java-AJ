@@ -6,7 +6,7 @@
     Language:	Java
     Date:		2023-10-17
     Purpose:	The purpose of this program is to present 5 stars of different colors and scaled to various sizes.
-                We are defining a class caleld Star that extends Polygon and is shaped like five-pointed star.
+                We are defining a class called Star that extends Polygon and is shaped like five-pointed star.
                 The star class constructor uses parameters to specify the color, position and scale of the star.
     
 ----------------------------------------------------------------------------------------------------------
@@ -29,12 +29,12 @@ public class AJ_Week09_GUI_Program_1_PolygonStars extends Application {
     
     // start method
     @Override
-    public void start(Stage appStage) throws Exception {
+    public void start(Stage stgApp) throws Exception {
         
         // Creating the pane object
-        Pane pane = new Pane();
+        Pane paneObj = new Pane();
         
-        // Creating star objects for star class. Initializing the class with parameters
+        // Creating star objects for "Star" class. Initializing the class with parameters
         Star starRed = new Star(Color.RED, 100, 120, 0.9);
         Star starOrange  = new Star(Color.ORANGE, 550, 60, 1.2);
         Star starGreen = new Star(Color.GREEN, 120, 400, 1.9);
@@ -42,15 +42,15 @@ public class AJ_Week09_GUI_Program_1_PolygonStars extends Application {
         Star starBlue = new Star(Color.BLUE, 350, 200, 0.5);
         
         // Adding all the star objects to the pane
-        pane.getChildren().addAll(starRed, starOrange, starGreen, starYellow, starBlue);
+        paneObj.getChildren().addAll(starRed, starOrange, starGreen, starYellow, starBlue);
         
         // Creating and setting the scene
-        Scene scene = new Scene(pane, 1100, 700);
-        appStage.setScene(scene);
+        Scene sceneObj = new Scene(paneObj, 1100, 700);
+        stgApp.setScene(sceneObj);
 
         // Title for the scene
-        appStage.setTitle("Star Polygon");
-        appStage.show();
+        stgApp.setTitle("Star Polygon");
+        stgApp.show();
 
     }
     
