@@ -64,6 +64,7 @@ public class EW_GraphicsComboAndPolylines extends Application{
                 "\n   and a Color Choice" +
                 "\n   and then click \"Draw Shapes\"");
         vbxGUI.getChildren().add(lblFirstInstruction);
+        
         TilePane tpnShapesAndCounts = new TilePane();   // hold the label and combobox for drawing shapes
         tpnShapesAndCounts.setMaxWidth(200);
         tpnShapesAndCounts.setVgap(10);

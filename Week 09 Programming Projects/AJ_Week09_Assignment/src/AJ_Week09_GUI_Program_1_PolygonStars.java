@@ -24,15 +24,28 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.scene.shape.Polygon;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 
 public class AJ_Week09_GUI_Program_1_PolygonStars extends Application {
     
+    // Private variables
+    private Text txtStarLabels;
+
     // start method
     @Override
     public void start(Stage stgApp) throws Exception {
         
         // Creating the pane object
         Pane paneObj = new Pane();
+        
+        // Creating a Text Node to display the text "STARS"
+        txtStarLabels = new Text(100,70,"======== STARS ========");
+        txtStarLabels.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 28));
+
+        // Adding the text object txtStarLabels to the pane
+        paneObj.getChildren().add(txtStarLabels);
         
         // Creating star objects for "Star" class. Initializing the class with parameters
         Star starRed = new Star(Color.RED, 100, 120, 0.9);

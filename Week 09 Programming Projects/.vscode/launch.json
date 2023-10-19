@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "sample",
+            "request": "launch",
+            "mainClass": "sample",
+            "projectName": "Week 09 Programming Projects_c2192c13"
+        },
+        {
+            "type": "java",
             "name": "StarPolygonExample",
             "request": "launch",
             "vmArgs": "--module-path C:/Users/Student/Desktop/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/lib --add-modules javafx.controls,javafx.fxml",

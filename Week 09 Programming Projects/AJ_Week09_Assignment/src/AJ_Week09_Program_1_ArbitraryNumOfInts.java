@@ -23,79 +23,111 @@ import java.util.Scanner;
 import java.util.HashMap;
 
 public class AJ_Week09_Program_1_ArbitraryNumOfInts {
-    
+
     // main method
     public static void main(String[] args) {
-        
+
         // Creating an array list arrListStoreNums to store all the user input data
         ArrayList<Integer> arrListStoreNums = new ArrayList<>();
 
-        /* Creating a Hash map to store the data in key:value pairs, so that it
-        makes it easier to calculate number of occurrences */
-        HashMap<Integer,Integer> HshMapStoreFrequency = new HashMap<>();
+        /*
+         * Creating a Hash map to store the data in key:value pairs, so that it
+         * makes it easier to calculate number of occurrences
+         */
+        HashMap<Integer, Integer> HshMapStoreFrequency = new HashMap<>();
 
         // Intializing the scanner object
         Scanner scnr = new Scanner(System.in);
 
         System.out.println("\nEnter an Integer number within the range (0 - 50) inclusive to continue or Enter a number outside the given range to exit: ");
-        
+
         // Getting an user input using scanner
         int intNumOfRands = scnr.nextInt();
-
-        // Creating a "while" loop and checking whether the user input is in the range of (0 to 50) inclusive
-        while (intNumOfRands >= 0 && intNumOfRands <= 50) { 
-            
-            // Adding all the elements to the array list
-            arrListStoreNums.add(intNumOfRands);
-
-            System.out.println("Enter an Integer number within the range (0 - 50) inclusive to continue or Enter a number outside the given range to exit: ");
-            
-            // Getting the user input
-            intNumOfRands = scnr.nextInt();
-
-        }
         
-        // Displaying all the numbers
-        System.out.println("\nList of Numbers:");
-        System.out.println("--------------------------------------------------------------------");
-        System.out.print("The numbers you entered are: ");
+        // Intializing the Loop Switch
+        boolean blnLoopSwitch = true;
         
-        // Creating a "for" loop for adding elements in hash map and counting number of occurrences
-        for (int k = 0; k < arrListStoreNums.size(); k++) {
+        // Creating a "while" loop to process the data
+        while (blnLoopSwitch) {
             
-            // Counting the number of occurrences using "Collection.frequency()"
-            int intFrequencyNums = Collections.frequency(arrListStoreNums, arrListStoreNums.get(k));
-            
-            // If the user input value is not in hash map, we are adding the data
-            if (!HshMapStoreFrequency.containsKey(arrListStoreNums.get(k))) { 
-                
-                // "Key" would be user entered value and "value" would be number of occurrences
-                HshMapStoreFrequency.put(arrListStoreNums.get(k), intFrequencyNums);
+            // if the user entered number is outside the range (0 to 50)
+            if (intNumOfRands < 0 || intNumOfRands > 50) {
+
+                System.out.println("\nSorry! There is no any numbers to process.");
+                System.out.println("---------------------------------------------------------");
+                System.out.println("Thank you");
+                System.out.println("----------------------------------------------------------");
+
+                // Turning off the loop switch by setting it to "false"
+                blnLoopSwitch = false;
 
             }
             
-            // Displaying the user entered values
-            System.out.print(arrListStoreNums.get(k) + " ");
- 
-        }
+            // if the user entered number is in the range (0 to 50)
+            else {
 
-        System.out.println("\n");
-        System.out.println("The Number of Occurrences of each element are:");
-        System.out.println("--------------------------------------------------------------------");
-    
-        // Creating an array list "arrSortedKeys" to store sorted "key" values.
-        ArrayList<Integer> arrSortedKeys = new ArrayList<>(HshMapStoreFrequency.keySet());
-        Collections.sort(arrSortedKeys);
+                // Adding all the elements to the array list
+                arrListStoreNums.add(intNumOfRands);
 
-        // Using "for" loop to iterate over the arrSortedKeys array list and printing the elements and number of occurrences
-        for (Integer intKey : arrSortedKeys) {
-            System.out.println(intKey + " : " + HshMapStoreFrequency.get(intKey) + " Occurrences");
+                System.out.println("Enter an Integer number within the range (0 - 50) inclusive to continue or Enter a number outside the given range to exit: ");
+
+                // Getting an user input using scanner util user enters a sentinel value 
+                intNumOfRands = scnr.nextInt();
+                
+                // If user enters a sentinel value
+                if (intNumOfRands < 0 || intNumOfRands > 50) {
+
+                    // Displaying all the numbers
+                    System.out.println("\nList of Numbers:");
+                    System.out.println("--------------------------------------------------------------------");
+                    System.out.print("The numbers you entered are: ");
+
+                    // Creating a "for" loop for adding elements in hash map and counting number of occurrences
+                    for (int k = 0; k < arrListStoreNums.size(); k++) {
+
+                        // Counting the number of occurrences using "Collection.frequency()"
+                        int intFrequencyNums = Collections.frequency(arrListStoreNums, arrListStoreNums.get(k));
+
+                        // If the user input value is not in hash map, we are adding the data
+                        if (!HshMapStoreFrequency.containsKey(arrListStoreNums.get(k))) {
+
+                            // "Key" would be user entered value and "value" would be number of occurrences
+                            HshMapStoreFrequency.put(arrListStoreNums.get(k), intFrequencyNums);
+
+                        }
+
+                        // Displaying the user entered values
+                        System.out.print(arrListStoreNums.get(k) + " ");
+
+                    }
+                    
+                    System.out.println("\n");
+                    System.out.println("The Number of Occurrences of each element are:");
+                    System.out.println("-----------------------------------------------------------------------");
+
+                    // Creating an array list "arrSortedKeys" to store sorted "key" values.
+                    ArrayList<Integer> arrSortedKeys = new ArrayList<>(HshMapStoreFrequency.keySet());
+                    Collections.sort(arrSortedKeys);
+
+                    // Using "for" loop to iterate over the arrSortedKeys array list and printing
+                    // the elements and number of occurrences
+                    for (Integer intKey : arrSortedKeys) {
+                        System.out.println(intKey + " : " + HshMapStoreFrequency.get(intKey) + " Occurrences");
+                    }
+
+                    System.out.println("-----------------------------------------------------------------------");
+
+                    // Turning off the loop switch by setting it to "false"
+                    blnLoopSwitch = false;
+
+                }
+
+            }
+
         }
-        
-        System.out.println("-----------------------------------------------------------------------");
 
         // Closing the scanner object
         scnr.close();
     }
-    
+
 }
