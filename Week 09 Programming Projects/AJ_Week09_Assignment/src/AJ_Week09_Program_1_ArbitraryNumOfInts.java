@@ -53,7 +53,7 @@ public class AJ_Week09_Program_1_ArbitraryNumOfInts {
             // if the user entered number is outside the range (0 to 50)
             if (intNumOfRands < 0 || intNumOfRands > 50) {
 
-                System.out.println("\nSorry! There is no any numbers to process.");
+                System.out.println("\nSorry! There aren't any numbers to process.");
                 System.out.println("---------------------------------------------------------");
                 System.out.println("Thank you");
                 System.out.println("----------------------------------------------------------");
