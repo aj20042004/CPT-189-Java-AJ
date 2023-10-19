@@ -71,7 +71,7 @@ public class AJ_Week09_Program_1_ArbitraryNumOfInts {
 
                 System.out.println("Enter an Integer number within the range (0 - 50) inclusive to continue or Enter a number outside the given range to exit: ");
 
-                // Getting an user input using scanner util user enters a sentinel value 
+                // Getting an user input using scanner until the user enters a sentinel value 
                 intNumOfRands = scnr.nextInt();
                 
                 // If user enters a sentinel value
