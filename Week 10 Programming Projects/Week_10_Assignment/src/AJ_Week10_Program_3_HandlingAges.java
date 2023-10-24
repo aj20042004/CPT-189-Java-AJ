@@ -18,7 +18,6 @@
 */
 
 import java.util.Scanner;
-import java.net.Socket;
 import java.util.InputMismatchException;
 
 public class AJ_Week10_Program_3_HandlingAges {
@@ -27,61 +26,68 @@ public class AJ_Week10_Program_3_HandlingAges {
 
         Scanner scnr = new Scanner(System.in);
         int intCount = 0;
+        int intUsrAge = 0;
         int intAverageTracker = 0;
-        int intUsrAge;
         String strUsrName;
         int intStudentAgeTracker;
 
         System.out.println("\nWelcome !");
-        System.out.println("-----------------------------------------------");
+        System.out.println("-------------------------------------------------");
 
         while (intCount < 5) {
 
-            try {
+            intStudentAgeTracker = intCount + 1;
+            System.out.println("\nStudent " + intStudentAgeTracker + " Details");
+            System.out.println("----------------------------------------------");
 
-                intStudentAgeTracker = intCount + 1;
-                System.out.println("\nStudent " + intStudentAgeTracker + " Details");
-                System.out.println("----------------------------------------------");
+            System.out.print("Please enter your name: ");
+            strUsrName = scnr.nextLine();
 
-                System.out.print("Please enter your name: ");
-                strUsrName = scnr.nextLine();
+            boolean blnLoopSwitch = true;
+
+            while (blnLoopSwitch) {
 
                 System.out.print("Please enter your age: ");
-                intUsrAge = scnr.nextInt();
-                scnr.nextLine();
 
-                if ((intUsrAge < 1) || (intUsrAge > 110)) {
-                    throw new Exception("\nUser Age cannot be less than 1 or greater than 110. Sorry!");
+                try {
 
-                }
+                    intUsrAge = scnr.nextInt();
+                    scnr.nextLine();
 
-                intAverageTracker += intUsrAge;
+                    if ((intUsrAge < 1) || (intUsrAge > 110)) {
+                        throw new Exception("\nSorry! User Age cannot be less than 1 or greater than 110. ");
 
-                if (intCount == 4) {
-                    System.out.println("--------------------------------------------- ");
-                    System.out.println("The average students age is: " + intAverageTracker / 5); // Is average age needs  to be double ?
-                    System.out.println("");
+                    }
+
+                    blnLoopSwitch = false;
 
                 }
 
-                intCount += 1;
+                catch (InputMismatchException excpt) {
+
+                    System.out.println("\nExpected a number as input");
+                    System.out.println("Cannot compute the average, Please try again.\n");
+                    scnr.nextLine();
+                }
+
+                catch (Exception excpt) {
+                    System.out.println(excpt.getMessage());
+                    System.out.println("Cannot compute the average, Please try again.\n");
+                }
 
             }
 
-            catch (InputMismatchException excpt) {
+            intAverageTracker += intUsrAge;
 
-                System.out.println("\nExpected a number as input");
-                System.out.println("Cannot compute the average, Please try again.");
-                scnr.nextLine();
-                
+            if (intCount == 4) {
+                System.out.println("--------------------------------------------- ");
+                // Is Average age needs to be double ? 
+                System.out.println("The average students age is: " + intAverageTracker / 5); 
+                System.out.println("");
 
             }
 
-            // Trouble-shoot the bug here.
-            catch (Exception excpt) {
-                System.out.println(excpt.getMessage());
-                System.out.println("Cannot compute the average, Please try again.");
-            }
+            intCount += 1;
 
         }
 
