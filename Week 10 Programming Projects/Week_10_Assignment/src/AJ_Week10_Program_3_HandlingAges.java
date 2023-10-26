@@ -30,11 +30,11 @@ public class AJ_Week10_Program_3_HandlingAges {
         Scanner scnr = new Scanner(System.in);
 
         // Initializing the variables
-        int intCount = 0;              // For loop count
-        int intUsrAge = 0;             // For storing user input age
-        int intAverageTracker = 0;     // For calculating the average age
-        String strUsrName;             // For storing user input name
-        int intStudentAgeTracker;      // For storing the number of students
+        int intCount = 0;                 // For counting the number of iteration
+        int intUsrAge = 0;                // For storing user input age
+        double dblAverageTracker = 0;     // For calculating the average age
+        String strUsrName;                // For storing user input name
+        int intStudentAgeTracker;         // For storing the number of students
 
         System.out.println("\nWelcome !");
         System.out.println("-------------------------------------------------");
@@ -99,14 +99,14 @@ public class AJ_Week10_Program_3_HandlingAges {
             }
             
             // When user enter the correct age, we're adding the user ages to the intAverageTracker
-            intAverageTracker += intUsrAge;
+            dblAverageTracker += intUsrAge;
             
             // When intCount is 4, the loop will reach the final iteration 
             if (intCount == 4) {
                 System.out.println("--------------------------------------------- ");
                   
                 // calculating the average age by dividing intAverageTracker by 5 
-                System.out.println("The average students age is: " + intAverageTracker / 5); 
+                System.out.println("The average students age is: " + dblAverageTracker / 5); 
                 System.out.println("");
 
             }
