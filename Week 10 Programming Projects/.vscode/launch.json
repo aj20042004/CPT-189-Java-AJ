@@ -1,0 +1,46 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "AJ_Week10_GUI_Program_3_StackPane_SecondModel",
+            "request": "launch",
+            "vmArgs": "--module-path C:/Users/Student/Desktop/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/lib --add-modules javafx.controls,javafx.fxml",
+            "mainClass": "AJ_Week10_GUI_Program_3_StackPane_SecondModel",
+            "projectName": "Week 10 Programming Projects_519735bd"
+        },
+        {
+            "type": "java",
+            "name": "Testing",
+            "request": "launch",
+            "vmArgs": "--module-path C:/Users/Student/Desktop/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/lib --add-modules javafx.controls,javafx.fxml",
+            "mainClass": "Testing",
+            "projectName": "Week 10 Programming Projects_519735bd"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "vmArgs": "--module-path C:/Users/Student/Desktop/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/lib --add-modules javafx.controls,javafx.fxml",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "AJ_Week10_GUI_Program_3_StackPane",
+            "request": "launch",
+            "vmArgs": "--module-path C:/Users/Student/Desktop/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/lib --add-modules javafx.controls,javafx.fxml",
+            "mainClass": "AJ_Week10_GUI_Program_3_StackPane",
+            "projectName": "Week 10 Programming Projects_519735bd"
+        },
+        {
+            "type": "java",
+            "name": "AJ_Week10_Program_3_HandlingAges",
+            "request": "launch",
+            "mainClass": "AJ_Week10_Program_3_HandlingAges",
+            "projectName": "Week 10 Programming Projects_519735bd"
+        }
+    ]
+}

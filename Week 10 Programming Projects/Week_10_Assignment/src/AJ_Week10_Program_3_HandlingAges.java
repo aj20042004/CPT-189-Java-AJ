@@ -17,80 +17,106 @@
 ----------------------------------------------------------------------------------------------------------
 */
 
+// Importing the modules
 import java.util.Scanner;
 import java.util.InputMismatchException;
 
 public class AJ_Week10_Program_3_HandlingAges {
-
+    
+    // main method
     public static void main(String[] args) {
-
+        
+        // Initializing the scanner object
         Scanner scnr = new Scanner(System.in);
-        int intCount = 0;
-        int intUsrAge = 0;
-        int intAverageTracker = 0;
-        String strUsrName;
-        int intStudentAgeTracker;
+
+        // Initializing the variables
+        int intCount = 0;              // For loop count
+        int intUsrAge = 0;             // For storing user input age
+        int intAverageTracker = 0;     // For calculating the average age
+        String strUsrName;             // For storing user input name
+        int intStudentAgeTracker;      // For storing the number of students
 
         System.out.println("\nWelcome !");
         System.out.println("-------------------------------------------------");
-
+        
+        // Creating a "while" loop to run the program 5 times to collect the user input data
         while (intCount < 5) {
-
+            
+            // Calculting the number of students
             intStudentAgeTracker = intCount + 1;
             System.out.println("\nStudent " + intStudentAgeTracker + " Details");
             System.out.println("----------------------------------------------");
-
+            
+            // Getting an user input for name
             System.out.print("Please enter your name: ");
             strUsrName = scnr.nextLine();
-
+            
+            // Creating the second loop switch
             boolean blnLoopSwitch = true;
-
+            
+            // Creating the second "while" loop
             while (blnLoopSwitch) {
-
+                
                 System.out.print("Please enter your age: ");
-
+                
+                // Using try block to handle the exceptions
                 try {
-
+                    
+                    // Getting an user input for age
                     intUsrAge = scnr.nextInt();
                     scnr.nextLine();
-
+                    
+                    // If the user input for age is less than 1 or greater than 110, we're throwing an error message.
                     if ((intUsrAge < 1) || (intUsrAge > 110)) {
                         throw new Exception("\nSorry! User Age cannot be less than 1 or greater than 110. ");
 
                     }
-
+                    
+                    // If user entered correct age, we're turning off the switch
                     blnLoopSwitch = false;
 
                 }
-
+                
+                // Using catch block to handle InputMismatchException error
                 catch (InputMismatchException excpt) {
-
+                    
+                    // Prompting the uesr that they entered a wrong data type
                     System.out.println("\nExpected a number as input");
                     System.out.println("Cannot compute the average, Please try again.\n");
+
+                    // flushing the CR from buffer
                     scnr.nextLine();
                 }
-
+                
+                // Using catch block to handle the wrong input (age < 1 or age > 110)
                 catch (Exception excpt) {
+                    
+                    // Printing the error message
                     System.out.println(excpt.getMessage());
                     System.out.println("Cannot compute the average, Please try again.\n");
                 }
 
             }
-
+            
+            // When user enter the correct age, we're adding the user ages to the intAverageTracker
             intAverageTracker += intUsrAge;
-
+            
+            // When intCount is 4, the loop will reach the final iteration 
             if (intCount == 4) {
                 System.out.println("--------------------------------------------- ");
-                // Is Average age needs to be double ? 
+                  
+                // calculating the average age by dividing intAverageTracker by 5 
                 System.out.println("The average students age is: " + intAverageTracker / 5); 
                 System.out.println("");
 
             }
-
+            
+            // Adding 1 to intCount for every iteration
             intCount += 1;
 
         }
-
+        
+        // Closing the scanner object
         scnr.close();
 
     }

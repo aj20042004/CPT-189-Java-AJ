@@ -45,11 +45,13 @@ public class EW_GraphicsListViewAndSplitPane extends Application {
 
     @Override
     public void start(Stage stgMyStage) {
+
         txtFruitDescription = new Text("Fruit Descriptions Will Show Here!");
         txtFruitDescription.setFont(new Font("Comic Sans MS", 40));
         txtFruitDescContainer = new TextFlow(txtFruitDescription);
         StackPane stkpShowDescription = new StackPane(txtFruitDescContainer);
         stkpShowDescription.setMinWidth(300);
+        
         ObservableList listFruitNames = FXCollections.observableArrayList();
         listFruitNames.addAll(strFruits); 
         lvFruitNames = new ListView<>(listFruitNames);
