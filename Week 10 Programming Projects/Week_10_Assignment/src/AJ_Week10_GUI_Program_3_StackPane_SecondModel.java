@@ -4,7 +4,7 @@
     Author:		AJ
     Language:	Java
     Date:		2023-10-26
-    Purpose:	The purpose of this program is to create a stackpane to stack 5 different shapes(with decreasing
+    Purpose:	The purpose of this program is to create a stackpane to stack 5 different shapes (with decreasing
                 size) on top of each other. Also, placing my name as a text object on the top level in 20
                 point size.
 ----------------------------------------------------------------------------------------------------------
@@ -39,7 +39,7 @@ public class AJ_Week10_GUI_Program_3_StackPane_SecondModel extends Application {
     @Override
     public void start(Stage stgApp) {
         
-        // Creating a Text Node to display the my name "Athul Jaishankar (AJ)"
+        // Creating a Text Node to display my name "Athul Jaishankar (AJ)"
         Text txtNameDescription = new Text("Athul Jaishankar (AJ)");
 
         // Setting the font size to 20 and font style to Comic Sans MS
@@ -60,7 +60,10 @@ public class AJ_Week10_GUI_Program_3_StackPane_SecondModel extends Application {
         // Setting the border width to 2
         rectangleShape.setStrokeWidth(2);
         
+        // Creating the circle shape
         Circle circleShape = new Circle(70);
+
+        // Setting the circle color to semi-transparent green
         circleShape.setFill(Color.rgb(0, 255, 0, 0.5));
 
         // Setting the solid black border

@@ -4,7 +4,7 @@
     Author:		AJ
     Language:	Java
     Date:		2023-10-24
-    Purpose:	The purpose of this program is to asks for information about 5 students. For each student,
+    Purpose:	The purpose of this program is to ask for information about 5 students. For each student,
                 we're going to ask for their name and age. By using try/catch block, we're going to handle
                 non-numeric input for ages and for handling ages less than 1 and more than 110. Finally,
                 reporting the average of student ages.
@@ -30,11 +30,11 @@ public class AJ_Week10_Program_3_HandlingAges {
         Scanner scnr = new Scanner(System.in);
 
         // Initializing the variables
-        int intCount = 0;                 // For counting the number of iteration
-        int intUsrAge = 0;                // For storing user input age
-        double dblAverageTracker = 0;     // For calculating the average age
-        String strUsrName;                // For storing user input name
-        int intStudentAgeTracker;         // For storing the number of students
+        int intCount = 0;                   // For counting the number of iteration
+        int intUsrAge = 0;                  // For storing user input "age"
+        double dblAverageTracker = 0;       // For calculating the average age
+        String strUsrName;                  // For storing user input "name"
+        int intStudentAgeTracker;           // For storing the number of students
 
         System.out.println("\nWelcome !");
         System.out.println("-------------------------------------------------");
@@ -42,7 +42,7 @@ public class AJ_Week10_Program_3_HandlingAges {
         // Creating a "while" loop to run the program 5 times to collect the user input data
         while (intCount < 5) {
             
-            // Calculting the number of students
+            // calculating the number of students
             intStudentAgeTracker = intCount + 1;
             System.out.println("\nStudent " + intStudentAgeTracker + " Details");
             System.out.println("----------------------------------------------");
@@ -72,7 +72,7 @@ public class AJ_Week10_Program_3_HandlingAges {
 
                     }
                     
-                    // If user entered correct age, we're turning off the switch
+                    // If user entered correct age, we're turning off the loop switch
                     blnLoopSwitch = false;
 
                 }
@@ -80,7 +80,7 @@ public class AJ_Week10_Program_3_HandlingAges {
                 // Using catch block to handle InputMismatchException error
                 catch (InputMismatchException excpt) {
                     
-                    // Prompting the uesr that they entered a wrong data type
+                    // Prompting the user that they have entered a wrong data type
                     System.out.println("\nExpected a number as input");
                     System.out.println("Cannot compute the average, Please try again.\n");
 
