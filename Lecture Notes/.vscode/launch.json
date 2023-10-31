@@ -4,6 +4,23 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+        
+        {
+            "type": "java",
+            "name": "EW_GraphicsDatePickerColorPicker",
+            "request": "launch",
+            "vmArgs": "--module-path C:/Users/Student/Desktop/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/lib --add-modules javafx.controls,javafx.fxml",
+            "mainClass": "EW_GraphicsDatePickerColorPicker",
+            "projectName": "Lecture Notes_5d7a89f8"
+        },
+        {
+            "type": "java",
+            "name": "EW_SnackTime",
+            "request": "launch",
+            "vmArgs": "--module-path C:/Users/Student/Desktop/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/lib --add-modules javafx.controls,javafx.fxml",
+            "mainClass": "EW_SnackTime",
+            "projectName": "Lecture Notes_5d7a89f8"
+        },
         {
             "type": "java",
             "name": "StackedShapesApp",
