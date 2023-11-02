@@ -24,13 +24,16 @@ public class AJ_Week11_Program_3_Kennel {
         // Setting the name
         animalObjCat.setSpeciesName("Cat");
         animalObjCat.setSpeciesSize("Small");
+        animalObjCat.setSkills("Super-quick feet");
         animalObjCat.setSpeciesAge(2);
 
         animalObjDog.setSpeciesName("Dog");
         animalObjDog.setSpeciesSize("Medium");
+        animalObjDog.setNickName("Jack");
         animalObjDog.setSpeciesAge(5);
 
         animalObjTiger.setSpeciesName("Tiger");
+        animalObjTiger.setCountry("USA");
         animalObjTiger.setSpeciesSize("Big");
         animalObjTiger.setSpeciesAge(6);
         

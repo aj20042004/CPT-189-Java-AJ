@@ -69,6 +69,7 @@ public class AJ_Week11_Program_3_Animal {
     public void printAnimalNoise() {
         System.out.println("Species name: " + strSpeciesName);
         System.out.println("Species Size: " + strSpeciesSize);
+        System.out.println("The specific sound of this animal is unknown !!!");
     }
 
 }

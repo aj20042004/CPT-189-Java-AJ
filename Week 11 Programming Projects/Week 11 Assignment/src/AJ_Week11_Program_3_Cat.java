@@ -14,12 +14,23 @@
 */
 
 public class AJ_Week11_Program_3_Cat extends AJ_Week11_Program_3_Animal{
+    
+    protected String strSkills;
 
+    public void setSkills(String strNewSkills) {
+        strSkills = strNewSkills;
+    }
+
+    public String getSkills() { 
+        return strSkills;
+    }
+    
     @Override
     public void printAnimalNoise() {
-
-        System.out.println("Species name: " + strSpeciesName);
+        
+        System.out.println("Species Name: " + strSpeciesName);
         System.out.println("Species Size: " + strSpeciesSize);
+        System.out.println("Species Skills: " + strSkills);
         System.out.println("Sound : Meows!");
     }
 }
