@@ -4,7 +4,8 @@
     Author:		AJ
     Language:	Java
     Date:		2023-10-31
-    Purpose:	The purpose of this program is to 
+    Purpose:	The purpose of this program is to create a class that extends a basic animal class to
+                include other properties for a Dog class.
 ----------------------------------------------------------------------------------------------------------
     Change Log
 ----------------------------------------------------------------------------------------------------------
@@ -14,19 +15,23 @@
 */
 
 
-
+// Creating the Dog class by extending the animal class
 public class AJ_Week11_Program_3_Dog extends AJ_Week11_Program_3_Animal {
     
+    // Creating the protected variable
     protected String strNickName;
-
+    
+    // Mutators for species nick name
     public void setNickName(String strNewNickName) {
         strNickName = strNewNickName;
     }
-
+    
+    // Accessors for species nick name
     public String getNickName(){
         return strNickName;
     }
     
+    // Print method for Dog noise
     @Override
     public void printAnimalNoise() {
 
