@@ -7,7 +7,7 @@
     Purpose:	The purpose of this program is to Create a base class for animals that will include
                 the species name, species size and species age. It will also include a noise method 
                 which describes the sounds that animals make (eg: barks, meaows, moos, etc.). This 
-                class will be used by several other classes including Cat , Dog and other.
+                class will be used by several other classes including Cat, Dog and other.
 ----------------------------------------------------------------------------------------------------------
     Change Log
 ----------------------------------------------------------------------------------------------------------
@@ -51,6 +51,7 @@ public class AJ_Week11_Program_3_Animal {
     public String getSpeciesName() {
         return strSpeciesName;
     }
+    
     
     // Accessors for species size
     public String getSpeciesSize() {
