@@ -13,16 +13,19 @@
 ----------------------------------------------------------------------------------------------------------
 */
 
-public abstract class AJ_Week12_Program_1_Task implements AJ_Week12_Program_1_Priority{
+public abstract class AJ_Week12_Program_1_Task implements AJ_Week12_Program_1_Priority {
 
     protected int intPriorityLevel = 0;
     protected String strDescription = "Unknown";
 
+    // Constructor
+    public AJ_Week12_Program_1_Task(String newDescription) {
+        strDescription = newDescription;
+    }
+
     @Override
     public void setPriority(int newPriorityLevel) {
-
         intPriorityLevel = newPriorityLevel;
-
     }
 
     @Override
@@ -30,16 +33,9 @@ public abstract class AJ_Week12_Program_1_Task implements AJ_Week12_Program_1_Pr
         return intPriorityLevel;
     }
 
-    // Setters
-    public AJ_Week12_Program_1_Task(String newDescription){
-        strDescription = newDescription;
-    }
-
     // getters
-    public String getDescription(){
+    public String getDescription() {
         return strDescription;
     }
 
-
-    
-} 
+}
