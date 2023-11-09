@@ -6,25 +6,25 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "vmArgs": "--module-path C:/Users/Student/Desktop/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/lib --add-modules javafx.controls,javafx.fxml",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
             "name": "AJ_Week12_GUI_Program_1_CountMouseClicks",
             "request": "launch",
             "vmArgs": "--module-path C:/Users/Student/Desktop/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/lib --add-modules javafx.controls,javafx.fxml",
             "mainClass": "AJ_Week12_GUI_Program_1_CountMouseClicks",
-            "projectName": "Week 12 Assignment_c25c12d4"
+            "projectName": "Week 12 Programming Projects_5ea2aafb"
         },
         {
             "type": "java",
             "name": "AJ_Week12_Program_1_ToDoList",
             "request": "launch",
             "mainClass": "AJ_Week12_Program_1_ToDoList",
-            "projectName": "Week 12 Assignment_c25c12d4"
-        },
-        {
-            "type": "java",
-            "name": "Current File",
-            "request": "launch",
-            "vmArgs": "--module-path C:/Users/Student/Desktop/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/lib --add-modules javafx.controls,javafx.fxml",
-            "mainClass": "${file}"
+            "projectName": "Week 12 Programming Projects_5ea2aafb"
         }
     ]
 }
