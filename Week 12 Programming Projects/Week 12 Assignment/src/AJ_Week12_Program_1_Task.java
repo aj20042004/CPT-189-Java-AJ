@@ -4,7 +4,7 @@
     Author:		AJ
     Language:	Java
     Date:		2023-11-06
-    Purpose:	The purpose of this program is to create an Task abstract base class that will be use
+    Purpose:	The purpose of this program is to create a Task abstract base class that will be use
                 for specific Task to extend.
 ----------------------------------------------------------------------------------------------------------
     Change Log

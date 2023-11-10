@@ -63,7 +63,7 @@ public class AJ_Week12_Program_1_ToDoList {
             // Using getDescription method to display the data associated with each objects
             System.out.println("Description of the Task: " + arrTaskList.get(i).getDescription());
 
-            // Using getPriority method to display the data associated with each objects
+            // Using getPriority method to display the dsata associated with each objects
             System.out.println("Priority Level: " + arrTaskList.get(i).getPriority());
             System.out.println("------------------------------------------------------------------------------");
         }

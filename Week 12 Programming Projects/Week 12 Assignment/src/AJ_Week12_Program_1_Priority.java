@@ -5,7 +5,7 @@
     Language:	Java
     Date:		2023-11-06
     Purpose:	The purpose of this program is to create an interface that will be used by the base class
-                Task.  This interface will define the abstract methods for setPriority, and
+                Task. This interface will define the abstract methods for setPriority, and
                 getPriority.
 ----------------------------------------------------------------------------------------------------------
     Change Log
