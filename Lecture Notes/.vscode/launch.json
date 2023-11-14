@@ -6,6 +6,21 @@
     "configurations": [
         {
             "type": "java",
+            "name": "EW_ArrayListsFromChatGPT",
+            "request": "launch",
+            "mainClass": "EW_ArrayListsFromChatGPT",
+            "projectName": "Lecture Notes_5d7a89f8"
+        },
+        {
+            "type": "java",
+            "name": "EW_GraphicsSpinnersFromChatGPT",
+            "request": "launch",
+            "mainClass": "EW_GraphicsSpinnersFromChatGPT",
+            "vmArgs": "--module-path C:/Users/Student/Desktop/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/lib --add-modules javafx.controls,javafx.fxml",
+            "projectName": "Lecture Notes_5d7a89f8"
+        },
+        {
+            "type": "java",
             "name": "EW_GraphicsRubberBanding",
             "request": "launch",
             "vmArgs": "--module-path C:/Users/Student/Desktop/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/lib --add-modules javafx.controls,javafx.fxml",

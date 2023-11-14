@@ -1,0 +1,36 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "AJ_Week13_GUI_Program_1_SpinnerForFontSize",
+            "request": "launch",
+            "vmArgs": "--module-path C:/Users/Student/Desktop/Java/openjfx-20.0.2_windows-x64_bin-sdk/javafx-sdk-20.0.2/lib --add-modules javafx.controls,javafx.fxml",
+            "mainClass": "AJ_Week13_GUI_Program_1_SpinnerForFontSize",
+            "projectName": "Week 13 Programming Projects_e528659a"
+        },
+        {
+            "type": "java",
+            "name": "AJ_Week13_Program_1_MostFrequentNumbers",
+            "request": "launch",
+            "mainClass": "AJ_Week13_Program_1_MostFrequentNumbers",
+            "projectName": "Week 13 Programming Projects_e528659a"
+        },
+        {
+            "type": "java",
+            "name": "ArrayListOperations",
+            "request": "launch",
+            "mainClass": "ArrayListOperations",
+            "projectName": "Week 13 Programming Projects_e528659a"
+        }
+    ]
+}
