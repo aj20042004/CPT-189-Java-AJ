@@ -34,8 +34,6 @@ import java.util.Random;
 import java.util.HashMap;
 import java.util.Collections;
 
-
-
 // Creating the class
 public class AJ_Week13_Program_1_MostFrequentNumbers {
     
@@ -193,7 +191,7 @@ public class AJ_Week13_Program_1_MostFrequentNumbers {
                 arrStoreNumbers.remove(intRemoveIndex);
 
                 System.out.println(intCount1 + ". The number at index ---> " + intRemoveIndex + " was removed");
-
+                
             }
         }
     }

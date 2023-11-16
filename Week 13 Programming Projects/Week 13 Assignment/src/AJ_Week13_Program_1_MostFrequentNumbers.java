@@ -38,8 +38,8 @@ import java.util.Collections;
 public class AJ_Week13_Program_1_MostFrequentNumbers {
     
     // Creating private variables ( An array - arrStoreNumbers , HashMap - hshMapStoreFrequency )
-    private static List<Integer> arrStoreNumbers = new ArrayList<Integer>();
-    private static HashMap<Integer, Integer> hshMapStoreFrequency = new HashMap<>();
+    public static List<Integer> arrStoreNumbers = new ArrayList<Integer>();
+    public static HashMap<Integer, Integer> hshMapStoreFrequency = new HashMap<>();
     
     // Main method
     public static void main(String[] args) {
@@ -191,6 +191,8 @@ public class AJ_Week13_Program_1_MostFrequentNumbers {
                 arrStoreNumbers.remove(intRemoveIndex);
 
                 System.out.println(intCount1 + ". The number at index ---> " + intRemoveIndex + " was removed");
+
+                
 
             }
         }
