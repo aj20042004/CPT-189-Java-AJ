@@ -37,36 +37,36 @@ public class AJ_Week13_GUI_Program_1_SpinnerForFontSize extends Application{
         // Setting the font for Text node
         txtCharacter.setFont(Font.font("Comic Sans MS",28));
         
-        // Creating the Spinner object "SpinnerFontSize"
-        Spinner<Integer> SpinnerFontSize = new Spinner<>(1, 50, 28);   // Min: 1, Max: 50, Initial: 28
+        // Creating the Spinner object "spinnerFontSize"
+        Spinner<Integer> spinnerFontSize = new Spinner<>(1, 50, 28);   // Min: 1, Max: 50, Initial: 28
 
         // Enabling the option for editing the spinner object
-        SpinnerFontSize.setEditable(true);
+        spinnerFontSize.setEditable(true);
 
         // Adding a listener to update the font size when the spinner value changes
-        SpinnerFontSize.valueProperty().addListener((observable, oldValue, newValue) -> {
+        spinnerFontSize.valueProperty().addListener((intObservable, intOldValue, intNewValue) -> {
 
             // Setting the font size to the newValue
-            txtCharacter.setFont(new Font(newValue.doubleValue()));
+            txtCharacter.setFont(new Font(intNewValue.doubleValue()));
         });
         
-        // Creating a VBox object "VboxContainer"
-        VBox VboxContainer = new VBox(10);
+        // Creating a VBox object "vboxContainer"
+        VBox vboxContainer = new VBox(10);
 
-        // Adding text node "txtCharacter" and spinner object "SpinnerFontSize" to "VboxContainer"
-        VboxContainer.getChildren().addAll(txtCharacter,SpinnerFontSize);
+        // Adding text node "txtCharacter" and spinner object "spinnerFontSize" to "vboxContainer"
+        vboxContainer.getChildren().addAll(txtCharacter,spinnerFontSize);
 
-        // Setting the Alignment for "VboxContainer"
-        VboxContainer.setAlignment(Pos.CENTER);
+        // Setting the Alignment for "vboxContainer"
+        vboxContainer.setAlignment(Pos.CENTER);
 
-        // Setting the Style for "VboxContainer"
-        VboxContainer.setStyle("-fx-background-color: GHOSTWHITE");
+        // Setting the Style for "vboxContainer"
+        vboxContainer.setStyle("-fx-background-color: GHOSTWHITE");
         
-        // Setting the Minimum size for "VboxContainer"
-        VboxContainer.setMinSize(300, 200);
+        // Setting the Minimum size for "vboxContainer"
+        vboxContainer.setMinSize(300, 200);
         
         // Creating the scene 
-        Scene scene = new Scene(VboxContainer,700,500);
+        Scene scene = new Scene(vboxContainer,700,500);
 
         // Setting the scene
         stgApp.setScene(scene);

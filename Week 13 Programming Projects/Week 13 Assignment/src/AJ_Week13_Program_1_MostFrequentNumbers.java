@@ -34,7 +34,7 @@ import java.util.Random;
 import java.util.HashMap;
 import java.util.Collections;
 
-// Creating the Classs
+// Creating the class
 public class AJ_Week13_Program_1_MostFrequentNumbers {
     
     // Creating private variables ( An array - arrStoreNumbers , HashMap - hshMapStoreFrequency )
@@ -145,7 +145,7 @@ public class AJ_Week13_Program_1_MostFrequentNumbers {
         }
         
         // Calculating the Highest frequency in the hashMap by using Collections.max 
-        int maxValue = Collections.max(hshMapStoreFrequency.values());
+        int intMaxValue = Collections.max(hshMapStoreFrequency.values());
         
         // Displaying the highest occurring numbers
         System.out.println();
@@ -153,14 +153,14 @@ public class AJ_Week13_Program_1_MostFrequentNumbers {
         System.out.println("--------------------------------");
         
         // Using "for" loop to iterate through hashMap
-        for (Map.Entry<Integer, Integer> entry : hshMapStoreFrequency.entrySet()) {
+        for (Map.Entry<Integer, Integer> mapEntry : hshMapStoreFrequency.entrySet()) {
             
             /* If the frequency value of the node matches the maxValue, then we're displaying 
                the node and frequency value since it's the highest occurring number */
-            if (entry.getValue().equals(maxValue)) {
+            if (mapEntry.getValue().equals(intMaxValue)) {
 
                 // Getting the node ("key") value
-                int intfoundKey = entry.getKey();
+                int intfoundKey = mapEntry.getKey();
 
                 // Displaying the output
                 System.out.println("Value : " + intfoundKey + " Occurrences : " + hshMapStoreFrequency.get(intfoundKey));
@@ -179,7 +179,7 @@ public class AJ_Week13_Program_1_MostFrequentNumbers {
         for (int l = 0; l < intRemoveParameter; l++) {
             
             // Creating count1 variable 
-            int count1 = l + 1;
+            int intCount1 = l + 1;
             
             // Generating random index value to remove nodes from array
             int intRemoveIndex = randGen1.nextInt(arrStoreNumbers.size());
@@ -188,9 +188,9 @@ public class AJ_Week13_Program_1_MostFrequentNumbers {
             if (!arrStoreNumbers.isEmpty()) {
                 
                 // Removing the node asssociated with index value count1
-                arrStoreNumbers.remove(count1);
+                arrStoreNumbers.remove(intCount1);
 
-                System.out.println(count1 + ". The number at index ---> " + intRemoveIndex + " was removed");
+                System.out.println(intCount1 + ". The number at index ---> " + intRemoveIndex + " was removed");
 
             }
         }
