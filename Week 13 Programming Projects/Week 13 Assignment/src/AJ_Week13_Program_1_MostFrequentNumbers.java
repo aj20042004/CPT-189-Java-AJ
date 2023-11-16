@@ -178,7 +178,7 @@ public class AJ_Week13_Program_1_MostFrequentNumbers {
         // Creating the "for" loop to remove the nodes
         for (int l = 0; l < intRemoveParameter; l++) {
             
-            // Creating count1 variable 
+            // Creating intCount1 variable 
             int intCount1 = l + 1;
             
             // Generating random index value to remove nodes from array
@@ -187,8 +187,8 @@ public class AJ_Week13_Program_1_MostFrequentNumbers {
             // If array is not empty, we're removing the elements
             if (!arrStoreNumbers.isEmpty()) {
                 
-                // Removing the node asssociated with index value count1
-                arrStoreNumbers.remove(intCount1);
+                // Removing the node asssociated with index value intRemoveIndex
+                arrStoreNumbers.remove(intRemoveIndex);
 
                 System.out.println(intCount1 + ". The number at index ---> " + intRemoveIndex + " was removed");
 
