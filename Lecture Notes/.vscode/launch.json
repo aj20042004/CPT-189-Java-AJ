@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "AJ_Week13_Program_1_MostFrequentNumbers",
+            "request": "launch",
+            "mainClass": "AJ_Week13_Program_1_MostFrequentNumbers",
+            "projectName": "Lecture Notes_5d7a89f8"
+        },
+        {
+            "type": "java",
             "name": "EW_ArrayListsFromChatGPT",
             "request": "launch",
             "mainClass": "EW_ArrayListsFromChatGPT",
