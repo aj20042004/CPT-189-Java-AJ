@@ -39,8 +39,7 @@ public class AJ_Week13_Program_1_MostFrequentNumbers {
     
     // Creating private variables ( An array - arrStoreNumbers , HashMap - hshMapStoreFrequency )
     public static List<Integer> arrStoreNumbers = new ArrayList<Integer>();
-    public static HashMap<Integer, Integer> hshMapStoreFrequency = new HashMap<>();
-    
+   
     // Main method
     public static void main(String[] args) {
  
@@ -127,13 +126,15 @@ public class AJ_Week13_Program_1_MostFrequentNumbers {
     // Creating the HighestNumOccurrences method display the number that repeated the most
     public static void HighestNumOccurrences() {        
 
+        HashMap<Integer, Integer> hshMapStoreFrequency = new HashMap<>();
+
         /*  Creating the "for" loop to calculate the number of occurrences of each node and 
             storing the node and frequency as key:value pairs in HashMap. */
         for (int k = 0; k < arrStoreNumbers.size(); k++) {
             
             // Calculating the frequency of node
             int intFrequencyNums = Collections.frequency(arrStoreNumbers, arrStoreNumbers.get(k));
-            
+
             /*  If the node did not exist in hashMap, we're appending,
                 if the node exists, we're updating the new frequency of that node  */
             if ((!hshMapStoreFrequency.containsKey(arrStoreNumbers.get(k))) ||
@@ -190,9 +191,7 @@ public class AJ_Week13_Program_1_MostFrequentNumbers {
                 // Removing the node asssociated with index value intRemoveIndex
                 arrStoreNumbers.remove(intRemoveIndex);
 
-                System.out.println(intCount1 + ". The number at index ---> " + intRemoveIndex + " was removed");
-
-                
+                System.out.println(intCount1 + ". The number at index ---> " + intRemoveIndex + " was removed");               
 
             }
         }
