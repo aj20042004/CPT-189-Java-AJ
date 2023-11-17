@@ -37,7 +37,7 @@ import java.util.Collections;
 // Creating the class
 public class AJ_Week13_Program_1_MostFrequentNumbers {
     
-    // Creating private variables ( An array - arrStoreNumbers , HashMap - hshMapStoreFrequency )
+    // Creating private variable ( An array - arrStoreNumbers )
     public static List<Integer> arrStoreNumbers = new ArrayList<Integer>();
    
     // Main method
@@ -98,7 +98,7 @@ public class AJ_Week13_Program_1_MostFrequentNumbers {
             // Printing each element
             System.out.print(arrStoreNumbers.get(j) + "  ");
             
-            // Creating a new line to display the elements of the array as rows of 20 numbers ar a time per line.
+            // Creating a new line to display the elements of the array as rows of 20 numbers at a time per line.
             if (( (j+1) % 20 == 0)){
                 System.out.println();
             }
@@ -123,9 +123,10 @@ public class AJ_Week13_Program_1_MostFrequentNumbers {
         }
     }
     
-    // Creating the HighestNumOccurrences method display the number that repeated the most
+    // Creating the HighestNumOccurrences method to display the number that repeated the most
     public static void HighestNumOccurrences() {        
-
+        
+        // Creating the hashMap "hshMapStoreFrequency" 
         HashMap<Integer, Integer> hshMapStoreFrequency = new HashMap<>();
 
         /*  Creating the "for" loop to calculate the number of occurrences of each node and 
@@ -156,7 +157,7 @@ public class AJ_Week13_Program_1_MostFrequentNumbers {
         // Using "for" loop to iterate through hashMap
         for (Map.Entry<Integer, Integer> mapEntry : hshMapStoreFrequency.entrySet()) {
             
-            /* If the frequency value of the node matches the maxValue, then we're displaying 
+            /* If the frequency value of the node matches the maxValue, we're displaying 
                the node and frequency value since it's the highest occurring number */
             if (mapEntry.getValue().equals(intMaxValue)) {
 

@@ -76,8 +76,6 @@ public class AJ_Week13_GUI_Program_1_SpinnerForFontSize extends Application{
         stgApp.show();
 
     }
-
-    
     
     // Main method
     public static void main(String[] args) {
