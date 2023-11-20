@@ -25,7 +25,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class AJ_Week15_GUI_Program_Final_ECommerce extends Application {
+public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
 
     @Override
     public void start(Stage stgApp) throws Exception {
