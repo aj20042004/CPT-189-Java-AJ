@@ -22,7 +22,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.animation.KeyFrame;
@@ -41,7 +40,8 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
 
     @Override
     public void start(Stage stgApp) throws Exception {
-
+        
+        // Main Screen
         Pane paneMain = new Pane();
         Scene sceneMain = new Scene(paneMain, 800, 600);
 
@@ -55,10 +55,34 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
 
         Image imgBuildYourOwnPizza = new Image("Create your own.jpg");
         ImageView imageViewBuildYourOwnPizza = new ImageView(imgBuildYourOwnPizza);
-        imageViewBuildYourOwnPizza.setLayoutX(40);
-        imageViewBuildYourOwnPizza.setLayoutY(120);
+        imageViewBuildYourOwnPizza.setLayoutX(60);
+        imageViewBuildYourOwnPizza.setLayoutY(160);
         imageViewBuildYourOwnPizza.setFitWidth(120);
         imageViewBuildYourOwnPizza.setFitHeight(120);
+
+        Image imgPepperoniPizza = new Image("pepperoni.jpg");
+        ImageView imageViewPepperoniPizza = new ImageView(imgPepperoniPizza);
+        imageViewPepperoniPizza.setLayoutX(260);
+        imageViewPepperoniPizza.setLayoutY(160);
+        imageViewPepperoniPizza.setFitWidth(120);
+        imageViewPepperoniPizza.setFitHeight(120);
+
+        Image imgBuffaloChickenPizza = new Image("Buffalo Chicken.jpg");
+        ImageView imageViewBuffaloChicken = new ImageView(imgBuffaloChickenPizza);
+        imageViewBuffaloChicken.setLayoutX(460);
+        imageViewBuffaloChicken.setLayoutY(160);
+        imageViewBuffaloChicken.setFitWidth(120);
+        imageViewBuffaloChicken.setFitHeight(120);
+
+        Image imgWisconsin6Cheese = new Image("Wisconsin 6 Cheese.jpg");
+        ImageView imageViewWisconsin6Cheese = new ImageView(imgWisconsin6Cheese);
+        imageViewWisconsin6Cheese.setLayoutX(660);
+        imageViewWisconsin6Cheese.setLayoutY(160);
+        imageViewWisconsin6Cheese.setFitWidth(120);
+        imageViewWisconsin6Cheese.setFitHeight(120);
+
+
+
 
         Text txtDominos = new Text("Dominos");
         txtDominos.setLayoutX(100);
@@ -67,8 +91,8 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
         txtDominos.setFill(Color.WHITESMOKE);
 
         Button btnBuildYourOwnPizza = new Button("Build your own");
-        btnBuildYourOwnPizza.setLayoutX(50);
-        btnBuildYourOwnPizza.setLayoutY(260);
+        btnBuildYourOwnPizza.setLayoutX(70);
+        btnBuildYourOwnPizza.setLayoutY(300);
         btnBuildYourOwnPizza.setFont(Font.font("Geometric Sans-Serif", 13));
 
         Button btnCheckout = new Button("checkout");
@@ -83,10 +107,11 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
         paneMain.getChildren().add(txtDominos);
         paneMain.getChildren().add(btnBuildYourOwnPizza);
         paneMain.getChildren().add(btnCheckout);
-        paneMain.getChildren().add(imageViewBuildYourOwnPizza);
-
+        paneMain.getChildren().addAll(imageViewBuildYourOwnPizza, imageViewPepperoniPizza, imageViewBuffaloChicken, imageViewWisconsin6Cheese);
+        
         // -------------------------------------------------------------------------------------------------
-
+         
+        // Build your own pizza screen
         Pane paneBuildYourPizza = new Pane();
         Scene sceneBuildYourOwnPizza = new Scene(paneBuildYourPizza, 800, 600);
 
@@ -176,7 +201,8 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
         paneBuildYourPizza.getChildren().addAll(cbPepperoni, cbChicken, cbGreenPeppers, cbMushrooms, cbOlives);
 
         // ---------------------------------------------------------------------------------------------------------------------------
-
+        
+        // Checkout screen
         Pane paneCheckout = new Pane();
         Scene sceneCheckout = new Scene(paneCheckout, 800, 600);
 
@@ -207,7 +233,7 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
 
         // -------------------------------------------------------------------------------------------------------------------------
 
-        
+        // All the setOnActions        
         btnBuildYourOwnPizza.setOnAction(e -> stgApp.setScene(sceneBuildYourOwnPizza));
         btnCheckout.setOnAction(e -> stgApp.setScene(sceneCheckout));
         
