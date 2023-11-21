@@ -43,16 +43,15 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
     public void start(Stage stgApp) throws Exception {
 
         Pane paneMain = new Pane();
+        Scene sceneMain = new Scene(paneMain, 800, 600);
+
+        Rectangle rectangleDominosHeader = new Rectangle(1000, 82, Color.DARKBLUE);
+        Rectangle rectangleBackground = new Rectangle(1000, 700, Color.ALICEBLUE);
 
         Image imgDominosLogo = new Image("dominos.jpg");
         ImageView imageViewDominosLogo = new ImageView(imgDominosLogo);
         imageViewDominosLogo.setLayoutX(0);
         imageViewDominosLogo.setLayoutY(0);
-
-        Image imgDominosLogo_1 = new Image("dominos.jpg");
-        ImageView imageViewDominosLogo_1 = new ImageView(imgDominosLogo_1);
-        imageViewDominosLogo_1.setLayoutX(0);
-        imageViewDominosLogo_1.setLayoutY(0);
 
         Image imgBuildYourOwnPizza = new Image("Create your own.jpg");
         ImageView imageViewBuildYourOwnPizza = new ImageView(imgBuildYourOwnPizza);
@@ -61,24 +60,11 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
         imageViewBuildYourOwnPizza.setFitWidth(120);
         imageViewBuildYourOwnPizza.setFitHeight(120);
 
-        Image imgBuildYourOwnPizza_1 = new Image("Create your own.jpg");
-        ImageView imageViewBuildYourOwnPizza_1 = new ImageView(imgBuildYourOwnPizza_1);
-        imageViewBuildYourOwnPizza_1.setLayoutX(105);
-        imageViewBuildYourOwnPizza_1.setLayoutY(165);
-        imageViewBuildYourOwnPizza_1.setFitWidth(250);
-        imageViewBuildYourOwnPizza_1.setFitHeight(250);
-
         Text txtDominos = new Text("Dominos");
         txtDominos.setLayoutX(100);
         txtDominos.setLayoutY(55);
         txtDominos.setFont(Font.font("Geometric Sans-Serif", 43));
         txtDominos.setFill(Color.WHITESMOKE);
-
-        Text txtDominos_1 = new Text("Dominos");
-        txtDominos_1.setLayoutX(100);
-        txtDominos_1.setLayoutY(55);
-        txtDominos_1.setFont(Font.font("Geometric Sans-Serif", 43));
-        txtDominos_1.setFill(Color.WHITESMOKE);
 
         Button btnBuildYourOwnPizza = new Button("Build your own");
         btnBuildYourOwnPizza.setLayoutX(50);
@@ -91,12 +77,6 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
         btnCheckout.setPrefSize(93, 35);
         btnCheckout.setFont(Font.font("Geometric Sans-Serif", 15));
 
-        Rectangle rectangleDominosHeader = new Rectangle(1000, 82, Color.DARKBLUE);
-        Rectangle rectangleDominosHeader_1 = new Rectangle(1000, 82, Color.DARKBLUE);
-        Rectangle rectangleBackground = new Rectangle(1000, 700, Color.ALICEBLUE);
-        Rectangle rectangleBackground_1 = new Rectangle(1000, 700, Color.ALICEBLUE);
-        Rectangle rectangleBackground_2 = new Rectangle(1000, 700, Color.ALICEBLUE);
-
         paneMain.getChildren().add(rectangleBackground);
         paneMain.getChildren().add(rectangleDominosHeader);
         paneMain.getChildren().add(imageViewDominosLogo);
@@ -105,15 +85,36 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
         paneMain.getChildren().add(btnCheckout);
         paneMain.getChildren().add(imageViewBuildYourOwnPizza);
 
+        // -------------------------------------------------------------------------------------------------
+
+        Pane paneBuildYourPizza = new Pane();
+        Scene sceneBuildYourOwnPizza = new Scene(paneBuildYourPizza, 800, 600);
+
+        Rectangle rectangleBackground_2 = new Rectangle(1000, 700, Color.ALICEBLUE);
+
+        Image imgBuildYourOwnPizza_1 = new Image("Create your own.jpg");
+        ImageView imageViewBuildYourOwnPizza_1 = new ImageView(imgBuildYourOwnPizza_1);
+        imageViewBuildYourOwnPizza_1.setLayoutX(105);
+        imageViewBuildYourOwnPizza_1.setLayoutY(165);
+        imageViewBuildYourOwnPizza_1.setFitWidth(250);
+        imageViewBuildYourOwnPizza_1.setFitHeight(250);
+
         Button btnBack = new Button("BACK");
         btnBack.setLayoutX(20);
         btnBack.setLayoutY(20);
         btnBack.setFont(Font.font("Geometric Sans-Serif", 15));
 
-        Button btnBack_1 = new Button("BACK");
-        btnBack_1.setLayoutX(27);
-        btnBack_1.setLayoutY(110);
-        btnBack_1.setFont(Font.font("Geometric Sans-Serif", 15));
+        Button btnAddToYourCart = new Button("Add to your Cart");
+        btnAddToYourCart.setLayoutX(470);
+        btnAddToYourCart.setLayoutY(460);
+        btnAddToYourCart.setPrefSize(150, 35);
+        btnAddToYourCart.setFont(Font.font("Geometric Sans-Serif", 15));
+
+        Button btnViewYourCart = new Button("View the Cart");
+        btnViewYourCart.setLayoutX(660);
+        btnViewYourCart.setLayoutY(15);
+        btnViewYourCart.setPrefSize(120, 40);
+        btnViewYourCart.setFont(Font.font("Geometric Sans-Serif", 15));
 
         Text txtOriginalPizzaLabel = new Text("Plain Pizza: $10.50");
         txtOriginalPizzaLabel.setFont(Font.font("Geometric Sans-Serif", 22));
@@ -124,6 +125,10 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
         txtEachToppings.setFont(Font.font("Geometric Sans-Serif", 22));
         txtEachToppings.setLayoutX(365);
         txtEachToppings.setLayoutY(125);
+
+        txtCurrentPrice.setFont(Font.font("Geometric Sans-Serif", 22));
+        txtCurrentPrice.setLayoutX(140);
+        txtCurrentPrice.setLayoutY(485);
 
         CheckBox cbPepperoni = new CheckBox("Pepperoni");
         cbPepperoni.setLayoutX(420);
@@ -150,28 +155,11 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
         cbChicken.setLayoutY(365);
         cbChicken.setFont(Font.font("Geometric Sans-Serif", 24));
 
-        Button btnAddToYourCart = new Button("Add to your Cart");
-        btnAddToYourCart.setLayoutX(470);
-        btnAddToYourCart.setLayoutY(460);
-        btnAddToYourCart.setPrefSize(150, 35);
-        btnAddToYourCart.setFont(Font.font("Geometric Sans-Serif", 15));
-
-        Button btnViewYourCart = new Button("View the Cart");
-        btnViewYourCart.setLayoutX(660);
-        btnViewYourCart.setLayoutY(15);
-        btnViewYourCart.setPrefSize(120, 40);
-        btnViewYourCart.setFont(Font.font("Geometric Sans-Serif", 15));
-
         increaseCheckBoxFont(cbChicken);
         increaseCheckBoxFont(cbGreenPeppers);
         increaseCheckBoxFont(cbOlives);
         increaseCheckBoxFont(cbPepperoni);
         increaseCheckBoxFont(cbMushrooms);
-
-        
-        txtCurrentPrice.setFont(Font.font("Geometric Sans-Serif", 22));
-        txtCurrentPrice.setLayoutX(140);
-        txtCurrentPrice.setLayoutY(485);
 
         // Updating the current total price when user clicks the check boxes
         cbChicken.setOnAction(e -> updateCost(txtCurrentPrice, cbChicken.isSelected()));
@@ -180,33 +168,56 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
         cbGreenPeppers.setOnAction(e -> updateCost(txtCurrentPrice, cbGreenPeppers.isSelected()));
         cbMushrooms.setOnAction(e -> updateCost(txtCurrentPrice, cbMushrooms.isSelected()));
 
-        Pane paneBuildYourPizza = new Pane();
         paneBuildYourPizza.getChildren().add(rectangleBackground_2);
-        paneBuildYourPizza.getChildren().addAll(btnBack, btnAddToYourCart,btnViewYourCart);
+        paneBuildYourPizza.getChildren().addAll(btnBack, btnAddToYourCart, btnViewYourCart);
         paneBuildYourPizza.getChildren().add(imageViewBuildYourOwnPizza_1);
         paneBuildYourPizza.getChildren().addAll(txtOriginalPizzaLabel, txtEachToppings, txtCurrentPrice,
                 txtMessageForAddToYourCart);
         paneBuildYourPizza.getChildren().addAll(cbPepperoni, cbChicken, cbGreenPeppers, cbMushrooms, cbOlives);
 
+        // ---------------------------------------------------------------------------------------------------------------------------
+
         Pane paneCheckout = new Pane();
+        Scene sceneCheckout = new Scene(paneCheckout, 800, 600);
+
+        Rectangle rectangleDominosHeader_1 = new Rectangle(1000, 82, Color.DARKBLUE);
+        Rectangle rectangleBackground_1 = new Rectangle(1000, 700, Color.ALICEBLUE);
+
+        Image imgDominosLogo_1 = new Image("dominos.jpg");
+        ImageView imageViewDominosLogo_1 = new ImageView(imgDominosLogo_1);
+        imageViewDominosLogo_1.setLayoutX(0);
+        imageViewDominosLogo_1.setLayoutY(0);
+
+        Button btnBack_1 = new Button("BACK");
+        btnBack_1.setLayoutX(27);
+        btnBack_1.setLayoutY(110);
+        btnBack_1.setFont(Font.font("Geometric Sans-Serif", 15));
+
+        Text txtDominos_1 = new Text("Dominos");
+        txtDominos_1.setLayoutX(100);
+        txtDominos_1.setLayoutY(55);
+        txtDominos_1.setFont(Font.font("Geometric Sans-Serif", 43));
+        txtDominos_1.setFill(Color.WHITESMOKE);
+
         paneCheckout.getChildren().add(rectangleBackground_1);
         paneCheckout.getChildren().add(rectangleDominosHeader_1);
         paneCheckout.getChildren().add(imageViewDominosLogo_1);
         paneCheckout.getChildren().add(btnBack_1);
         paneCheckout.getChildren().add(txtDominos_1);
 
-        Scene sceneMain = new Scene(paneMain, 800, 600);
-        Scene sceneBuildYourOwnPizza = new Scene(paneBuildYourPizza, 800, 600);
-        Scene sceneCheckout = new Scene(paneCheckout, 800, 600);
+        // -------------------------------------------------------------------------------------------------------------------------
 
+        
         btnBuildYourOwnPizza.setOnAction(e -> stgApp.setScene(sceneBuildYourOwnPizza));
-        btnBack.setOnAction(e -> stgApp.setScene(sceneMain));
         btnCheckout.setOnAction(e -> stgApp.setScene(sceneCheckout));
-        btnBack_1.setOnAction(e -> stgApp.setScene(sceneMain));
+        
+        btnBack.setOnAction(e -> stgApp.setScene(sceneMain));
         btnAddToYourCart.setOnAction(e -> Message());
         btnViewYourCart.setOnAction(e -> stgApp.setScene(sceneCheckout));
-
-        stgApp.setScene(sceneBuildYourOwnPizza);
+        
+        btnBack_1.setOnAction(e -> stgApp.setScene(sceneMain));
+        
+        stgApp.setScene(sceneMain);
         stgApp.setTitle("Dominos App");
         stgApp.show();
 
