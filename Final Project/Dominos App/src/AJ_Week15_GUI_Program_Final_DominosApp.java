@@ -17,6 +17,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -24,6 +25,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import java.util.HashMap;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -33,14 +35,40 @@ import javafx.util.Duration;
 
 public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
 
-    private double dblPizzaCost = 10.50;
+    private int intpepCnt;
+    private int intBflCknCnt;
+    private int intWisCheeseCnt;
+    private int intFrchFrsCnt;
+    private int intChsyBrdCnt;
+    private int intDrnksCnt;
+    private double dblPlainPizzaCost = 10.50;
+    private double dblPepperoniPizza = 12.50;
+    private double dblBuffaloChickenPizza = 15.50;
+    private double dblWisconsin6CheesePizza = 20.10;
+    private double dblFrenchFries = 5.50;
+    private double dblStuffedCheesyBread = 7.50;
+    private double dblDrinks = 2.99;
+    private HashMap<String, Double> hshMapCheckOut = new HashMap<>();
+    private int intItemsCount = 0;
+    private int intPepperoniPizzaCount = 0;
+    private int intBuffaloChickenPizzaCount = 0;
+    private int intWisconsin6CheesePizzaCount = 0;
+    private int intFrenchFriesCount = 0;
+    private int intStuffedChessyBreadCount = 0;
+    private int intDrinksCount = 0;
+    private double dblDefaultCost = 0.0;
     private double dblEachToppingsCst = 1.50;
     private Text txtMessageForAddToYourCart = new Text("");
-    private Text txtCurrentPrice = new Text("Your Current Total Price: $" + String.format("%.2f", dblPizzaCost));
+    private Text txtCurrentPrice = new Text("Your Current Total Price: $" + String.format("%.2f", dblPlainPizzaCost));
+    private Text txtNumberOfItems = new Text("You have\n" + intItemsCount + " items in your cart");
+    private Text txtYourCart = new Text("Your Cart: ");
+    private Text txtMessage = new Text();
+    private Text txtMessage_1 = new Text();
+    private Text txtMessage_2 = new Text();
 
     @Override
     public void start(Stage stgApp) throws Exception {
-        
+
         // Main Screen
         Pane paneMain = new Pane();
         Scene sceneMain = new Scene(paneMain, 800, 600);
@@ -55,34 +83,92 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
 
         Image imgBuildYourOwnPizza = new Image("Create your own.jpg");
         ImageView imageViewBuildYourOwnPizza = new ImageView(imgBuildYourOwnPizza);
-        imageViewBuildYourOwnPizza.setLayoutX(60);
+        imageViewBuildYourOwnPizza.setLayoutX(45);
         imageViewBuildYourOwnPizza.setLayoutY(160);
         imageViewBuildYourOwnPizza.setFitWidth(120);
         imageViewBuildYourOwnPizza.setFitHeight(120);
 
+        Text txtBuildYourOwn = new Text("Plain\nPizza: $10.50");
+        txtBuildYourOwn.setLayoutX(48);
+        txtBuildYourOwn.setLayoutY(116);
+        txtBuildYourOwn.setFont(Font.font("Geometric Sans-Serif", 17));
+
         Image imgPepperoniPizza = new Image("pepperoni.jpg");
         ImageView imageViewPepperoniPizza = new ImageView(imgPepperoniPizza);
-        imageViewPepperoniPizza.setLayoutX(260);
+        imageViewPepperoniPizza.setLayoutX(245);
         imageViewPepperoniPizza.setLayoutY(160);
         imageViewPepperoniPizza.setFitWidth(120);
         imageViewPepperoniPizza.setFitHeight(120);
 
+        Text txtPepperoni = new Text("Pepperoni\nPizza: $12.50");
+        txtPepperoni.setLayoutX(248);
+        txtPepperoni.setLayoutY(116);
+        txtPepperoni.setFont(Font.font("Geometric Sans-Serif", 17));
+
         Image imgBuffaloChickenPizza = new Image("Buffalo Chicken.jpg");
         ImageView imageViewBuffaloChicken = new ImageView(imgBuffaloChickenPizza);
-        imageViewBuffaloChicken.setLayoutX(460);
+        imageViewBuffaloChicken.setLayoutX(445);
         imageViewBuffaloChicken.setLayoutY(160);
         imageViewBuffaloChicken.setFitWidth(120);
         imageViewBuffaloChicken.setFitHeight(120);
 
+        Text txtBuffaloChicken = new Text("Buffalo\nChicken Pizza: $15.50");
+        txtBuffaloChicken.setLayoutX(428);
+        txtBuffaloChicken.setLayoutY(116);
+        txtBuffaloChicken.setFont(Font.font("Geometric Sans-Serif", 17));
+
         Image imgWisconsin6Cheese = new Image("Wisconsin 6 Cheese.jpg");
         ImageView imageViewWisconsin6Cheese = new ImageView(imgWisconsin6Cheese);
-        imageViewWisconsin6Cheese.setLayoutX(660);
+        imageViewWisconsin6Cheese.setLayoutX(645);
         imageViewWisconsin6Cheese.setLayoutY(160);
         imageViewWisconsin6Cheese.setFitWidth(120);
         imageViewWisconsin6Cheese.setFitHeight(120);
 
+        Text txtWisconsin6Chesse = new Text("Wisconsin 6\nCheese Pizza: $20.10");
+        txtWisconsin6Chesse.setLayoutX(628);
+        txtWisconsin6Chesse.setLayoutY(116);
+        txtWisconsin6Chesse.setFont(Font.font("Geometric Sans-Serif", 17));
 
+        Image imgFrenchFries = new Image("frenchFries.jpg");
+        ImageView imageViewFrenchFries = new ImageView(imgFrenchFries);
+        imageViewFrenchFries.setLayoutX(45);
+        imageViewFrenchFries.setLayoutY(410);
+        imageViewFrenchFries.setFitWidth(120);
+        imageViewFrenchFries.setFitHeight(120);
 
+        Text txtFrenchFries = new Text("French\nFries: $5.50");
+        txtFrenchFries.setLayoutX(50);
+        txtFrenchFries.setLayoutY(370);
+        txtFrenchFries.setFont(Font.font("Geometric Sans-Serif", 17));
+
+        Image imgStuffedCheesyBread = new Image("StuffedCheesyBread.jpg");
+        ImageView imageViewStuffedCheesyBread = new ImageView(imgStuffedCheesyBread);
+        imageViewStuffedCheesyBread.setLayoutX(245);
+        imageViewStuffedCheesyBread.setLayoutY(410);
+        imageViewStuffedCheesyBread.setFitWidth(120);
+        imageViewStuffedCheesyBread.setFitHeight(120);
+
+        Text txtStuffedCheesyBread = new Text("Stuffed cheesy\nbread: $7.50");
+        txtStuffedCheesyBread.setLayoutX(250);
+        txtStuffedCheesyBread.setLayoutY(370);
+        txtStuffedCheesyBread.setFont(Font.font("Geometric Sans-Serif", 17));
+
+        txtNumberOfItems.setLayoutX(615);
+        txtNumberOfItems.setLayoutY(35);
+        txtNumberOfItems.setFont(Font.font("Geometric Sans-Serif", 20));
+        txtNumberOfItems.setFill(Color.WHITESMOKE);
+
+        Image imgDrinks = new Image("drinks.jpg");
+        ImageView imageViewDrinks = new ImageView(imgDrinks);
+        imageViewDrinks.setLayoutX(445);
+        imageViewDrinks.setLayoutY(410);
+        imageViewDrinks.setFitWidth(120);
+        imageViewDrinks.setFitHeight(120);
+
+        Text txtDrinks = new Text("Drinks: $2.99");
+        txtDrinks.setLayoutX(450);
+        txtDrinks.setLayoutY(387);
+        txtDrinks.setFont(Font.font("Geometric Sans-Serif", 17));
 
         Text txtDominos = new Text("Dominos");
         txtDominos.setLayoutX(100);
@@ -90,27 +176,68 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
         txtDominos.setFont(Font.font("Geometric Sans-Serif", 43));
         txtDominos.setFill(Color.WHITESMOKE);
 
+        Text txtYourPrice = new Text("Your\nPrice: $" + String.format("%.2f", dblDefaultCost));
+        txtYourPrice.setLayoutX(625);
+        txtYourPrice.setLayoutY(450);
+        txtYourPrice.setFont(Font.font("Geometric Sans-Serif", 25));
+
         Button btnBuildYourOwnPizza = new Button("Build your own");
-        btnBuildYourOwnPizza.setLayoutX(70);
+        btnBuildYourOwnPizza.setLayoutX(49);
         btnBuildYourOwnPizza.setLayoutY(300);
-        btnBuildYourOwnPizza.setFont(Font.font("Geometric Sans-Serif", 13));
+        btnBuildYourOwnPizza.setFont(Font.font("Geometric Sans-Serif", 14));
+
+        Button btnAddToYourCartForPepperoni = new Button("Add to your Cart");
+        btnAddToYourCartForPepperoni.setLayoutX(242);
+        btnAddToYourCartForPepperoni.setLayoutY(300);
+        btnAddToYourCartForPepperoni.setFont(Font.font("Geometric Sans-Serif", 14));
+
+        Button btnAddToYourCartForBuffaloChicken = new Button("Add to your Cart");
+        btnAddToYourCartForBuffaloChicken.setLayoutX(445);
+        btnAddToYourCartForBuffaloChicken.setLayoutY(300);
+        btnAddToYourCartForBuffaloChicken.setFont(Font.font("Geometric Sans-Serif", 14));
+
+        Button btnAddToYourCartForWisconsin6Cheese = new Button("Add to your Cart");
+        btnAddToYourCartForWisconsin6Cheese.setLayoutX(644);
+        btnAddToYourCartForWisconsin6Cheese.setLayoutY(300);
+        btnAddToYourCartForWisconsin6Cheese.setFont(Font.font("Geometric Sans-Serif", 14));
+
+        Button btnAddToYourCartFrenchFries = new Button("Add to your Cart");
+        btnAddToYourCartFrenchFries.setLayoutX(43);
+        btnAddToYourCartFrenchFries.setLayoutY(550);
+        btnAddToYourCartFrenchFries.setFont(Font.font("Geometric Sans-Serif", 14));
+
+        Button btnAddToYourCartStuffedCheesyBread = new Button("Add to your Cart");
+        btnAddToYourCartStuffedCheesyBread.setLayoutX(244);
+        btnAddToYourCartStuffedCheesyBread.setLayoutY(550);
+        btnAddToYourCartStuffedCheesyBread.setFont(Font.font("Geometric Sans-Serif", 14));
+
+        Button btnAddToYourCartDrinks = new Button("Add to your Cart");
+        btnAddToYourCartDrinks.setLayoutX(445);
+        btnAddToYourCartDrinks.setLayoutY(550);
+        btnAddToYourCartDrinks.setFont(Font.font("Geometric Sans-Serif", 14));
 
         Button btnCheckout = new Button("checkout");
-        btnCheckout.setLayoutX(670);
-        btnCheckout.setLayoutY(530);
-        btnCheckout.setPrefSize(93, 35);
-        btnCheckout.setFont(Font.font("Geometric Sans-Serif", 15));
+        btnCheckout.setLayoutX(640);
+        btnCheckout.setLayoutY(510);
+        btnCheckout.setPrefSize(93, 42);
+        btnCheckout.setFont(Font.font("Geometric Sans-Serif", 17));
 
         paneMain.getChildren().add(rectangleBackground);
         paneMain.getChildren().add(rectangleDominosHeader);
         paneMain.getChildren().add(imageViewDominosLogo);
-        paneMain.getChildren().add(txtDominos);
-        paneMain.getChildren().add(btnBuildYourOwnPizza);
+        paneMain.getChildren().addAll(txtDominos, txtBuildYourOwn, txtFrenchFries, txtYourPrice,
+                txtBuffaloChicken, txtPepperoni, txtWisconsin6Chesse, txtDrinks, txtStuffedCheesyBread,
+                txtNumberOfItems);
+        paneMain.getChildren().addAll(btnBuildYourOwnPizza, btnAddToYourCartFrenchFries, btnAddToYourCartForPepperoni,
+                btnAddToYourCartDrinks, btnAddToYourCartStuffedCheesyBread,
+                btnAddToYourCartForBuffaloChicken, btnAddToYourCartForWisconsin6Cheese);
         paneMain.getChildren().add(btnCheckout);
-        paneMain.getChildren().addAll(imageViewBuildYourOwnPizza, imageViewPepperoniPizza, imageViewBuffaloChicken, imageViewWisconsin6Cheese);
-        
+        paneMain.getChildren().addAll(imageViewBuildYourOwnPizza, imageViewPepperoniPizza,
+                imageViewBuffaloChicken, imageViewWisconsin6Cheese, imageViewFrenchFries, imageViewStuffedCheesyBread,
+                imageViewDrinks);
+
         // -------------------------------------------------------------------------------------------------
-         
+
         // Build your own pizza screen
         Pane paneBuildYourPizza = new Pane();
         Scene sceneBuildYourOwnPizza = new Scene(paneBuildYourPizza, 800, 600);
@@ -201,7 +328,7 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
         paneBuildYourPizza.getChildren().addAll(cbPepperoni, cbChicken, cbGreenPeppers, cbMushrooms, cbOlives);
 
         // ---------------------------------------------------------------------------------------------------------------------------
-        
+
         // Checkout screen
         Pane paneCheckout = new Pane();
         Scene sceneCheckout = new Scene(paneCheckout, 800, 600);
@@ -219,30 +346,200 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
         btnBack_1.setLayoutY(110);
         btnBack_1.setFont(Font.font("Geometric Sans-Serif", 15));
 
-        Text txtDominos_1 = new Text("Dominos");
-        txtDominos_1.setLayoutX(100);
-        txtDominos_1.setLayoutY(55);
-        txtDominos_1.setFont(Font.font("Geometric Sans-Serif", 43));
-        txtDominos_1.setFill(Color.WHITESMOKE);
+        txtYourCart.setLayoutX(142);
+        txtYourCart.setLayoutY(205);
+        txtYourCart.setFont(Font.font("Geometric Sans-Serif", 35));
 
         paneCheckout.getChildren().add(rectangleBackground_1);
         paneCheckout.getChildren().add(rectangleDominosHeader_1);
         paneCheckout.getChildren().add(imageViewDominosLogo_1);
         paneCheckout.getChildren().add(btnBack_1);
-        paneCheckout.getChildren().add(txtDominos_1);
 
         // -------------------------------------------------------------------------------------------------------------------------
 
-        // All the setOnActions        
+        // All the setOnActions
         btnBuildYourOwnPizza.setOnAction(e -> stgApp.setScene(sceneBuildYourOwnPizza));
-        btnCheckout.setOnAction(e -> stgApp.setScene(sceneCheckout));
-        
+
+        btnAddToYourCartForPepperoni.setOnAction(e -> {
+
+            AddCounter();
+            intpepCnt = PepperoniPizzaCounter();
+            hshMapCheckOut.put("Pepperoni Pizza", dblPepperoniPizza);
+
+        });
+        btnAddToYourCartForBuffaloChicken.setOnAction(e -> {
+
+            AddCounter();
+            intBflCknCnt = BuffaloChickenPizzaCounter();
+            hshMapCheckOut.put("Buffalo Chicken Pizza", dblBuffaloChickenPizza);
+
+        });
+        btnAddToYourCartForWisconsin6Cheese.setOnAction(e -> {
+
+            AddCounter();
+            intWisCheeseCnt = Wisconsin6CheesePizzaCounter();
+            hshMapCheckOut.put("Wisconsin 6 Cheese Pizza", dblWisconsin6CheesePizza);
+
+        });
+
+        btnAddToYourCartFrenchFries.setOnAction(e -> {
+            AddCounter();
+            intFrchFrsCnt = FrenchFriesCounter();
+            hshMapCheckOut.put("French Fries", dblFrenchFries);
+        });
+
+        btnAddToYourCartStuffedCheesyBread.setOnAction(e -> {
+            AddCounter();
+            intChsyBrdCnt = StuffedCheesyBreadCounter();
+            hshMapCheckOut.put("Stuffed chessy bread", dblStuffedCheesyBread);
+        });
+        btnAddToYourCartDrinks.setOnAction(e -> {
+            AddCounter();
+            intDrnksCnt = DrinksCounter();
+            hshMapCheckOut.put("Drinks", dblDrinks);
+        });
+
+        btnCheckout.setOnAction(e -> {
+
+            stgApp.setScene(sceneCheckout);
+
+            int intPosition = 250;
+            // Iterate through hashMap // Work on duplicated
+
+            paneCheckout.getChildren().removeIf(node -> node instanceof Text);
+
+            // Need to Fix the Bug here
+            for (String strKey : hshMapCheckOut.keySet()) {
+
+                Text txtDominosReturn = DominosText();
+                Text txtLabel = new Text();
+                if (strKey.equals("Pepperoni Pizza")) {
+
+                    txtLabel.setText(strKey + ": $" + hshMapCheckOut.get(strKey) + "   (" + intpepCnt + ") Items");
+
+                }
+
+                else if (strKey.equals("Buffalo Chicken Pizza")) {
+
+                    txtLabel.setText(strKey + ": $" + hshMapCheckOut.get(strKey) + "   (" + intBflCknCnt + ") Items");
+
+                }
+
+                else if (strKey.equals("Wisconsin 6 Cheese Pizza")) {
+
+                    txtLabel.setText(
+                            strKey + ": $" + hshMapCheckOut.get(strKey) + "   (" + intWisCheeseCnt + ") Items");
+
+                }
+
+                else if (strKey.equals("French Fries")) {
+
+                    txtLabel.setText(strKey + ": $" + hshMapCheckOut.get(strKey) + "   (" + intFrchFrsCnt + ") Items");
+
+                }
+
+                else if (strKey.equals("Stuffed chessy bread")) {
+
+                    txtLabel.setText(strKey + ": $" + hshMapCheckOut.get(strKey) + "   (" + intChsyBrdCnt + ") Items");
+
+                }
+
+                else if (strKey.equals("Drinks")) {
+
+                    txtLabel.setText(strKey + ": $" + hshMapCheckOut.get(strKey) + "   (" + intDrnksCnt + ") Items");
+
+                }
+
+                txtLabel.setFont(Font.font("Geometric Sans-Serif", 21));
+                txtLabel.setLayoutX(60);
+                txtLabel.setLayoutY(intPosition);
+                paneCheckout.getChildren().add(txtLabel);
+                paneCheckout.getChildren().add(txtDominosReturn);
+                intPosition += 38;
+            }
+
+            Text txtDominos_1 = DominosText();
+            paneCheckout.getChildren().addAll(txtYourCart, txtDominos_1);
+
+            Text txtCustomerName = new Text("Name:");
+            txtCustomerName.setLayoutX(560);
+            txtCustomerName.setLayoutY(130);
+            txtCustomerName.setFont(Font.font("Geometric Sans-Serif", 21));
+
+            Text txtCustomerAddress = new Text("Address:");
+            txtCustomerAddress.setLayoutX(560);
+            txtCustomerAddress.setLayoutY(246);
+            txtCustomerAddress.setFont(Font.font("Geometric Sans-Serif", 21));
+
+            Text txtCustomerPhoneNumber = new Text("Phone Number:");
+            txtCustomerPhoneNumber.setLayoutX(560);
+            txtCustomerPhoneNumber.setLayoutY(407);
+            txtCustomerPhoneNumber.setFont(Font.font("Geometric Sans-Serif", 21));
+
+            paneCheckout.getChildren().addAll(txtCustomerName,txtCustomerAddress,txtCustomerPhoneNumber);
+
+            TextField txtFieldNameInput = new TextField();
+            txtFieldNameInput.setMinWidth(50);
+            txtFieldNameInput.setPrefHeight(50);
+            txtFieldNameInput.setLayoutX(560);
+            txtFieldNameInput.setLayoutY(150);
+            txtFieldNameInput.setFont(Font.font("Geometric Sans-Serif", 13));
+
+            TextField txtFieldAddressInput = new TextField();
+            txtFieldAddressInput.setMinWidth(50);
+            txtFieldAddressInput.setPrefHeight(90);
+            txtFieldAddressInput.setLayoutX(560);
+            txtFieldAddressInput.setLayoutY(266);
+            txtFieldAddressInput.setFont(Font.font("Geometric Sans-Serif", 13));
+
+            TextField txtFieldPhoneNumber = new TextField();
+            txtFieldPhoneNumber.setMinWidth(50);
+            txtFieldPhoneNumber.setPrefHeight(40);
+            txtFieldPhoneNumber.setLayoutX(560);
+            txtFieldPhoneNumber.setLayoutY(427);
+            txtFieldPhoneNumber.setFont(Font.font("Geometric Sans-Serif", 13));
+
+            txtFieldNameInput.setOnAction(k -> {
+                
+                String strNameInput = txtFieldNameInput.getText();
+                txtMessage.setText(strNameInput);
+                txtMessage.setFont(Font.font("Geometric Sans-Serif", 12));
+                txtMessage.setLayoutX(400);
+                txtMessage.setLayoutY(100);
+                paneCheckout.getChildren().add(txtMessage);
+
+            });
+
+            txtFieldAddressInput.setOnAction(k -> {
+
+                String strAddressInput = txtFieldAddressInput.getText();
+                txtMessage_1.setText(strAddressInput);
+                txtMessage_1.setFont(Font.font("Geometric Sans-Serif", 16));
+                txtMessage_1.setLayoutX(400);
+                txtMessage_1.setLayoutY(200);
+                paneCheckout.getChildren().add(txtMessage_1);
+
+            });
+            txtFieldPhoneNumber.setOnAction(k -> {
+
+                String strPhoneNumberInput = txtFieldPhoneNumber.getText();
+                txtMessage_2.setText(strPhoneNumberInput);
+                txtMessage_2.setFont(Font.font("Geometric Sans-Serif", 16));
+                txtMessage_2.setLayoutX(400);
+                txtMessage_2.setLayoutY(300);
+                paneCheckout.getChildren().add(txtMessage_2);
+
+            });
+
+            paneCheckout.getChildren().addAll(txtFieldAddressInput, txtFieldNameInput, txtFieldPhoneNumber);
+
+        });
+
         btnBack.setOnAction(e -> stgApp.setScene(sceneMain));
         btnAddToYourCart.setOnAction(e -> Message());
         btnViewYourCart.setOnAction(e -> stgApp.setScene(sceneCheckout));
-        
         btnBack_1.setOnAction(e -> stgApp.setScene(sceneMain));
-        
+
         stgApp.setScene(sceneMain);
         stgApp.setTitle("Dominos App");
         stgApp.show();
@@ -254,16 +551,16 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
         // Adding the each topping cost when check box is clicked
         if (blnIsSelected) {
 
-            dblPizzaCost += dblEachToppingsCst;
+            dblPlainPizzaCost += dblEachToppingsCst;
         }
 
         // Subtracting the each topping cost when decides to remove the topping.
         else {
-            dblPizzaCost -= dblEachToppingsCst;
+            dblPlainPizzaCost -= dblEachToppingsCst;
         }
 
         // Setting the new updated total
-        txtCurrentPrice.setText("Your Current Total Price: $" + String.format("%.2f", dblPizzaCost));
+        txtCurrentPrice.setText("Your Current Total Price: $" + String.format("%.2f", dblPlainPizzaCost));
     }
 
     // Private method for increasing the font size of CheckBox labels
@@ -294,6 +591,64 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
         // Start the Timeline
         timeline.play();
 
+    }
+
+    private void AddCounter() {
+
+        intItemsCount += 1;
+        txtNumberOfItems.setText("You have\n" + intItemsCount + " items in your cart");
+
+    }
+
+    private int PepperoniPizzaCounter() {
+
+        intPepperoniPizzaCount += 1;
+        return intPepperoniPizzaCount;
+
+    }
+
+    private int BuffaloChickenPizzaCounter() {
+
+        intBuffaloChickenPizzaCount += 1;
+        return intBuffaloChickenPizzaCount;
+
+    }
+
+    private int Wisconsin6CheesePizzaCounter() {
+
+        intWisconsin6CheesePizzaCount += 1;
+        return intWisconsin6CheesePizzaCount;
+
+    }
+
+    private int FrenchFriesCounter() {
+
+        intFrenchFriesCount += 1;
+        return intFrenchFriesCount;
+
+    }
+
+    private int StuffedCheesyBreadCounter() {
+
+        intStuffedChessyBreadCount += 1;
+        return intStuffedChessyBreadCount;
+
+    }
+
+    private int DrinksCounter() {
+
+        intDrinksCount += 1;
+        return intDrinksCount;
+
+    }
+
+    private Text DominosText() {
+        Text txtDominos_1 = new Text("Dominos");
+        txtDominos_1.setLayoutX(100);
+        txtDominos_1.setLayoutY(55);
+        txtDominos_1.setFont(Font.font("Geometric Sans-Serif", 43));
+        txtDominos_1.setFill(Color.WHITESMOKE);
+        return txtDominos_1;
     }
 
     public static void main(String[] args) {
