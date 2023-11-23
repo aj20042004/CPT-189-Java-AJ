@@ -18,35 +18,16 @@ public class GoogleLogoApp extends Application {
     @Override
     public void start(Stage primaryStage) {
         // Create Google-like logo using Text
-        Text googleLogo = new Text("GooGle");
-        googleLogo.setFont(Font.font("Arial", 36));
 
-        // Create TextField with CSS style and increased height
-        TextField textField = new TextField();
-        textField.setPromptText("Enter text here");
-        textField.setStyle("-fx-background-radius: 15; -fx-border-radius: 15; -fx-border-color: #ccc; -fx-background-color: #f4f4f4;");
-        textField.setPrefHeight(40); // Increase the height
+        Button btnBuildYourOwnPizza = new Button("Build your own");
+        btnBuildYourOwnPizza.setLayoutX(49);
+        btnBuildYourOwnPizza.setLayoutY(300);
+        btnBuildYourOwnPizza.setFont(Font.font("Geometric Sans-Serif", 14));
 
-        // Create ColorPicker
-        ColorPicker colorPicker = new ColorPicker();
-        colorPicker.setValue(Color.BLACK);
-
-        // Create Button
-        Button button = new Button("Change Text Color");
-        button.setMinWidth(150); // Increase button size
-
-        // Set up event handling (same as previous code)
-
-        // Create VBox to hold the elements
-        VBox vbox = new VBox(10);
-        vbox.setPadding(new Insets(10));
-        vbox.getChildren().addAll(googleLogo, textField, colorPicker, button);
-
-        // Create Scene
-        Scene scene = new Scene(vbox);
+    
 
         // Set the stage
-        primaryStage.setScene(scene);
+
         primaryStage.setTitle("Text Color Changer");
         primaryStage.show();
     }
