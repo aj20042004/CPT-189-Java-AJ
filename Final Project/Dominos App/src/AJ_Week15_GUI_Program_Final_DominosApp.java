@@ -13,6 +13,8 @@
 ----------------------------------------------------------------------------------------------------------
 */
 
+// Need to work on the remove button, displaying the items in the place order scene, build your own scene -> add to cart
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -25,6 +27,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import java.util.ArrayList;
 import java.util.HashMap;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -51,7 +54,9 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
     private double dblStuffedCheesyBread = 7.50;
     private double dblDrinks = 2.99;
     private HashMap<String, Double> hshMapCheckOut = new HashMap<>();
+    private HashMap<Integer, String> hashMapTrackThings = new HashMap<>();
     private int intItemsCount = 0;
+    private String strAddItems = "";
     private int intPepperoniPizzaCount = 0;
     private int intBuffaloChickenPizzaCount = 0;
     private int intWisconsin6CheesePizzaCount = 0;
@@ -65,7 +70,7 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
     private Text txtNumberOfItems = new Text("You have\n" + intItemsCount + " items in your cart");
     private Text txtYourCart = new Text("Your Cart: ");
     private Text txtYourFinalPrice = new Text("Total Price: " + dblTotalCost);
-    private Text txtYourPrice = new Text("Your\nPrice: $" + String.format("%.2f", dblDefaultCost));
+    private Text txtYourPrice = new Text("Your\nPrice: $" + String.format("%.2f", dblTotalCost));
     private Text txtMessage = new Text();
     private Text txtMessage_1 = new Text();
     private Text txtMessage_2 = new Text();
@@ -73,6 +78,7 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
     private TextField txtFieldNameInput = new TextField();
     private TextField txtFieldAddressInput = new TextField();
     private TextField txtFieldPhoneNumber = new TextField();
+    private ArrayList<String> arrListToppings = new ArrayList<>();
 
     @Override
     public void start(Stage stgApp) throws Exception {
@@ -184,7 +190,7 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
         txtDominos.setFont(Font.font("Geometric Sans-Serif", 43));
         txtDominos.setFill(Color.WHITESMOKE);
 
-        txtYourPrice.setText("Your\nPrice: $" + String.format("%.2f", dblDefaultCost));
+        txtYourPrice.setText("Your\nPrice: $" + String.format("%.2f", dblTotalCost));
         txtYourPrice.setLayoutX(625);
         txtYourPrice.setLayoutY(450);
         txtYourPrice.setFont(Font.font("Geometric Sans-Serif", 25));
@@ -322,11 +328,11 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
         increaseCheckBoxFont(cbMushrooms);
 
         // Updating the current total price when user clicks the check boxes
-        cbChicken.setOnAction(e -> updateCost(txtCurrentPrice, cbChicken.isSelected()));
-        cbPepperoni.setOnAction(e -> updateCost(txtCurrentPrice, cbPepperoni.isSelected()));
-        cbOlives.setOnAction(e -> updateCost(txtCurrentPrice, cbOlives.isSelected()));
-        cbGreenPeppers.setOnAction(e -> updateCost(txtCurrentPrice, cbGreenPeppers.isSelected()));
-        cbMushrooms.setOnAction(e -> updateCost(txtCurrentPrice, cbMushrooms.isSelected()));
+        cbChicken.setOnAction(e -> updateCost(txtCurrentPrice, cbChicken.isSelected(), "Chicken"));
+        cbPepperoni.setOnAction(e -> updateCost(txtCurrentPrice, cbPepperoni.isSelected(), "Pepperoni"));
+        cbOlives.setOnAction(e -> updateCost(txtCurrentPrice, cbOlives.isSelected(), "Olives"));
+        cbGreenPeppers.setOnAction(e -> updateCost(txtCurrentPrice, cbGreenPeppers.isSelected(), "Green Peppers"));
+        cbMushrooms.setOnAction(e -> updateCost(txtCurrentPrice, cbMushrooms.isSelected(), "Mushrooms"));
 
         paneBuildYourPizza.getChildren().add(rectangleBackground_2);
         paneBuildYourPizza.getChildren().addAll(btnBack, btnAddToYourCart, btnViewYourCart);
@@ -628,8 +634,150 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
         });
 
         btnBack.setOnAction(e -> stgApp.setScene(sceneMain));
-        btnAddToYourCart.setOnAction(e -> Message());
-        btnViewYourCart.setOnAction(e -> stgApp.setScene(sceneCheckout));
+        btnAddToYourCart.setOnAction(e -> {
+
+            Message();
+            AddCounter();
+            dblTotalCost += dblPlainPizzaCost;
+            txtYourPrice.setText("Your\nPrice: $" + String.format("%.2f", dblTotalCost));
+
+
+            if ((arrListToppings.size() != 0)) {
+
+                for (int t = 0; t < arrListToppings.size(); t++) {
+                    strAddItems += arrListToppings.get(t) + " ";
+                }
+                hshMapCheckOut.put(strAddItems, dblPlainPizzaCost);
+                
+            }
+
+            hashMapTrackThings.put(0, strAddItems);
+
+            cbChicken.setSelected(false);
+            cbPepperoni.setSelected(false);
+            cbOlives.setSelected(false);
+            cbGreenPeppers.setSelected(false);
+            cbMushrooms.setSelected(false);
+
+        });
+
+        btnViewYourCart.setOnAction(e -> {
+
+            stgApp.setScene(sceneCheckout);
+            Text txtDominos_3 = DominosText();
+            paneCheckout.getChildren().add(txtDominos_3);
+            
+            System.out.println();
+            int intPosition = 250;
+            // Iterate through hashMap // Work on duplicated
+
+            paneCheckout.getChildren().removeIf(node -> node instanceof Text);
+
+            // Need to Fix the Bug here
+            for (String strKey : hshMapCheckOut.keySet()) {
+
+                Text txtDominosReturn = DominosText();
+                Text txtLabel = new Text();
+                if (strKey.equals("Pepperoni Pizza")) {
+
+                    txtLabel.setText(strKey + ": $" + hshMapCheckOut.get(strKey) + "   (" + intpepCnt + ") Items");
+
+                }
+
+                else if (strKey.equals("Buffalo Chicken Pizza")) {
+
+                    txtLabel.setText(strKey + ": $" + hshMapCheckOut.get(strKey) + "   (" + intBflCknCnt + ") Items");
+
+                }
+
+                else if (strKey.equals("Wisconsin 6 Cheese Pizza")) {
+
+                    txtLabel.setText(
+                            strKey + ": $" + hshMapCheckOut.get(strKey) + "   (" + intWisCheeseCnt + ") Items");
+
+                }
+
+                else if (strKey.equals("French Fries")) {
+
+                    txtLabel.setText(strKey + ": $" + hshMapCheckOut.get(strKey) + "   (" + intFrchFrsCnt + ") Items");
+
+                }
+
+                else if (strKey.equals("Stuffed chessy bread")) {
+
+                    txtLabel.setText(strKey + ": $" + hshMapCheckOut.get(strKey) + "   (" + intChsyBrdCnt + ") Items");
+
+                }
+
+                else if (strKey.equals("Drinks")) {
+
+                    txtLabel.setText(strKey + ": $" + hshMapCheckOut.get(strKey) + "   (" + intDrnksCnt + ") Items");
+
+                }
+                
+                
+                else if (strKey.equals(hashMapTrackThings.get(0))) {
+                    txtLabel.setText("Plain Pizza ( with " + arrListToppings.size() + " toppings): $"
+                            + hshMapCheckOut.get(strKey));
+                }
+
+                txtLabel.setFont(Font.font("Geometric Sans-Serif", 21));
+                txtLabel.setLayoutX(60);
+                txtLabel.setLayoutY(intPosition);
+                paneCheckout.getChildren().add(txtLabel);
+                paneCheckout.getChildren().add(txtDominosReturn);
+                intPosition += 38;
+            }
+
+            Text txtDominos_1 = DominosText();
+            paneCheckout.getChildren().addAll(txtYourCart, txtDominos_1, txtYourFinalPrice);
+
+            Text txtCustomerName = new Text("Name:");
+            txtCustomerName.setLayoutX(560);
+            txtCustomerName.setLayoutY(130);
+            txtCustomerName.setFont(Font.font("Geometric Sans-Serif", 21));
+
+            Text txtCustomerAddress = new Text("Address:");
+            txtCustomerAddress.setLayoutX(560);
+            txtCustomerAddress.setLayoutY(246);
+            txtCustomerAddress.setFont(Font.font("Geometric Sans-Serif", 21));
+
+            Text txtCustomerPhoneNumber = new Text("Phone Number:");
+            txtCustomerPhoneNumber.setLayoutX(560);
+            txtCustomerPhoneNumber.setLayoutY(407);
+            txtCustomerPhoneNumber.setFont(Font.font("Geometric Sans-Serif", 21));
+
+            txtYourFinalPrice.setText("Total Price: $" + dblTotalCost);
+
+            paneCheckout.getChildren().addAll(txtCustomerName, txtCustomerAddress, txtCustomerPhoneNumber);
+
+            txtFieldNameInput.setMinWidth(50);
+            txtFieldNameInput.setPrefHeight(50);
+            txtFieldNameInput.setLayoutX(560);
+            txtFieldNameInput.setLayoutY(150);
+            txtFieldNameInput.setFont(Font.font("Geometric Sans-Serif", 13));
+
+            txtFieldAddressInput.setMinWidth(50);
+            txtFieldAddressInput.setPrefHeight(90);
+            txtFieldAddressInput.setLayoutX(560);
+            txtFieldAddressInput.setLayoutY(266);
+            txtFieldAddressInput.setFont(Font.font("Geometric Sans-Serif", 13));
+
+            txtFieldPhoneNumber.setMinWidth(50);
+            txtFieldPhoneNumber.setPrefHeight(40);
+            txtFieldPhoneNumber.setLayoutX(560);
+            txtFieldPhoneNumber.setLayoutY(427);
+            txtFieldPhoneNumber.setFont(Font.font("Geometric Sans-Serif", 13));
+
+            btnPlaceOrder.setLayoutX(580);
+            btnPlaceOrder.setLayoutY(503);
+            btnPlaceOrder.setFont(Font.font("Geometric Sans-Serif", 14));
+            btnPlaceOrder.setPrefSize(97, 50);
+
+            paneCheckout.getChildren().addAll(txtFieldAddressInput, txtFieldNameInput, txtFieldPhoneNumber,
+                    btnPlaceOrder);
+
+        });
         btnBack_1.setOnAction(e -> stgApp.setScene(sceneMain));
         btnPlaceOrder.setOnAction(e -> {
 
@@ -677,9 +825,7 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
                 txtCustomerPhoneNumber_1.setLayoutY(470);
                 txtCustomerPhoneNumber_1.setFont(Font.font("Geometric Sans-Serif", 18));
 
-                panePlaceOrder.getChildren().addAll(txtCustomerName_1,txtCustomerAddress_1,txtCustomerPhoneNumber_1);
-
-                
+                panePlaceOrder.getChildren().addAll(txtCustomerName_1, txtCustomerAddress_1, txtCustomerPhoneNumber_1);
 
             }
 
@@ -695,17 +841,19 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
 
     }
 
-    private void updateCost(Text txtCurrentPrice, boolean blnIsSelected) {
+    private void updateCost(Text txtCurrentPrice, boolean blnIsSelected, String strToppingsName) {
 
         // Adding the each topping cost when check box is clicked
         if (blnIsSelected) {
 
             dblPlainPizzaCost += dblEachToppingsCst;
+            arrListToppings.add(strToppingsName);
         }
 
         // Subtracting the each topping cost when decides to remove the topping.
         else {
             dblPlainPizzaCost -= dblEachToppingsCst;
+            arrListToppings.remove(strToppingsName);
         }
 
         // Setting the new updated total
