@@ -13,7 +13,12 @@
 ----------------------------------------------------------------------------------------------------------
 */
 
-// Need to work on the remove button, displaying the items in the place order scene, build your own scene -> add to cart
+/*
+ * Bug:
+ * 1) Need to create new line for address if the length is too big
+ * 2) Adding Multiple Plain pizza
+ * 3) When Return to Main Menu is clicked, the Receipt not resetting
+ */
 
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -63,7 +68,6 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
     private int intFrenchFriesCount = 0;
     private int intStuffedChessyBreadCount = 0;
     private int intDrinksCount = 0;
-    private double dblDefaultCost = 0.0;
     private double dblEachToppingsCst = 1.50;
     private Text txtMessageForAddToYourCart = new Text("");
     private Text txtCurrentPrice = new Text("Your Current Total Price: $" + String.format("%.2f", dblPlainPizzaCost));
@@ -611,7 +615,7 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
             txtCustomerPhoneNumber.setLayoutY(407);
             txtCustomerPhoneNumber.setFont(Font.font("Geometric Sans-Serif", 21));
 
-            txtYourFinalPrice.setText("Total Price: $" + dblTotalCost);
+            txtYourFinalPrice.setText("Total Price: $" + String.format("%.2f", dblTotalCost));
 
             paneCheckout.getChildren().addAll(txtCustomerName, txtCustomerAddress, txtCustomerPhoneNumber);
 
@@ -887,10 +891,6 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
                                 + hshMapCheckOut.get(strKey));
                     }
 
-                    else {
-                        txtLabelCopy.setText("Total Price: $" + dblTotalCost);
-                    }
-
                     txtLabelCopy.setFont(Font.font("Geometric Sans-Serif", 19));
                     txtLabelCopy.setLayoutX(430);
                     txtLabelCopy.setLayoutY(intPositionCopy);
@@ -899,7 +899,45 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
                     intPositionCopy += 38;
                 }
 
-                panePlaceOrder.getChildren().addAll(txtCustomerName_1, txtCustomerAddress_1, txtCustomerPhoneNumber_1);
+                Text txtSeparator = new Text("---------------------------------------------");
+                txtSeparator.setLayoutX(430);
+                txtSeparator.setLayoutY(intPositionCopy - 17);
+                txtSeparator.setFont(Font.font("Geometric Sans-Serif", 19));
+
+                Text txtPlaceOrderFinalPrice = new Text("Total Price: $" + String.format("%.2f", dblTotalCost));
+                txtPlaceOrderFinalPrice.setLayoutX(430);
+                txtPlaceOrderFinalPrice.setLayoutY(intPositionCopy);
+                txtPlaceOrderFinalPrice.setFont(Font.font("Geometric Sans-Serif", 19));
+
+                panePlaceOrder.getChildren().addAll(txtCustomerName_1, txtCustomerAddress_1, txtCustomerPhoneNumber_1,
+                        txtPlaceOrderFinalPrice, txtSeparator);
+
+            }
+
+            else {
+
+                Text txtCommand = new Text("Please enter you name,\nAddress and Phone number");
+                txtCommand.setLayoutX(220);
+                txtCommand.setLayoutY(126);
+                txtCommand.setFont(Font.font("Geometric Sans-Serif", 19));
+                paneCheckout.getChildren().add(txtCommand);
+                txtCommand.setFill(Color.RED);
+
+                int intDurationInSeconds = 5;
+
+                // Create a Timeline to hide the message after the specified duration
+                Timeline timeline = new Timeline(
+                        new KeyFrame(Duration.seconds(intDurationInSeconds), new EventHandler<ActionEvent>() {
+
+                            @Override
+                            public void handle(ActionEvent event) {
+                                // Hide the message after the specified duration
+                                txtCommand.setText("");
+                            }
+                        }));
+
+                // Start the Timeline
+                timeline.play();
 
             }
 
