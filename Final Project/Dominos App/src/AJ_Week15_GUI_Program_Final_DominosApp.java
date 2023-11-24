@@ -401,6 +401,11 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
         btnReturnToMainMenu.setFont(Font.font("Geometric Sans-Serif", 15));
         btnReturnToMainMenu.setPrefSize(180, 55);
 
+        Text txtReceipt = new Text("Receipt:");
+        txtReceipt.setLayoutX(540);
+        txtReceipt.setLayoutY(260);
+        txtReceipt.setFont(Font.font("Geometric Sans-Serif", 22));
+
         Image imgDominosLogo_3 = new Image("dominos.jpg");
         ImageView imageViewDominosLogo_3 = new ImageView(imgDominosLogo_3);
         imageViewDominosLogo_3.setLayoutX(0);
@@ -408,7 +413,7 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
 
         panePlaceOrder.getChildren().addAll(rectangleBackground_3, rectangleDominosHeader_3, txtDominos_2,
                 imageViewDominosLogo_3);
-        panePlaceOrder.getChildren().addAll(txtOrderConfirmed, btnReturnToMainMenu);
+        panePlaceOrder.getChildren().addAll(txtOrderConfirmed, btnReturnToMainMenu, txtReceipt);
 
         // ----------------------------------------------------------------------------------------------------------------------------------
 
@@ -575,6 +580,11 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
 
                 }
 
+                else if (strKey.equals(hashMapTrackThings.get(0))) {
+                    txtLabel.setText("Plain Pizza ( with " + arrListToppings.size() + " toppings): $"
+                            + hshMapCheckOut.get(strKey));
+                }
+
                 txtLabel.setFont(Font.font("Geometric Sans-Serif", 21));
                 txtLabel.setLayoutX(60);
                 txtLabel.setLayoutY(intPosition);
@@ -637,21 +647,19 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
         btnAddToYourCart.setOnAction(e -> {
 
             Message();
-            AddCounter();
             dblTotalCost += dblPlainPizzaCost;
-            txtYourPrice.setText("Your\nPrice: $" + String.format("%.2f", dblTotalCost));
 
-
-            if ((arrListToppings.size() != 0)) {
-
-                for (int t = 0; t < arrListToppings.size(); t++) {
-                    strAddItems += arrListToppings.get(t) + " ";
-                }
-                hshMapCheckOut.put(strAddItems, dblPlainPizzaCost);
-                
+            for (int t = 0; t < arrListToppings.size(); t++) {
+                strAddItems += arrListToppings.get(t) + " ";
             }
+            hshMapCheckOut.put(strAddItems, dblPlainPizzaCost);
 
             hashMapTrackThings.put(0, strAddItems);
+
+            if ((hashMapTrackThings.size() == 0) || (hashMapTrackThings.size() == 1)) {
+                AddCounter();
+                txtYourPrice.setText("Your\nPrice: $" + String.format("%.2f", dblTotalCost));
+            }
 
             cbChicken.setSelected(false);
             cbPepperoni.setSelected(false);
@@ -666,7 +674,7 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
             stgApp.setScene(sceneCheckout);
             Text txtDominos_3 = DominosText();
             paneCheckout.getChildren().add(txtDominos_3);
-            
+
             System.out.println();
             int intPosition = 250;
             // Iterate through hashMap // Work on duplicated
@@ -714,8 +722,7 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
                     txtLabel.setText(strKey + ": $" + hshMapCheckOut.get(strKey) + "   (" + intDrnksCnt + ") Items");
 
                 }
-                
-                
+
                 else if (strKey.equals(hashMapTrackThings.get(0))) {
                     txtLabel.setText("Plain Pizza ( with " + arrListToppings.size() + " toppings): $"
                             + hshMapCheckOut.get(strKey));
@@ -747,7 +754,9 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
             txtCustomerPhoneNumber.setLayoutY(407);
             txtCustomerPhoneNumber.setFont(Font.font("Geometric Sans-Serif", 21));
 
-            txtYourFinalPrice.setText("Total Price: $" + dblTotalCost);
+            if ((hashMapTrackThings.size() == 1) || (hashMapTrackThings.size() == 0)) {
+                txtYourFinalPrice.setText("Total Price: $" + dblTotalCost);
+            }
 
             paneCheckout.getChildren().addAll(txtCustomerName, txtCustomerAddress, txtCustomerPhoneNumber);
 
@@ -825,6 +834,71 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
                 txtCustomerPhoneNumber_1.setLayoutY(470);
                 txtCustomerPhoneNumber_1.setFont(Font.font("Geometric Sans-Serif", 18));
 
+                int intPositionCopy = 290;
+                for (String strKey : hshMapCheckOut.keySet()) {
+
+                    Text txtDominosReturnCopy = DominosText();
+                    Text txtLabelCopy = new Text();
+
+                    if (strKey.equals("Pepperoni Pizza")) {
+
+                        txtLabelCopy
+                                .setText(strKey + ": $" + hshMapCheckOut.get(strKey) + " (" + intpepCnt + ") Items");
+
+                    }
+
+                    else if (strKey.equals("Buffalo Chicken Pizza")) {
+
+                        txtLabelCopy.setText(
+                                strKey + ": $" + hshMapCheckOut.get(strKey) + " (" + intBflCknCnt + ") Items");
+
+                    }
+
+                    else if (strKey.equals("Wisconsin 6 Cheese Pizza")) {
+
+                        txtLabelCopy.setText(
+                                strKey + ": $" + hshMapCheckOut.get(strKey) + " (" + intWisCheeseCnt + ") Items");
+
+                    }
+
+                    else if (strKey.equals("French Fries")) {
+
+                        txtLabelCopy.setText(
+                                strKey + ": $" + hshMapCheckOut.get(strKey) + " (" + intFrchFrsCnt + ") Items");
+
+                    }
+
+                    else if (strKey.equals("Stuffed chessy bread")) {
+
+                        txtLabelCopy.setText(
+                                strKey + ": $" + hshMapCheckOut.get(strKey) + " (" + intChsyBrdCnt + ") Items");
+
+                    }
+
+                    else if (strKey.equals("Drinks")) {
+
+                        txtLabelCopy.setText(
+                                strKey + ": $" + hshMapCheckOut.get(strKey) + " (" + intDrnksCnt + ") Items");
+
+                    }
+
+                    else if (strKey.equals(hashMapTrackThings.get(0))) {
+                        txtLabelCopy.setText("Plain Pizza ( with " + arrListToppings.size() + " toppings): $"
+                                + hshMapCheckOut.get(strKey));
+                    }
+
+                    else {
+                        txtLabelCopy.setText("Total Price: $" + dblTotalCost);
+                    }
+
+                    txtLabelCopy.setFont(Font.font("Geometric Sans-Serif", 19));
+                    txtLabelCopy.setLayoutX(430);
+                    txtLabelCopy.setLayoutY(intPositionCopy);
+                    panePlaceOrder.getChildren().add(txtLabelCopy);
+                    panePlaceOrder.getChildren().add(txtDominosReturnCopy);
+                    intPositionCopy += 38;
+                }
+
                 panePlaceOrder.getChildren().addAll(txtCustomerName_1, txtCustomerAddress_1, txtCustomerPhoneNumber_1);
 
             }
@@ -832,12 +906,38 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
         });
 
         btnReturnToMainMenu.setOnAction(e -> {
+            reset();
             stgApp.setScene(sceneMain);
         });
 
         stgApp.setScene(sceneMain);
         stgApp.setTitle("Dominos App");
         stgApp.show();
+
+    }
+
+    private void reset() {
+
+        intItemsCount = 0;
+        intPepperoniPizzaCount = 0;
+        intBuffaloChickenPizzaCount = 0;
+
+        txtFieldNameInput.clear();
+        txtFieldAddressInput.clear();
+        txtFieldPhoneNumber.clear();
+
+        // Reset all counter variables
+
+        dblTotalCost = 0.0;
+        dblPlainPizzaCost = 10.50;
+        // Reset all total/cost variables
+
+        txtNumberOfItems.setText("You have\n" + intItemsCount + " items in your cart");
+        txtYourPrice.setText("Your\nPrice: $" + String.format("%.2f", dblTotalCost));
+
+        hshMapCheckOut.clear();
+        hashMapTrackThings.clear();
+        arrListToppings.clear();
 
     }
 
