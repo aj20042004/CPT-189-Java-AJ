@@ -18,6 +18,7 @@
  * 1) Need to create new line for address if the length is too big
  * 2) Adding Multiple Plain pizza
  * 3) When Return to Main Menu is clicked, the Receipt not resetting
+ * 4) Deletions of items in the cart
  */
 
 import javafx.application.Application;
@@ -58,17 +59,15 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
     private double dblFrenchFries = 5.50;
     private double dblStuffedCheesyBread = 7.50;
     private double dblDrinks = 2.99;
-    private HashMap<String, Double> hshMapCheckOut = new HashMap<>();
-    private HashMap<Integer, String> hashMapTrackThings = new HashMap<>();
+    private double dblEachToppingsCst = 1.50;
     private int intItemsCount = 0;
-    private String strAddItems = "";
     private int intPepperoniPizzaCount = 0;
     private int intBuffaloChickenPizzaCount = 0;
     private int intWisconsin6CheesePizzaCount = 0;
     private int intFrenchFriesCount = 0;
     private int intStuffedChessyBreadCount = 0;
     private int intDrinksCount = 0;
-    private double dblEachToppingsCst = 1.50;
+    private String strAddItems = "";
     private Text txtMessageForAddToYourCart = new Text("");
     private Text txtCurrentPrice = new Text("Your Current Total Price: $" + String.format("%.2f", dblPlainPizzaCost));
     private Text txtNumberOfItems = new Text("You have\n" + intItemsCount + " items in your cart");
@@ -83,6 +82,8 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
     private TextField txtFieldAddressInput = new TextField();
     private TextField txtFieldPhoneNumber = new TextField();
     private ArrayList<String> arrListToppings = new ArrayList<>();
+    private HashMap<String, Double> hshMapCheckOut = new HashMap<>();
+    private HashMap<Integer, String> hashMapTrackThings = new HashMap<>();
 
     @Override
     public void start(Stage stgApp) throws Exception {
@@ -106,22 +107,12 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
         imageViewBuildYourOwnPizza.setFitWidth(120);
         imageViewBuildYourOwnPizza.setFitHeight(120);
 
-        Text txtBuildYourOwn = new Text("Plain\nPizza: $10.50");
-        txtBuildYourOwn.setLayoutX(48);
-        txtBuildYourOwn.setLayoutY(116);
-        txtBuildYourOwn.setFont(Font.font("Geometric Sans-Serif", 17));
-
         Image imgPepperoniPizza = new Image("pepperoni.jpg");
         ImageView imageViewPepperoniPizza = new ImageView(imgPepperoniPizza);
         imageViewPepperoniPizza.setLayoutX(245);
         imageViewPepperoniPizza.setLayoutY(160);
         imageViewPepperoniPizza.setFitWidth(120);
         imageViewPepperoniPizza.setFitHeight(120);
-
-        Text txtPepperoni = new Text("Pepperoni\nPizza: $12.50");
-        txtPepperoni.setLayoutX(248);
-        txtPepperoni.setLayoutY(116);
-        txtPepperoni.setFont(Font.font("Geometric Sans-Serif", 17));
 
         Image imgBuffaloChickenPizza = new Image("Buffalo Chicken.jpg");
         ImageView imageViewBuffaloChicken = new ImageView(imgBuffaloChickenPizza);
@@ -130,22 +121,12 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
         imageViewBuffaloChicken.setFitWidth(120);
         imageViewBuffaloChicken.setFitHeight(120);
 
-        Text txtBuffaloChicken = new Text("Buffalo\nChicken Pizza: $15.50");
-        txtBuffaloChicken.setLayoutX(428);
-        txtBuffaloChicken.setLayoutY(116);
-        txtBuffaloChicken.setFont(Font.font("Geometric Sans-Serif", 17));
-
         Image imgWisconsin6Cheese = new Image("Wisconsin 6 Cheese.jpg");
         ImageView imageViewWisconsin6Cheese = new ImageView(imgWisconsin6Cheese);
         imageViewWisconsin6Cheese.setLayoutX(645);
         imageViewWisconsin6Cheese.setLayoutY(160);
         imageViewWisconsin6Cheese.setFitWidth(120);
         imageViewWisconsin6Cheese.setFitHeight(120);
-
-        Text txtWisconsin6Chesse = new Text("Wisconsin 6\nCheese Pizza: $20.10");
-        txtWisconsin6Chesse.setLayoutX(628);
-        txtWisconsin6Chesse.setLayoutY(116);
-        txtWisconsin6Chesse.setFont(Font.font("Geometric Sans-Serif", 17));
 
         Image imgFrenchFries = new Image("frenchFries.jpg");
         ImageView imageViewFrenchFries = new ImageView(imgFrenchFries);
@@ -154,17 +135,44 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
         imageViewFrenchFries.setFitWidth(120);
         imageViewFrenchFries.setFitHeight(120);
 
-        Text txtFrenchFries = new Text("French\nFries: $5.50");
-        txtFrenchFries.setLayoutX(50);
-        txtFrenchFries.setLayoutY(370);
-        txtFrenchFries.setFont(Font.font("Geometric Sans-Serif", 17));
-
         Image imgStuffedCheesyBread = new Image("StuffedCheesyBread.jpg");
         ImageView imageViewStuffedCheesyBread = new ImageView(imgStuffedCheesyBread);
         imageViewStuffedCheesyBread.setLayoutX(245);
         imageViewStuffedCheesyBread.setLayoutY(410);
         imageViewStuffedCheesyBread.setFitWidth(120);
         imageViewStuffedCheesyBread.setFitHeight(120);
+
+        Image imgDrinks = new Image("drinks.jpg");
+        ImageView imageViewDrinks = new ImageView(imgDrinks);
+        imageViewDrinks.setLayoutX(445);
+        imageViewDrinks.setLayoutY(410);
+        imageViewDrinks.setFitWidth(120);
+        imageViewDrinks.setFitHeight(120);
+
+        Text txtBuildYourOwn = new Text("Plain\nPizza: $10.50");
+        txtBuildYourOwn.setLayoutX(48);
+        txtBuildYourOwn.setLayoutY(116);
+        txtBuildYourOwn.setFont(Font.font("Geometric Sans-Serif", 17));
+
+        Text txtPepperoni = new Text("Pepperoni\nPizza: $12.50");
+        txtPepperoni.setLayoutX(248);
+        txtPepperoni.setLayoutY(116);
+        txtPepperoni.setFont(Font.font("Geometric Sans-Serif", 17));
+
+        Text txtBuffaloChicken = new Text("Buffalo\nChicken Pizza: $15.50");
+        txtBuffaloChicken.setLayoutX(428);
+        txtBuffaloChicken.setLayoutY(116);
+        txtBuffaloChicken.setFont(Font.font("Geometric Sans-Serif", 17));
+
+        Text txtWisconsin6Chesse = new Text("Wisconsin 6\nCheese Pizza: $20.10");
+        txtWisconsin6Chesse.setLayoutX(628);
+        txtWisconsin6Chesse.setLayoutY(116);
+        txtWisconsin6Chesse.setFont(Font.font("Geometric Sans-Serif", 17));
+
+        Text txtFrenchFries = new Text("French\nFries: $5.50");
+        txtFrenchFries.setLayoutX(50);
+        txtFrenchFries.setLayoutY(370);
+        txtFrenchFries.setFont(Font.font("Geometric Sans-Serif", 17));
 
         Text txtStuffedCheesyBread = new Text("Stuffed cheesy\nbread: $7.50");
         txtStuffedCheesyBread.setLayoutX(250);
@@ -175,13 +183,6 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
         txtNumberOfItems.setLayoutY(35);
         txtNumberOfItems.setFont(Font.font("Geometric Sans-Serif", 20));
         txtNumberOfItems.setFill(Color.WHITESMOKE);
-
-        Image imgDrinks = new Image("drinks.jpg");
-        ImageView imageViewDrinks = new ImageView(imgDrinks);
-        imageViewDrinks.setLayoutX(445);
-        imageViewDrinks.setLayoutY(410);
-        imageViewDrinks.setFitWidth(120);
-        imageViewDrinks.setFitHeight(120);
 
         Text txtDrinks = new Text("Drinks: $2.99");
         txtDrinks.setLayoutX(450);
@@ -399,16 +400,16 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
         txtOrderConfirmed.setLayoutY(150);
         txtOrderConfirmed.setFont(Font.font("Geometric Sans-Serif", 22));
 
+        Text txtReceipt = new Text("Receipt:");
+        txtReceipt.setLayoutX(540);
+        txtReceipt.setLayoutY(260);
+        txtReceipt.setFont(Font.font("Geometric Sans-Serif", 22));
+
         Button btnReturnToMainMenu = new Button("Return to Main Menu");
         btnReturnToMainMenu.setLayoutX(130);
         btnReturnToMainMenu.setLayoutY(260);
         btnReturnToMainMenu.setFont(Font.font("Geometric Sans-Serif", 15));
         btnReturnToMainMenu.setPrefSize(180, 55);
-
-        Text txtReceipt = new Text("Receipt:");
-        txtReceipt.setLayoutX(540);
-        txtReceipt.setLayoutY(260);
-        txtReceipt.setFont(Font.font("Geometric Sans-Serif", 22));
 
         Image imgDominosLogo_3 = new Image("dominos.jpg");
         ImageView imageViewDominosLogo_3 = new ImageView(imgDominosLogo_3);
@@ -617,8 +618,6 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
 
             txtYourFinalPrice.setText("Total Price: $" + String.format("%.2f", dblTotalCost));
 
-            paneCheckout.getChildren().addAll(txtCustomerName, txtCustomerAddress, txtCustomerPhoneNumber);
-
             txtFieldNameInput.setMinWidth(50);
             txtFieldNameInput.setPrefHeight(50);
             txtFieldNameInput.setLayoutX(560);
@@ -644,6 +643,7 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
 
             paneCheckout.getChildren().addAll(txtFieldAddressInput, txtFieldNameInput, txtFieldPhoneNumber,
                     btnPlaceOrder);
+            paneCheckout.getChildren().addAll(txtCustomerName, txtCustomerAddress, txtCustomerPhoneNumber);
 
         });
 
