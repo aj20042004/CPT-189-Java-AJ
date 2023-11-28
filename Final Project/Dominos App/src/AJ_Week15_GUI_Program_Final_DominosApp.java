@@ -62,6 +62,7 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
     private int intWisconsin6CheesePizzaCount = 0;
     private int intFrenchFriesCount = 0;
     private int intStuffedcheesyBreadCount = 0;
+    private int intPosition = 250;
     private int intDrinksCount = 0;
     private String strAddItems = "";
     private Text txtMessageForAddToYourCart = new Text("");
@@ -449,7 +450,6 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
 
         // -------------------------------------------------------------------------------------------------------------------------
 
-
         // Place order screen
 
         // Creating the pane and scene for place order
@@ -503,14 +503,24 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
         // ----------------------------------------------------------------------------------------------------------------------------------
 
         // All the setOnActions
+
+        // Setting the button "btnBuildYourOwnPizza" on action
         btnBuildYourOwnPizza.setOnAction(e -> stgApp.setScene(sceneBuildYourOwnPizza));
 
+        // Setting the button "btnAddToYourCartForPepperoni" on action
         btnAddToYourCartForPepperoni.setOnAction(e -> {
 
+            // Using the method AddCounter() to count the total number of items
             AddCounter();
+
+            // Using the method PepperoniPizzaCounter() to count the number of pepperoni
+            // pizza
             intpepCnt = PepperoniPizzaCounter();
+
+            // Adding the item name and price to hashMap
             hshMapCheckOut.put("Pepperoni Pizza", dblPepperoniPizza);
 
+            // Iterating through hashMap to add the price of an item to the total cost
             for (String strKey : hshMapCheckOut.keySet()) {
 
                 if (strKey == "Pepperoni Pizza") {
@@ -520,15 +530,25 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
 
             }
 
+            // Updating the price
             txtYourPrice.setText("Your\nPrice: $" + String.format("%.2f", dblTotalCost));
 
         });
+
+        // Setting the button "btnAddToYourCartForBuffaloChicken" on action
         btnAddToYourCartForBuffaloChicken.setOnAction(e -> {
 
+            // Using the method AddCounter() to count the total number of items
             AddCounter();
+
+            // Using the method BuffaloChickenPizzaCounter() to count the number of Buffalo
+            // Chicken pizza
             intBflCknCnt = BuffaloChickenPizzaCounter();
+
+            // Adding the item name and price to hashMap
             hshMapCheckOut.put("Buffalo Chicken Pizza", dblBuffaloChickenPizza);
 
+            // Iterating through hashMap to add the price of an item to the total cost
             for (String strKey : hshMapCheckOut.keySet()) {
 
                 if (strKey == "Buffalo Chicken Pizza") {
@@ -538,15 +558,25 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
 
             }
 
+            // Updating the price
             txtYourPrice.setText("Your\nPrice: $" + String.format("%.2f", dblTotalCost));
 
         });
+
+        // Setting the button "btnAddToYourCartForWisconsin6Cheese" on action
         btnAddToYourCartForWisconsin6Cheese.setOnAction(e -> {
 
+            // Using the method AddCounter() to count the total number of items
             AddCounter();
+
+            // Using the method Wisconsin6CheesePizzaCounter() to count the number of
+            // Wisconsin 6 cheese pizza
             intWisCheeseCnt = Wisconsin6CheesePizzaCounter();
+
+            // Adding the item name and price to hashMap
             hshMapCheckOut.put("Wisconsin 6 Cheese Pizza", dblWisconsin6CheesePizza);
 
+            // Iterating through hashMap to add the price of an item to the total cost
             for (String strKey : hshMapCheckOut.keySet()) {
 
                 if (strKey == "Wisconsin 6 Cheese Pizza") {
@@ -556,15 +586,24 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
 
             }
 
+            // Updating the price
             txtYourPrice.setText("Your\nPrice: $" + String.format("%.2f", dblTotalCost));
 
         });
 
+        // Setting the button "btnAddToYourCartFrenchFries" on action
         btnAddToYourCartFrenchFries.setOnAction(e -> {
+
+            // Using the method AddCounter() to count the total number of items
             AddCounter();
+
+            // Using the method FrenchFriesCounter() to count the number of french fries
             intFrchFrsCnt = FrenchFriesCounter();
+
+            // Adding the item name and price to hashMap
             hshMapCheckOut.put("French Fries", dblFrenchFries);
 
+            // Iterating through hashMap to add the price of an item to the total cost
             for (String strKey : hshMapCheckOut.keySet()) {
 
                 if (strKey == "French Fries") {
@@ -574,15 +613,25 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
 
             }
 
+            // Updating the price
             txtYourPrice.setText("Your\nPrice: $" + String.format("%.2f", dblTotalCost));
 
         });
 
+        // Setting the button "btnAddToYourCartStuffedCheesyBread" on action
         btnAddToYourCartStuffedCheesyBread.setOnAction(e -> {
+
+            // Using the method AddCounter() to count the total number of items
             AddCounter();
+
+            // Using the method StuffedCheesyBreadCounter() to count the number of Stuffed
+            // cheesy bread
             intChsyBrdCnt = StuffedCheesyBreadCounter();
+
+            // Adding the item name and price to hashMap
             hshMapCheckOut.put("Stuffed cheesy bread", dblStuffedCheesyBread);
 
+            // Iterating through hashMap to add the price of an item to the total cost
             for (String strKey : hshMapCheckOut.keySet()) {
 
                 if (strKey == "Stuffed cheesy bread") {
@@ -592,15 +641,24 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
 
             }
 
+            // Updating the price
             txtYourPrice.setText("Your\nPrice: $" + String.format("%.2f", dblTotalCost));
 
         });
 
+        // Setting the button "btnAddToYourCartDrinks" on action
         btnAddToYourCartDrinks.setOnAction(e -> {
+
+            // Using the method AddCounter() to count the total number of items
             AddCounter();
+
+            // Using the method DrinksCounter() to count the number of drinks
             intDrnksCnt = DrinksCounter();
+
+            // Adding the item name and price to hashMap
             hshMapCheckOut.put("Drinks", dblDrinks);
 
+            // Iterating through hashMap to add the price of an item to the total cost
             for (String strKey : hshMapCheckOut.keySet()) {
 
                 if (strKey == "Drinks") {
@@ -610,32 +668,42 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
 
             }
 
+            // Updating the price
             txtYourPrice.setText("Your\nPrice: $" + String.format("%.2f", dblTotalCost));
 
         });
 
+        // Setting the button "btnCheckout" on action
         btnCheckout.setOnAction(e -> {
 
+            // Setting the scene to "Checkout" when button "btnCheckout" is clicked
             stgApp.setScene(sceneCheckout);
 
-            int intPosition = 250;
-            // Iterate through hashMap // Work on duplicated
-
+            // Removing all the previous Text nodes
             paneCheckout.getChildren().removeIf(node -> node instanceof Text);
             paneCheckout.getChildren().addAll(txtCustomerName, txtCustomerAddress, txtCustomerPhoneNumber);
 
-            // Need to Fix the Bug here
+            // Iterating through the hashMap to displaying all the elements in the cart
             for (String strKey : hshMapCheckOut.keySet()) {
 
+                // Using the method DominosText() to create Text "Dominos"
                 Text txtDominosReturn = DominosText();
+
+                // Creating a Text node for displaying the elements from hashMap
                 Text txtLabel = new Text();
+
+                // If the key equals to "Pepperoni Pizza", we're updating the text node
+                // "txtLabel"
                 if (strKey.equals("Pepperoni Pizza")) {
 
-                    txtLabel.setText(strKey + ": $" + String.format("%.2f", hshMapCheckOut.get(strKey)) + "   ("
-                            + intpepCnt + ") Items");
+                    txtLabel.setText(
+                            strKey + ": $" + String.format("%.2f", hshMapCheckOut.get(strKey)) + "   (" + intpepCnt
+                                    + ") Items");
 
                 }
 
+                // If the key equals to "Buffalo Chicken Pizza", we're updating the text node
+                // "txtLabel"
                 else if (strKey.equals("Buffalo Chicken Pizza")) {
 
                     txtLabel.setText(strKey + ": $" + String.format("%.2f", hshMapCheckOut.get(strKey)) + "   ("
@@ -643,14 +711,18 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
 
                 }
 
+                // If the key equals to "Wisconsin 6 Cheese Pizza", we're updating the text node
+                // "txtLabel"
                 else if (strKey.equals("Wisconsin 6 Cheese Pizza")) {
 
                     txtLabel.setText(
                             strKey + ": $" + String.format("%.2f", hshMapCheckOut.get(strKey)) + "   ("
-                                    + intWisCheeseCnt + ") Items");
+                                    + intWisCheeseCnt
+                                    + ") Items");
 
                 }
 
+                // If the key equals to "French Fries", we're updating the text node "txtLabel"
                 else if (strKey.equals("French Fries")) {
 
                     txtLabel.setText(strKey + ": $" + String.format("%.2f", hshMapCheckOut.get(strKey)) + "   ("
@@ -658,6 +730,8 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
 
                 }
 
+                // If the key equals to "Stuffed cheesy bread", we're updating the text node
+                // "txtLabel"
                 else if (strKey.equals("Stuffed cheesy bread")) {
 
                     txtLabel.setText(strKey + ": $" + String.format("%.2f", hshMapCheckOut.get(strKey)) + "   ("
@@ -665,6 +739,7 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
 
                 }
 
+                // If the key equals to "Drinks", we're updating the text node "txtLabel"
                 else if (strKey.equals("Drinks")) {
 
                     txtLabel.setText(strKey + ": $" + String.format("%.2f", hshMapCheckOut.get(strKey)) + "   ("
@@ -672,79 +747,117 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
 
                 }
 
+                // If the key equals to "Plain Pizza" (Build your own pizza), we're updating the
+                // text node "txtLabel"
                 else if (strKey.equals(hashMapTrackThings.get(0))) {
                     txtLabel.setText("Plain Pizza ( with " + arrListToppings.size() + " toppings): $"
                             + String.format("%.2f", hshMapCheckOut.get(strKey)));
                 }
 
+                // Setting the font style and alignment for the text node "txtLabel"
                 txtLabel.setFont(Font.font("Geometric Sans-Serif", 21));
                 txtLabel.setLayoutX(60);
                 txtLabel.setLayoutY(intPosition);
+
+                // Adding the objects to the checkout pane
                 paneCheckout.getChildren().add(txtLabel);
                 paneCheckout.getChildren().add(txtDominosReturn);
+
+                // Increasing the intPosition by 38 for every iteration
                 intPosition += 38;
             }
 
+            // Creating a Text node "Dominos" for the scene checkout
             Text txtDominos_1 = DominosText();
+
+            // Adding all the objects to the checkout pane
             paneCheckout.getChildren().addAll(txtYourCart, txtDominos_1, txtYourFinalPrice);
 
+            // Setting the Text node for "Name:"
             txtCustomerName.setLayoutX(560);
             txtCustomerName.setLayoutY(130);
             txtCustomerName.setFont(Font.font("Geometric Sans-Serif", 21));
 
+            // Setting the Text node for "Address:"
             txtCustomerAddress.setLayoutX(560);
             txtCustomerAddress.setLayoutY(246);
             txtCustomerAddress.setFont(Font.font("Geometric Sans-Serif", 21));
 
+            // Setting the Text node for "Phone Number:"
             txtCustomerPhoneNumber.setLayoutX(560);
             txtCustomerPhoneNumber.setLayoutY(407);
             txtCustomerPhoneNumber.setFont(Font.font("Geometric Sans-Serif", 21));
 
+            // Updating the text node for total price
             txtYourFinalPrice.setText("Total Price: $" + String.format("%.2f", dblTotalCost));
 
+            // Setting the alignment and size of the text field for name
             txtFieldNameInput.setMinWidth(50);
             txtFieldNameInput.setPrefHeight(50);
             txtFieldNameInput.setLayoutX(560);
             txtFieldNameInput.setLayoutY(150);
             txtFieldNameInput.setFont(Font.font("Geometric Sans-Serif", 13));
 
+            // Setting the alignment and size of the text field for address
             txtFieldAddressInput.setMinWidth(50);
             txtFieldAddressInput.setPrefHeight(90);
             txtFieldAddressInput.setLayoutX(560);
             txtFieldAddressInput.setLayoutY(266);
             txtFieldAddressInput.setFont(Font.font("Geometric Sans-Serif", 13));
 
+            // Setting the alignment and size of the text field for phone number
             txtFieldPhoneNumber.setMinWidth(50);
             txtFieldPhoneNumber.setPrefHeight(40);
             txtFieldPhoneNumber.setLayoutX(560);
             txtFieldPhoneNumber.setLayoutY(427);
             txtFieldPhoneNumber.setFont(Font.font("Geometric Sans-Serif", 13));
 
+            // Setting the alignment, font size and button size for the button
+            // "btnPlaceOrder"
             btnPlaceOrder.setLayoutX(580);
             btnPlaceOrder.setLayoutY(503);
             btnPlaceOrder.setFont(Font.font("Geometric Sans-Serif", 14));
             btnPlaceOrder.setPrefSize(97, 50);
 
+            // Adding all the objects to the checkout pane
             paneCheckout.getChildren().addAll(txtFieldAddressInput, txtFieldNameInput, txtFieldPhoneNumber,
                     btnPlaceOrder);
             paneCheckout.getChildren().addAll(txtCustomerName, txtCustomerAddress, txtCustomerPhoneNumber);
 
         });
 
+        // Setting the button "btnBack" on action
         btnBack.setOnAction(e -> stgApp.setScene(sceneMain));
+
+        // Setting the button "btnAddToYourCart" on action
         btnAddToYourCart.setOnAction(e -> {
 
+            // Using the method Message() to display the message "Your Item successfully
+            // added to the cart !"
             Message();
+            // Adding the build your own pizza to the dblTotalCost
             dblTotalCost += dblPlainPizzaCost;
 
+            // Iterating through array "arrListToppings" to get all the toppings name
             for (int t = 0; t < arrListToppings.size(); t++) {
+
+                // Adding all the topping to one string
                 strAddItems += arrListToppings.get(t) + " ";
             }
+
+            // Adding all the toppings data and cost associated with it ot the hash map
+            // "hshMapCheckOut"
             hshMapCheckOut.put(strAddItems, dblPlainPizzaCost);
 
+            // Adding toppings data in "strAddItems" to the hash map hashMapTrackThings
             hashMapTrackThings.put(0, strAddItems);
 
+            // If the hashMapTrackThings or hashMapTrackThings size is 0 or 1, we're
+            // updating the price.
             if ((hashMapTrackThings.size() == 0) || (hashMapTrackThings.size() == 1)) {
+
+                // Using the AddCounter method to Using the method AddCounter() to count the
+                // total number of items
                 AddCounter();
                 txtYourPrice.setText("Your\nPrice: $" + String.format("%.2f", dblTotalCost));
             }
