@@ -62,7 +62,6 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
     private int intWisconsin6CheesePizzaCount = 0;
     private int intFrenchFriesCount = 0;
     private int intStuffedcheesyBreadCount = 0;
-    private int intPosition = 250;
     private int intDrinksCount = 0;
     private String strAddItems = "";
     private Text txtMessageForAddToYourCart = new Text("");
@@ -94,6 +93,13 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
         // Creating the main pane and scene
         Pane paneMain = new Pane();
         Scene sceneMain = new Scene(paneMain, 800, 600);
+        txtCustomerName.setId("txtCustomerName");
+        txtCustomerAddress.setId("txtCustomerAddress");
+        txtCustomerPhoneNumber.setId("txtCustomerPhoneNumber");
+        txtFieldAddressInput.setId("txtFieldAddressInput");
+        txtFieldNameInput.setId("txtFieldNameInput");
+        txtFieldPhoneNumber.setId("txtFieldPhoneNumber");
+        btnPlaceOrder.setId("btnPlaceOrder");
 
         /*
          * Creating the rectangle objects rectangleDominosHeader and rectangleBackground
@@ -504,7 +510,7 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
 
         // All the setOnActions
 
-        // Setting the button "btnBuildYourOwnPizza" on action
+        // Setting the button "Build your own pizza" on action
         btnBuildYourOwnPizza.setOnAction(e -> stgApp.setScene(sceneBuildYourOwnPizza));
 
         // Setting the button "btnAddToYourCartForPepperoni" on action
@@ -562,8 +568,6 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
             txtYourPrice.setText("Your\nPrice: $" + String.format("%.2f", dblTotalCost));
 
         });
-
-        // Setting the button "btnAddToYourCartForWisconsin6Cheese" on action
         btnAddToYourCartForWisconsin6Cheese.setOnAction(e -> {
 
             // Using the method AddCounter() to count the total number of items
@@ -591,7 +595,6 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
 
         });
 
-        // Setting the button "btnAddToYourCartFrenchFries" on action
         btnAddToYourCartFrenchFries.setOnAction(e -> {
 
             // Using the method AddCounter() to count the total number of items
@@ -618,7 +621,6 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
 
         });
 
-        // Setting the button "btnAddToYourCartStuffedCheesyBread" on action
         btnAddToYourCartStuffedCheesyBread.setOnAction(e -> {
 
             // Using the method AddCounter() to count the total number of items
@@ -646,7 +648,6 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
 
         });
 
-        // Setting the button "btnAddToYourCartDrinks" on action
         btnAddToYourCartDrinks.setOnAction(e -> {
 
             // Using the method AddCounter() to count the total number of items
@@ -679,6 +680,9 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
             // Setting the scene to "Checkout" when button "btnCheckout" is clicked
             stgApp.setScene(sceneCheckout);
 
+            // Creating a "intPosition" variable
+            int intPosition = 250;
+
             // Removing all the previous Text nodes
             paneCheckout.getChildren().removeIf(node -> node instanceof Text);
             paneCheckout.getChildren().addAll(txtCustomerName, txtCustomerAddress, txtCustomerPhoneNumber);
@@ -696,9 +700,8 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
                 // "txtLabel"
                 if (strKey.equals("Pepperoni Pizza")) {
 
-                    txtLabel.setText(
-                            strKey + ": $" + String.format("%.2f", hshMapCheckOut.get(strKey)) + "   (" + intpepCnt
-                                    + ") Items");
+                    txtLabel.setText(strKey + ": $" + String.format("%.2f", hshMapCheckOut.get(strKey)) + "   ("
+                            + intpepCnt + ") Items");
 
                 }
 
@@ -717,8 +720,7 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
 
                     txtLabel.setText(
                             strKey + ": $" + String.format("%.2f", hshMapCheckOut.get(strKey)) + "   ("
-                                    + intWisCheeseCnt
-                                    + ") Items");
+                                    + intWisCheeseCnt + ") Items");
 
                 }
 
@@ -750,7 +752,7 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
                 // If the key equals to "Plain Pizza" (Build your own pizza), we're updating the
                 // text node "txtLabel"
                 else if (strKey.equals(hashMapTrackThings.get(0))) {
-                    txtLabel.setText("Plain Pizza ( with " + arrListToppings.size() + " toppings): $"
+                    txtLabel.setText("Plain Pizza (with " + arrListToppings.size() + " toppings): $"
                             + String.format("%.2f", hshMapCheckOut.get(strKey)));
                 }
 
@@ -820,9 +822,27 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
             btnPlaceOrder.setPrefSize(97, 50);
 
             // Adding all the objects to the checkout pane
-            paneCheckout.getChildren().addAll(txtFieldAddressInput, txtFieldNameInput, txtFieldPhoneNumber,
-                    btnPlaceOrder);
-            paneCheckout.getChildren().addAll(txtCustomerName, txtCustomerAddress, txtCustomerPhoneNumber);
+            if (paneCheckout.lookup("#txtFieldAddressInput") == null) {
+                paneCheckout.getChildren().addAll(txtFieldAddressInput);
+            }
+            if (paneCheckout.lookup("#txtFieldNameInput") == null) {
+                paneCheckout.getChildren().addAll(txtFieldNameInput);
+            }
+            if (paneCheckout.lookup("#txtFieldPhoneNumber") == null) {
+                paneCheckout.getChildren().addAll(txtFieldPhoneNumber);
+            }
+            if (paneCheckout.lookup("#btnPlaceOrder") == null) {
+                paneCheckout.getChildren().addAll(btnPlaceOrder);
+            }
+            if (paneCheckout.lookup("#txtCustomerName") == null) {
+                paneCheckout.getChildren().addAll(txtCustomerName);
+            }
+            if (paneCheckout.lookup("#txtCustomerAddress") == null) {
+                paneCheckout.getChildren().addAll(txtCustomerAddress);
+            }
+            if (paneCheckout.lookup("#txtCustomerPhoneNumber") == null) {
+                paneCheckout.getChildren().addAll(txtCustomerPhoneNumber);
+            }
 
         });
 
@@ -835,6 +855,7 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
             // Using the method Message() to display the message "Your Item successfully
             // added to the cart !"
             Message();
+
             // Adding the build your own pizza to the dblTotalCost
             dblTotalCost += dblPlainPizzaCost;
 
@@ -856,9 +877,9 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
             // updating the price.
             if ((hashMapTrackThings.size() == 0) || (hashMapTrackThings.size() == 1)) {
 
-                // Using the AddCounter method to Using the method AddCounter() to count the
-                // total number of items
+                /// Using the method AddCounter() to count the total number of items
                 AddCounter();
+
                 txtYourPrice.setText("Your\nPrice: $" + String.format("%.2f", dblTotalCost));
             }
 
@@ -931,7 +952,7 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
                 }
 
                 else if (strKey.equals(hashMapTrackThings.get(0))) {
-                    txtLabel.setText("Plain Pizza ( with " + arrListToppings.size() + " toppings): $"
+                    txtLabel.setText("Plain Pizza (with " + arrListToppings.size() + " toppings): $"
                             + String.format("%.2f", hshMapCheckOut.get(strKey)));
                 }
 
@@ -987,8 +1008,19 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
             btnPlaceOrder.setFont(Font.font("Geometric Sans-Serif", 14));
             btnPlaceOrder.setPrefSize(97, 50);
 
-            paneCheckout.getChildren().addAll(txtFieldAddressInput, txtFieldNameInput, txtFieldPhoneNumber,
-                    btnPlaceOrder);
+            //paneCheckout.getChildren().addAll(txtFieldAddressInput, txtFieldNameInput, txtFieldPhoneNumber,btnPlaceOrder);
+            if (paneCheckout.lookup("#txtFieldAddressInput") == null) {
+                paneCheckout.getChildren().addAll(txtFieldAddressInput);
+            }
+            if (paneCheckout.lookup("#txtFieldNameInput") == null) {
+                paneCheckout.getChildren().addAll(txtFieldNameInput);
+            }
+            if (paneCheckout.lookup("#txtFieldPhoneNumber") == null) {
+                paneCheckout.getChildren().addAll(txtFieldPhoneNumber);
+            }
+            if (paneCheckout.lookup("#btnPlaceOrder") == null) {
+                paneCheckout.getChildren().addAll(btnPlaceOrder);
+            }
 
         });
         btnBack_1.setOnAction(e -> stgApp.setScene(sceneMain));
@@ -1095,7 +1127,7 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
                     }
 
                     else if (strKey.equals(hashMapTrackThings.get(0))) {
-                        txtLabelCopy.setText("Plain Pizza ( with " + arrListToppings.size() + " toppings): $"
+                        txtLabelCopy.setText("Plain Pizza (with " + arrListToppings.size() + " toppings): $"
                                 + String.format("%.2f", hshMapCheckOut.get(strKey)));
                     }
 
@@ -1116,8 +1148,8 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
                 txtPlaceOrderFinalPrice.setLayoutY(intPositionCopy);
                 txtPlaceOrderFinalPrice.setFont(Font.font("Geometric Sans-Serif", 19));
 
-                panePlaceOrder.getChildren().addAll(txtCustomerName, txtCustomerAddress, txtCustomerPhoneNumber,
-                        txtPlaceOrderFinalPrice, txtSeparator);
+                // panePlaceOrder.getChildren().addAll(
+                // txtPlaceOrderFinalPrice, txtSeparator);
 
             }
 
@@ -1179,6 +1211,7 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
 
         txtNumberOfItems.setText("You have\n" + intItemsCount + " items in your cart");
         txtYourPrice.setText("Your\nPrice: $" + String.format("%.2f", dblTotalCost));
+        txtCurrentPrice.setText("Your Current Total Price: $" + String.format("%.2f", dblPlainPizzaCost));
 
         hshMapCheckOut.clear();
         hashMapTrackThings.clear();
@@ -1293,8 +1326,17 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
         return txtDominos_1;
     }
 
+    // Main method
     public static void main(String[] args) {
         launch(args);
     }
 
 }
+
+// Tab order should be consistent (optional)
+// Fix the spaces in plain pizza - Fixed
+// Error checking for price $0.00
+// Word wrapping in text field ( use textArea )
+// Use Mysql (side project)
+// duplicate objects added - Fixed
+// documented
