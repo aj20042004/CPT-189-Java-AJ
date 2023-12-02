@@ -17,8 +17,6 @@
 ----------------------------------------------------------------------------------------------------------
 */
 
-// documentation
-
 // Importing the modules
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -855,7 +853,12 @@ public class AJ_CPT189_02_Week15_GUI_Program_FinalDraft_DominosApp extends Appli
                     paneCheckout.getChildren().addAll(txtCustomerPhoneNumber);
                 }
 
-            } else {
+            }
+
+            // If the dblTotalCost is zero, we're displaying an error message
+            else {
+
+                // Displaying the error message
                 Text txtErrorMessageForPriceMainScene = new Text(
                         "Need to have atleast\none item on the\ncart to proceed.");
                 txtErrorMessageForPriceMainScene.setLayoutX(617);
@@ -864,6 +867,7 @@ public class AJ_CPT189_02_Week15_GUI_Program_FinalDraft_DominosApp extends Appli
                 txtErrorMessageForPriceMainScene.setFill(Color.RED);
                 paneMain.getChildren().add(txtErrorMessageForPriceMainScene);
 
+                // Create a Timeline to hide the message after the specified duration
                 Timeline timeline = new Timeline(
                         new KeyFrame(Duration.seconds(intDurationInSeconds), new EventHandler<ActionEvent>() {
 
@@ -1217,7 +1221,8 @@ public class AJ_CPT189_02_Week15_GUI_Program_FinalDraft_DominosApp extends Appli
 
                         }
 
-                        // If the key equals to "French Fries", we're updating the text node "txtLabelCopy"
+                        // If the key equals to "French Fries", we're updating the text node
+                        // "txtLabelCopy"
                         else if (strKey.equals("French Fries")) {
 
                             txtLabelCopy.setText(
@@ -1271,7 +1276,8 @@ public class AJ_CPT189_02_Week15_GUI_Program_FinalDraft_DominosApp extends Appli
                     txtSeparator.setLayoutY(intPositionCopy - 17);
                     txtSeparator.setFont(Font.font("Geometric Sans-Serif", 19));
 
-                    // Setting the text and Updating the x and y co-ordinates of txtPlaceOrderFinalPrice
+                    // Setting the text and Updating the x and y co-ordinates of
+                    // txtPlaceOrderFinalPrice
                     txtPlaceOrderFinalPrice.setText("Total Price: $" + String.format("%.2f", dblTotalCost));
                     txtPlaceOrderFinalPrice.setLayoutX(430);
                     txtPlaceOrderFinalPrice.setLayoutY(intPositionCopy);
@@ -1279,7 +1285,8 @@ public class AJ_CPT189_02_Week15_GUI_Program_FinalDraft_DominosApp extends Appli
 
                 }
 
-                // If the txtFieldNameInput, txtAreaAddressInput, txtFieldPhoneNumber are empty, we're displaying an error message
+                // If the txtFieldNameInput, txtAreaAddressInput, txtFieldPhoneNumber are empty,
+                // we're displaying an error message
                 else {
 
                     // Displaying the error message
@@ -1293,7 +1300,7 @@ public class AJ_CPT189_02_Week15_GUI_Program_FinalDraft_DominosApp extends Appli
 
                     // Adding the object to the checkout pane
                     paneCheckout.getChildren().add(txtCommand);
-                    
+
                     // Create a Timeline to hide the message after the specified duration
                     Timeline timeline = new Timeline(
                             new KeyFrame(Duration.seconds(intDurationInSeconds), new EventHandler<ActionEvent>() {
@@ -1315,7 +1322,7 @@ public class AJ_CPT189_02_Week15_GUI_Program_FinalDraft_DominosApp extends Appli
             // If the dblTotalCost is zero, we're displaying an error message
             else {
 
-                // Displaying the error message 
+                // Displaying the error message
                 Text txtErrorMessageForPrice = new Text("Need to have atleast one\nitem on the cart to proceed.");
 
                 // Setting the x and y co-ordinates of "txtErrorMessageForPrice"
@@ -1376,10 +1383,10 @@ public class AJ_CPT189_02_Week15_GUI_Program_FinalDraft_DominosApp extends Appli
         txtFieldNameInput.clear();
         txtAreaAddressInput.clear();
         txtFieldPhoneNumber.clear();
-        
+
         // Setting the dblPlainPizzaCost ot it's default price
         dblPlainPizzaCost = 10.50;
-        
+
         // Updating the text nodes
         txtNumberOfItems.setText("You have\n" + intItemsCount + " items in your cart");
         txtYourPrice.setText("Your\nPrice: $" + String.format("%.2f", dblTotalCost));
@@ -1453,7 +1460,8 @@ public class AJ_CPT189_02_Week15_GUI_Program_FinalDraft_DominosApp extends Appli
 
     }
 
-    // Creating the method "PepperoniPizzaCounter" to count number of pepperoni pizza
+    // Creating the method "PepperoniPizzaCounter" to count number of pepperoni
+    // pizza
     private int PepperoniPizzaCounter() {
 
         intPepperoniPizzaCount += 1;
@@ -1461,7 +1469,8 @@ public class AJ_CPT189_02_Week15_GUI_Program_FinalDraft_DominosApp extends Appli
 
     }
 
-    // Creating the method "BuffaloChickenPizzaCounter" to count number of Buffalo chicken pizza
+    // Creating the method "BuffaloChickenPizzaCounter" to count number of Buffalo
+    // chicken pizza
     private int BuffaloChickenPizzaCounter() {
 
         intBuffaloChickenPizzaCount += 1;
@@ -1469,7 +1478,8 @@ public class AJ_CPT189_02_Week15_GUI_Program_FinalDraft_DominosApp extends Appli
 
     }
 
-    // Creating the method "Wisconsin6CheesePizzaCounter" to count number of Wisconsin 6 cheese pizza
+    // Creating the method "Wisconsin6CheesePizzaCounter" to count number of
+    // Wisconsin 6 cheese pizza
     private int Wisconsin6CheesePizzaCounter() {
 
         intWisconsin6CheesePizzaCount += 1;
@@ -1485,7 +1495,8 @@ public class AJ_CPT189_02_Week15_GUI_Program_FinalDraft_DominosApp extends Appli
 
     }
 
-    // Creating the method "StuffedCheesyBreadCounter" to count number of stuffed cheesy bread
+    // Creating the method "StuffedCheesyBreadCounter" to count number of stuffed
+    // cheesy bread
     private int StuffedCheesyBreadCounter() {
 
         intStuffedcheesyBreadCount += 1;
