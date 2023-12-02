@@ -11,14 +11,18 @@
 ----------------------------------------------------------------------------------------------------------
     Who		Date		Reason
     AJ		2023-11-17	Original Version of Code
+    AJ      2023-12-1   Need to Fix the Tab order for all the buttons.
 ----------------------------------------------------------------------------------------------------------
 */
+
+// documentation
 
 // Importing the modules
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -37,7 +41,7 @@ import javafx.scene.text.Font;
 import javafx.util.Duration;
 
 // Creating the class
-public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
+public class AJ_CPT189_02_Week15_GUI_Program_FinalDraft_DominosApp extends Application {
 
     // Creating and initializing private variables
     private int intpepCnt;
@@ -63,6 +67,7 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
     private int intFrenchFriesCount = 0;
     private int intStuffedcheesyBreadCount = 0;
     private int intDrinksCount = 0;
+    private int intDurationInSeconds = 5;
     private String strAddItems = "";
     private Text txtMessageForAddToYourCart = new Text("");
     private Text txtCustomerName = new Text("Name:");
@@ -71,14 +76,14 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
     private Text txtCurrentPrice = new Text("Your Current Total Price: $" + String.format("%.2f", dblPlainPizzaCost));
     private Text txtNumberOfItems = new Text("You have\n" + intItemsCount + " items in your cart");
     private Text txtYourCart = new Text("Your Cart: ");
-    private Text txtYourFinalPrice = new Text("Total Price: " + dblTotalCost);
+    private Text txtYourFinalPrice = new Text("Total Price: " + String.format("%.2f", dblTotalCost));
     private Text txtYourPrice = new Text("Your\nPrice: $" + String.format("%.2f", dblTotalCost));
     private Text txtMessage = new Text();
     private Text txtMessage_1 = new Text();
     private Text txtMessage_2 = new Text();
     private Button btnPlaceOrder = new Button("Place order");
     private TextField txtFieldNameInput = new TextField();
-    private TextField txtFieldAddressInput = new TextField();
+    private TextArea txtAreaAddressInput = new TextArea();
     private TextField txtFieldPhoneNumber = new TextField();
     private ArrayList<String> arrListToppings = new ArrayList<>();
     private HashMap<String, Double> hshMapCheckOut = new HashMap<>();
@@ -96,7 +101,7 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
         txtCustomerName.setId("txtCustomerName");
         txtCustomerAddress.setId("txtCustomerAddress");
         txtCustomerPhoneNumber.setId("txtCustomerPhoneNumber");
-        txtFieldAddressInput.setId("txtFieldAddressInput");
+        txtAreaAddressInput.setId("txtAreaAddressInput");
         txtFieldNameInput.setId("txtFieldNameInput");
         txtFieldPhoneNumber.setId("txtFieldPhoneNumber");
         btnPlaceOrder.setId("btnPlaceOrder");
@@ -675,173 +680,200 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
         });
 
         // Setting the button "btnCheckout" on action
+
         btnCheckout.setOnAction(e -> {
 
-            // Setting the scene to "Checkout" when button "btnCheckout" is clicked
-            stgApp.setScene(sceneCheckout);
+            if (dblTotalCost != 0.00) {
 
-            // Creating a "intPosition" variable
-            int intPosition = 250;
+                // Setting the scene to "Checkout" when button "btnCheckout" is clicked
+                stgApp.setScene(sceneCheckout);
 
-            // Removing all the previous Text nodes
-            paneCheckout.getChildren().removeIf(node -> node instanceof Text);
-            paneCheckout.getChildren().addAll(txtCustomerName, txtCustomerAddress, txtCustomerPhoneNumber);
+                // Creating a "intPosition" variable
+                int intPosition = 250;
 
-            // Iterating through the hashMap to displaying all the elements in the cart
-            for (String strKey : hshMapCheckOut.keySet()) {
+                // Removing all the previous Text nodes
+                paneCheckout.getChildren().removeIf(node -> node instanceof Text);
+                paneCheckout.getChildren().addAll(txtCustomerName, txtCustomerAddress, txtCustomerPhoneNumber);
 
-                // Using the method DominosText() to create Text "Dominos"
-                Text txtDominosReturn = DominosText();
+                // Iterating through the hashMap to displaying all the elements in the cart
+                for (String strKey : hshMapCheckOut.keySet()) {
 
-                // Creating a Text node for displaying the elements from hashMap
-                Text txtLabel = new Text();
+                    // Using the method DominosText() to create Text "Dominos"
+                    Text txtDominosReturn = DominosText();
 
-                // If the key equals to "Pepperoni Pizza", we're updating the text node
-                // "txtLabel"
-                if (strKey.equals("Pepperoni Pizza")) {
+                    // Creating a Text node for displaying the elements from hashMap
+                    Text txtLabel = new Text();
 
-                    txtLabel.setText(strKey + ": $" + String.format("%.2f", hshMapCheckOut.get(strKey)) + "   ("
-                            + intpepCnt + ") Items");
+                    // If the key equals to "Pepperoni Pizza", we're updating the text node
+                    // "txtLabel"
+                    if (strKey.equals("Pepperoni Pizza")) {
 
+                        txtLabel.setText(strKey + ": $" + String.format("%.2f", hshMapCheckOut.get(strKey)) + "   ("
+                                + intpepCnt + ") Items");
+
+                    }
+
+                    // If the key equals to "Buffalo Chicken Pizza", we're updating the text node
+                    // "txtLabel"
+                    else if (strKey.equals("Buffalo Chicken Pizza")) {
+
+                        txtLabel.setText(strKey + ": $" + String.format("%.2f", hshMapCheckOut.get(strKey)) + "   ("
+                                + intBflCknCnt + ") Items");
+
+                    }
+
+                    // If the key equals to "Wisconsin 6 Cheese Pizza", we're updating the text node
+                    // "txtLabel"
+                    else if (strKey.equals("Wisconsin 6 Cheese Pizza")) {
+
+                        txtLabel.setText(
+                                strKey + ": $" + String.format("%.2f", hshMapCheckOut.get(strKey)) + "   ("
+                                        + intWisCheeseCnt + ") Items");
+
+                    }
+
+                    // If the key equals to "French Fries", we're updating the text node "txtLabel"
+                    else if (strKey.equals("French Fries")) {
+
+                        txtLabel.setText(strKey + ": $" + String.format("%.2f", hshMapCheckOut.get(strKey)) + "   ("
+                                + intFrchFrsCnt + ") Items");
+
+                    }
+
+                    // If the key equals to "Stuffed cheesy bread", we're updating the text node
+                    // "txtLabel"
+                    else if (strKey.equals("Stuffed cheesy bread")) {
+
+                        txtLabel.setText(strKey + ": $" + String.format("%.2f", hshMapCheckOut.get(strKey)) + "   ("
+                                + intChsyBrdCnt + ") Items");
+
+                    }
+
+                    // If the key equals to "Drinks", we're updating the text node "txtLabel"
+                    else if (strKey.equals("Drinks")) {
+
+                        txtLabel.setText(strKey + ": $" + String.format("%.2f", hshMapCheckOut.get(strKey)) + "   ("
+                                + intDrnksCnt + ") Items");
+
+                    }
+
+                    // If the key equals to "Plain Pizza" (Build your own pizza), we're updating the
+                    // text node "txtLabel"
+                    else if (strKey.equals(hashMapTrackThings.get(0))) {
+                        txtLabel.setText("Plain Pizza (with " + arrListToppings.size() + " toppings): $"
+                                + String.format("%.2f", hshMapCheckOut.get(strKey)));
+                    }
+
+                    // Setting the font style and alignment for the text node "txtLabel"
+                    txtLabel.setFont(Font.font("Geometric Sans-Serif", 21));
+                    txtLabel.setLayoutX(60);
+                    txtLabel.setLayoutY(intPosition);
+
+                    // Adding the objects to the checkout pane
+                    paneCheckout.getChildren().add(txtLabel);
+                    paneCheckout.getChildren().add(txtDominosReturn);
+
+                    // Increasing the intPosition by 38 for every iteration
+                    intPosition += 38;
                 }
 
-                // If the key equals to "Buffalo Chicken Pizza", we're updating the text node
-                // "txtLabel"
-                else if (strKey.equals("Buffalo Chicken Pizza")) {
+                // Creating a Text node "Dominos" for the scene checkout
+                Text txtDominos_1 = DominosText();
 
-                    txtLabel.setText(strKey + ": $" + String.format("%.2f", hshMapCheckOut.get(strKey)) + "   ("
-                            + intBflCknCnt + ") Items");
+                // Adding all the objects to the checkout pane
+                paneCheckout.getChildren().addAll(txtYourCart, txtDominos_1, txtYourFinalPrice);
 
+                // Setting the Text node for "Name:"
+                txtCustomerName.setLayoutX(560);
+                txtCustomerName.setLayoutY(130);
+                txtCustomerName.setFont(Font.font("Geometric Sans-Serif", 21));
+
+                // Setting the Text node for "Address:"
+                txtCustomerAddress.setLayoutX(560);
+                txtCustomerAddress.setLayoutY(246);
+                txtCustomerAddress.setFont(Font.font("Geometric Sans-Serif", 21));
+
+                // Setting the Text node for "Phone Number:"
+                txtCustomerPhoneNumber.setLayoutX(560);
+                txtCustomerPhoneNumber.setLayoutY(407);
+                txtCustomerPhoneNumber.setFont(Font.font("Geometric Sans-Serif", 21));
+
+                // Updating the text node for total price
+                txtYourFinalPrice.setText("Total Price: $" + String.format("%.2f", dblTotalCost));
+
+                // Setting the alignment and size of the text field for name
+                txtFieldNameInput.setMinWidth(50);
+                txtFieldNameInput.setPrefHeight(50);
+                txtFieldNameInput.setLayoutX(560);
+                txtFieldNameInput.setLayoutY(150);
+                txtFieldNameInput.setFont(Font.font("Geometric Sans-Serif", 13));
+
+                // Setting the alignment and size of the text field for address
+                txtAreaAddressInput.setWrapText(true);
+                txtAreaAddressInput.setMaxWidth(164);
+                txtAreaAddressInput.setPrefHeight(90);
+                txtAreaAddressInput.setLayoutX(560);
+                txtAreaAddressInput.setLayoutY(266);
+                txtAreaAddressInput.setFont(Font.font("Geometric Sans-Serif", 13));
+
+                // Setting the alignment and size of the text field for phone number
+                txtFieldPhoneNumber.setMinWidth(50);
+                txtFieldPhoneNumber.setPrefHeight(40);
+                txtFieldPhoneNumber.setLayoutX(560);
+                txtFieldPhoneNumber.setLayoutY(427);
+                txtFieldPhoneNumber.setFont(Font.font("Geometric Sans-Serif", 13));
+
+                // Setting the alignment, font size and button size for the button
+                // "btnPlaceOrder"
+                btnPlaceOrder.setLayoutX(580);
+                btnPlaceOrder.setLayoutY(503);
+                btnPlaceOrder.setFont(Font.font("Geometric Sans-Serif", 14));
+                btnPlaceOrder.setPrefSize(97, 50);
+
+                // Adding all the objects to the checkout pane
+                if (paneCheckout.lookup("#txtAreaAddressInput") == null) {
+                    paneCheckout.getChildren().addAll(txtAreaAddressInput);
+                }
+                if (paneCheckout.lookup("#txtFieldNameInput") == null) {
+                    paneCheckout.getChildren().addAll(txtFieldNameInput);
+                }
+                if (paneCheckout.lookup("#txtFieldPhoneNumber") == null) {
+                    paneCheckout.getChildren().addAll(txtFieldPhoneNumber);
+                }
+                if (paneCheckout.lookup("#btnPlaceOrder") == null) {
+                    paneCheckout.getChildren().addAll(btnPlaceOrder);
+                }
+                if (paneCheckout.lookup("#txtCustomerName") == null) {
+                    paneCheckout.getChildren().addAll(txtCustomerName);
+                }
+                if (paneCheckout.lookup("#txtCustomerAddress") == null) {
+                    paneCheckout.getChildren().addAll(txtCustomerAddress);
+                }
+                if (paneCheckout.lookup("#txtCustomerPhoneNumber") == null) {
+                    paneCheckout.getChildren().addAll(txtCustomerPhoneNumber);
                 }
 
-                // If the key equals to "Wisconsin 6 Cheese Pizza", we're updating the text node
-                // "txtLabel"
-                else if (strKey.equals("Wisconsin 6 Cheese Pizza")) {
+            } else {
+                Text txtErrorMessageForPriceMainScene = new Text(
+                        "Need to have atleast\none item on the\ncart to proceed.");
+                txtErrorMessageForPriceMainScene.setLayoutX(617);
+                txtErrorMessageForPriceMainScene.setLayoutY(367);
+                txtErrorMessageForPriceMainScene.setFont(Font.font("Geometric Sans-Serif", 17));
+                txtErrorMessageForPriceMainScene.setFill(Color.RED);
+                paneMain.getChildren().add(txtErrorMessageForPriceMainScene);
 
-                    txtLabel.setText(
-                            strKey + ": $" + String.format("%.2f", hshMapCheckOut.get(strKey)) + "   ("
-                                    + intWisCheeseCnt + ") Items");
+                Timeline timeline = new Timeline(
+                        new KeyFrame(Duration.seconds(intDurationInSeconds), new EventHandler<ActionEvent>() {
 
-                }
+                            @Override
+                            public void handle(ActionEvent event) {
+                                // Hide the message after the specified duration
+                                txtErrorMessageForPriceMainScene.setText("");
+                            }
+                        }));
 
-                // If the key equals to "French Fries", we're updating the text node "txtLabel"
-                else if (strKey.equals("French Fries")) {
-
-                    txtLabel.setText(strKey + ": $" + String.format("%.2f", hshMapCheckOut.get(strKey)) + "   ("
-                            + intFrchFrsCnt + ") Items");
-
-                }
-
-                // If the key equals to "Stuffed cheesy bread", we're updating the text node
-                // "txtLabel"
-                else if (strKey.equals("Stuffed cheesy bread")) {
-
-                    txtLabel.setText(strKey + ": $" + String.format("%.2f", hshMapCheckOut.get(strKey)) + "   ("
-                            + intChsyBrdCnt + ") Items");
-
-                }
-
-                // If the key equals to "Drinks", we're updating the text node "txtLabel"
-                else if (strKey.equals("Drinks")) {
-
-                    txtLabel.setText(strKey + ": $" + String.format("%.2f", hshMapCheckOut.get(strKey)) + "   ("
-                            + intDrnksCnt + ") Items");
-
-                }
-
-                // If the key equals to "Plain Pizza" (Build your own pizza), we're updating the
-                // text node "txtLabel"
-                else if (strKey.equals(hashMapTrackThings.get(0))) {
-                    txtLabel.setText("Plain Pizza (with " + arrListToppings.size() + " toppings): $"
-                            + String.format("%.2f", hshMapCheckOut.get(strKey)));
-                }
-
-                // Setting the font style and alignment for the text node "txtLabel"
-                txtLabel.setFont(Font.font("Geometric Sans-Serif", 21));
-                txtLabel.setLayoutX(60);
-                txtLabel.setLayoutY(intPosition);
-
-                // Adding the objects to the checkout pane
-                paneCheckout.getChildren().add(txtLabel);
-                paneCheckout.getChildren().add(txtDominosReturn);
-
-                // Increasing the intPosition by 38 for every iteration
-                intPosition += 38;
-            }
-
-            // Creating a Text node "Dominos" for the scene checkout
-            Text txtDominos_1 = DominosText();
-
-            // Adding all the objects to the checkout pane
-            paneCheckout.getChildren().addAll(txtYourCart, txtDominos_1, txtYourFinalPrice);
-
-            // Setting the Text node for "Name:"
-            txtCustomerName.setLayoutX(560);
-            txtCustomerName.setLayoutY(130);
-            txtCustomerName.setFont(Font.font("Geometric Sans-Serif", 21));
-
-            // Setting the Text node for "Address:"
-            txtCustomerAddress.setLayoutX(560);
-            txtCustomerAddress.setLayoutY(246);
-            txtCustomerAddress.setFont(Font.font("Geometric Sans-Serif", 21));
-
-            // Setting the Text node for "Phone Number:"
-            txtCustomerPhoneNumber.setLayoutX(560);
-            txtCustomerPhoneNumber.setLayoutY(407);
-            txtCustomerPhoneNumber.setFont(Font.font("Geometric Sans-Serif", 21));
-
-            // Updating the text node for total price
-            txtYourFinalPrice.setText("Total Price: $" + String.format("%.2f", dblTotalCost));
-
-            // Setting the alignment and size of the text field for name
-            txtFieldNameInput.setMinWidth(50);
-            txtFieldNameInput.setPrefHeight(50);
-            txtFieldNameInput.setLayoutX(560);
-            txtFieldNameInput.setLayoutY(150);
-            txtFieldNameInput.setFont(Font.font("Geometric Sans-Serif", 13));
-
-            // Setting the alignment and size of the text field for address
-            txtFieldAddressInput.setMinWidth(50);
-            txtFieldAddressInput.setPrefHeight(90);
-            txtFieldAddressInput.setLayoutX(560);
-            txtFieldAddressInput.setLayoutY(266);
-            txtFieldAddressInput.setFont(Font.font("Geometric Sans-Serif", 13));
-
-            // Setting the alignment and size of the text field for phone number
-            txtFieldPhoneNumber.setMinWidth(50);
-            txtFieldPhoneNumber.setPrefHeight(40);
-            txtFieldPhoneNumber.setLayoutX(560);
-            txtFieldPhoneNumber.setLayoutY(427);
-            txtFieldPhoneNumber.setFont(Font.font("Geometric Sans-Serif", 13));
-
-            // Setting the alignment, font size and button size for the button
-            // "btnPlaceOrder"
-            btnPlaceOrder.setLayoutX(580);
-            btnPlaceOrder.setLayoutY(503);
-            btnPlaceOrder.setFont(Font.font("Geometric Sans-Serif", 14));
-            btnPlaceOrder.setPrefSize(97, 50);
-
-            // Adding all the objects to the checkout pane
-            if (paneCheckout.lookup("#txtFieldAddressInput") == null) {
-                paneCheckout.getChildren().addAll(txtFieldAddressInput);
-            }
-            if (paneCheckout.lookup("#txtFieldNameInput") == null) {
-                paneCheckout.getChildren().addAll(txtFieldNameInput);
-            }
-            if (paneCheckout.lookup("#txtFieldPhoneNumber") == null) {
-                paneCheckout.getChildren().addAll(txtFieldPhoneNumber);
-            }
-            if (paneCheckout.lookup("#btnPlaceOrder") == null) {
-                paneCheckout.getChildren().addAll(btnPlaceOrder);
-            }
-            if (paneCheckout.lookup("#txtCustomerName") == null) {
-                paneCheckout.getChildren().addAll(txtCustomerName);
-            }
-            if (paneCheckout.lookup("#txtCustomerAddress") == null) {
-                paneCheckout.getChildren().addAll(txtCustomerAddress);
-            }
-            if (paneCheckout.lookup("#txtCustomerPhoneNumber") == null) {
-                paneCheckout.getChildren().addAll(txtCustomerPhoneNumber);
+                // Start the Timeline
+                timeline.play();
             }
 
         });
@@ -991,11 +1023,11 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
             txtFieldNameInput.setLayoutY(150);
             txtFieldNameInput.setFont(Font.font("Geometric Sans-Serif", 13));
 
-            txtFieldAddressInput.setMinWidth(50);
-            txtFieldAddressInput.setPrefHeight(90);
-            txtFieldAddressInput.setLayoutX(560);
-            txtFieldAddressInput.setLayoutY(266);
-            txtFieldAddressInput.setFont(Font.font("Geometric Sans-Serif", 13));
+            txtAreaAddressInput.setMaxWidth(164);
+            txtAreaAddressInput.setPrefHeight(90);
+            txtAreaAddressInput.setLayoutX(560);
+            txtAreaAddressInput.setLayoutY(266);
+            txtAreaAddressInput.setFont(Font.font("Geometric Sans-Serif", 13));
 
             txtFieldPhoneNumber.setMinWidth(50);
             txtFieldPhoneNumber.setPrefHeight(40);
@@ -1008,9 +1040,8 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
             btnPlaceOrder.setFont(Font.font("Geometric Sans-Serif", 14));
             btnPlaceOrder.setPrefSize(97, 50);
 
-            //paneCheckout.getChildren().addAll(txtFieldAddressInput, txtFieldNameInput, txtFieldPhoneNumber,btnPlaceOrder);
-            if (paneCheckout.lookup("#txtFieldAddressInput") == null) {
-                paneCheckout.getChildren().addAll(txtFieldAddressInput);
+            if (paneCheckout.lookup("#txtAreaAddressInput") == null) {
+                paneCheckout.getChildren().addAll(txtAreaAddressInput);
             }
             if (paneCheckout.lookup("#txtFieldNameInput") == null) {
                 paneCheckout.getChildren().addAll(txtFieldNameInput);
@@ -1026,158 +1057,183 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
         btnBack_1.setOnAction(e -> stgApp.setScene(sceneMain));
         btnPlaceOrder.setOnAction(e -> {
 
-            if ((txtFieldNameInput.getText().length() != 0) &&
-                    (txtFieldAddressInput.getText().length() != 0) &&
-                    (txtFieldPhoneNumber.getText().length() != 0)) {
+            if (dblTotalCost != 0.00) {
 
-                panePlaceOrder.getChildren().removeIf(node -> node instanceof Text);
-                panePlaceOrder.getChildren().addAll(txtCustomerName, txtCustomerAddress, txtCustomerPhoneNumber,
-                        txtPlaceOrderFinalPrice, txtSeparator, txtOrderConfirmed, txtReceipt);
+                if ((txtFieldNameInput.getText().length() != 0) &&
+                        (txtAreaAddressInput.getText().length() != 0) &&
+                        (txtFieldPhoneNumber.getText().length() != 0)) {
 
-                stgApp.setScene(scenePlaceOrder);
+                    panePlaceOrder.getChildren().removeIf(node -> node instanceof Text);
+                    panePlaceOrder.getChildren().addAll(txtCustomerName, txtCustomerAddress, txtCustomerPhoneNumber,
+                            txtPlaceOrderFinalPrice, txtSeparator, txtOrderConfirmed, txtReceipt);
 
-                String strNameInput = txtFieldNameInput.getText();
+                    stgApp.setScene(scenePlaceOrder);
 
-                txtMessage.setText(strNameInput);
-                txtMessage.setFont(Font.font("Geometric Sans-Serif", 18));
-                txtMessage.setLayoutX(110);
-                txtMessage.setLayoutY(400);
-                panePlaceOrder.getChildren().add(txtMessage);
+                    String strNameInput = txtFieldNameInput.getText();
 
-                String strAddressInput = txtFieldAddressInput.getText();
+                    txtMessage.setText(strNameInput);
+                    txtMessage.setFont(Font.font("Geometric Sans-Serif", 18));
+                    txtMessage.setLayoutX(110);
+                    txtMessage.setLayoutY(400);
+                    panePlaceOrder.getChildren().add(txtMessage);
 
-                txtMessage_1.setText(strAddressInput);
-                txtMessage_1.setFont(Font.font("Geometric Sans-Serif", 18));
-                txtMessage_1.setLayoutX(125);
-                txtMessage_1.setLayoutY(435);
-                panePlaceOrder.getChildren().add(txtMessage_1);
+                    String strPhoneNumberInput = txtFieldPhoneNumber.getText();
 
-                String strPhoneNumberInput = txtFieldPhoneNumber.getText();
+                    txtMessage_1.setText(strPhoneNumberInput);
+                    txtMessage_1.setFont(Font.font("Geometric Sans-Serif", 18));
+                    txtMessage_1.setLayoutX(182);
+                    txtMessage_1.setLayoutY(435);
+                    panePlaceOrder.getChildren().add(txtMessage_1);
 
-                txtMessage_2.setText(strPhoneNumberInput);
-                txtMessage_2.setFont(Font.font("Geometric Sans-Serif", 18));
-                txtMessage_2.setLayoutX(183);
-                txtMessage_2.setLayoutY(470);
-                panePlaceOrder.getChildren().add(txtMessage_2);
+                    String strAddressInput = txtAreaAddressInput.getText();
+                    
+                    txtMessage_2.setText(strAddressInput);
+                    txtMessage_2.setFont(Font.font("Geometric Sans-Serif", 18));
+                    txtMessage_2.setLayoutX(125);
+                    txtMessage_2.setLayoutY(470);
+                    panePlaceOrder.getChildren().add(txtMessage_2);
 
-                txtCustomerName.setLayoutX(50);
-                txtCustomerName.setLayoutY(400);
-                txtCustomerName.setFont(Font.font("Geometric Sans-Serif", 18));
+                    txtCustomerName.setLayoutX(50);
+                    txtCustomerName.setLayoutY(400);
+                    txtCustomerName.setFont(Font.font("Geometric Sans-Serif", 18));
 
-                txtCustomerAddress.setLayoutX(50);
-                txtCustomerAddress.setLayoutY(435);
-                txtCustomerAddress.setFont(Font.font("Geometric Sans-Serif", 18));
+                    txtCustomerPhoneNumber.setLayoutX(50);
+                    txtCustomerPhoneNumber.setLayoutY(435);
+                    txtCustomerPhoneNumber.setFont(Font.font("Geometric Sans-Serif", 18));
 
-                txtCustomerPhoneNumber.setLayoutX(50);
-                txtCustomerPhoneNumber.setLayoutY(470);
-                txtCustomerPhoneNumber.setFont(Font.font("Geometric Sans-Serif", 18));
+ 
+ 
+                    txtCustomerAddress.setLayoutX(50);
+                    txtCustomerAddress.setLayoutY(470);
+                    txtCustomerAddress.setFont(Font.font("Geometric Sans-Serif", 18));
 
-                int intPositionCopy = 290;
-                for (String strKey : hshMapCheckOut.keySet()) {
+                    int intPositionCopy = 290;
+                    for (String strKey : hshMapCheckOut.keySet()) {
 
-                    Text txtDominosReturnCopy = DominosText();
-                    Text txtLabelCopy = new Text();
+                        Text txtDominosReturnCopy = DominosText();
+                        Text txtLabelCopy = new Text();
 
-                    if (strKey.equals("Pepperoni Pizza")) {
+                        if (strKey.equals("Pepperoni Pizza")) {
 
-                        txtLabelCopy
-                                .setText(strKey + ": $" + String.format("%.2f", hshMapCheckOut.get(strKey)) + " ("
-                                        + intpepCnt + ") Items");
+                            txtLabelCopy
+                                    .setText(strKey + ": $" + String.format("%.2f", hshMapCheckOut.get(strKey)) + " ("
+                                            + intpepCnt + ") Items");
 
+                        }
+
+                        else if (strKey.equals("Buffalo Chicken Pizza")) {
+
+                            txtLabelCopy.setText(
+                                    strKey + ": $" + String.format("%.2f", hshMapCheckOut.get(strKey)) + " ("
+                                            + intBflCknCnt
+                                            + ") Items");
+
+                        }
+
+                        else if (strKey.equals("Wisconsin 6 Cheese Pizza")) {
+
+                            txtLabelCopy.setText(
+                                    strKey + ": $" + String.format("%.2f", hshMapCheckOut.get(strKey)) + " ("
+                                            + intWisCheeseCnt + ") Items");
+
+                        }
+
+                        else if (strKey.equals("French Fries")) {
+
+                            txtLabelCopy.setText(
+                                    strKey + ": $" + String.format("%.2f", hshMapCheckOut.get(strKey)) + " ("
+                                            + intFrchFrsCnt + ") Items");
+
+                        }
+
+                        else if (strKey.equals("Stuffed cheesy bread")) {
+
+                            txtLabelCopy.setText(
+                                    strKey + ": $" + String.format("%.2f", hshMapCheckOut.get(strKey)) + " ("
+                                            + intChsyBrdCnt + ") Items");
+
+                        }
+
+                        else if (strKey.equals("Drinks")) {
+
+                            txtLabelCopy.setText(
+                                    strKey + ": $" + String.format("%.2f", hshMapCheckOut.get(strKey)) + " ("
+                                            + intDrnksCnt
+                                            + ") Items");
+
+                        }
+
+                        else if (strKey.equals(hashMapTrackThings.get(0))) {
+                            txtLabelCopy.setText("Plain Pizza (with " + arrListToppings.size() + " toppings): $"
+                                    + String.format("%.2f", hshMapCheckOut.get(strKey)));
+                        }
+
+                        txtLabelCopy.setFont(Font.font("Geometric Sans-Serif", 19));
+                        txtLabelCopy.setLayoutX(430);
+                        txtLabelCopy.setLayoutY(intPositionCopy);
+                        panePlaceOrder.getChildren().add(txtLabelCopy);
+                        panePlaceOrder.getChildren().add(txtDominosReturnCopy);
+                        intPositionCopy += 38;
                     }
 
-                    else if (strKey.equals("Buffalo Chicken Pizza")) {
+                    txtSeparator.setLayoutX(430);
+                    txtSeparator.setLayoutY(intPositionCopy - 17);
+                    txtSeparator.setFont(Font.font("Geometric Sans-Serif", 19));
 
-                        txtLabelCopy.setText(
-                                strKey + ": $" + String.format("%.2f", hshMapCheckOut.get(strKey)) + " (" + intBflCknCnt
-                                        + ") Items");
+                    txtPlaceOrderFinalPrice.setText("Total Price: $" + String.format("%.2f", dblTotalCost));
+                    txtPlaceOrderFinalPrice.setLayoutX(430);
+                    txtPlaceOrderFinalPrice.setLayoutY(intPositionCopy);
+                    txtPlaceOrderFinalPrice.setFont(Font.font("Geometric Sans-Serif", 19));
 
-                    }
-
-                    else if (strKey.equals("Wisconsin 6 Cheese Pizza")) {
-
-                        txtLabelCopy.setText(
-                                strKey + ": $" + String.format("%.2f", hshMapCheckOut.get(strKey)) + " ("
-                                        + intWisCheeseCnt + ") Items");
-
-                    }
-
-                    else if (strKey.equals("French Fries")) {
-
-                        txtLabelCopy.setText(
-                                strKey + ": $" + String.format("%.2f", hshMapCheckOut.get(strKey)) + " ("
-                                        + intFrchFrsCnt + ") Items");
-
-                    }
-
-                    else if (strKey.equals("Stuffed cheesy bread")) {
-
-                        txtLabelCopy.setText(
-                                strKey + ": $" + String.format("%.2f", hshMapCheckOut.get(strKey)) + " ("
-                                        + intChsyBrdCnt + ") Items");
-
-                    }
-
-                    else if (strKey.equals("Drinks")) {
-
-                        txtLabelCopy.setText(
-                                strKey + ": $" + String.format("%.2f", hshMapCheckOut.get(strKey)) + " (" + intDrnksCnt
-                                        + ") Items");
-
-                    }
-
-                    else if (strKey.equals(hashMapTrackThings.get(0))) {
-                        txtLabelCopy.setText("Plain Pizza (with " + arrListToppings.size() + " toppings): $"
-                                + String.format("%.2f", hshMapCheckOut.get(strKey)));
-                    }
-
-                    txtLabelCopy.setFont(Font.font("Geometric Sans-Serif", 19));
-                    txtLabelCopy.setLayoutX(430);
-                    txtLabelCopy.setLayoutY(intPositionCopy);
-                    panePlaceOrder.getChildren().add(txtLabelCopy);
-                    panePlaceOrder.getChildren().add(txtDominosReturnCopy);
-                    intPositionCopy += 38;
                 }
 
-                txtSeparator.setLayoutX(430);
-                txtSeparator.setLayoutY(intPositionCopy - 17);
-                txtSeparator.setFont(Font.font("Geometric Sans-Serif", 19));
+                else {
 
-                txtPlaceOrderFinalPrice.setText("Total Price: $" + String.format("%.2f", dblTotalCost));
-                txtPlaceOrderFinalPrice.setLayoutX(430);
-                txtPlaceOrderFinalPrice.setLayoutY(intPositionCopy);
-                txtPlaceOrderFinalPrice.setFont(Font.font("Geometric Sans-Serif", 19));
+                    Text txtCommand = new Text("Please enter you name,\nAddress and Phone number");
+                    txtCommand.setLayoutX(220);
+                    txtCommand.setLayoutY(126);
+                    txtCommand.setFont(Font.font("Geometric Sans-Serif", 19));
+                    paneCheckout.getChildren().add(txtCommand);
+                    txtCommand.setFill(Color.RED);
 
-                // panePlaceOrder.getChildren().addAll(
-                // txtPlaceOrderFinalPrice, txtSeparator);
+                    // Create a Timeline to hide the message after the specified duration
+                    Timeline timeline = new Timeline(
+                            new KeyFrame(Duration.seconds(intDurationInSeconds), new EventHandler<ActionEvent>() {
+
+                                @Override
+                                public void handle(ActionEvent event) {
+                                    // Hide the message after the specified duration
+                                    txtCommand.setText("");
+                                }
+                            }));
+
+                    // Start the Timeline
+                    timeline.play();
+
+                }
 
             }
 
             else {
+                Text txtErrorMessageForPrice = new Text("Need to have atleast one\nitem on the cart to proceed.");
+                txtErrorMessageForPrice.setLayoutX(220);
+                txtErrorMessageForPrice.setLayoutY(126);
+                txtErrorMessageForPrice.setFont(Font.font("Geometric Sans-Serif", 19));
+                txtErrorMessageForPrice.setFill(Color.RED);
+                paneCheckout.getChildren().add(txtErrorMessageForPrice);
 
-                Text txtCommand = new Text("Please enter you name,\nAddress and Phone number");
-                txtCommand.setLayoutX(220);
-                txtCommand.setLayoutY(126);
-                txtCommand.setFont(Font.font("Geometric Sans-Serif", 19));
-                paneCheckout.getChildren().add(txtCommand);
-                txtCommand.setFill(Color.RED);
-
-                int intDurationInSeconds = 5;
-
-                // Create a Timeline to hide the message after the specified duration
                 Timeline timeline = new Timeline(
                         new KeyFrame(Duration.seconds(intDurationInSeconds), new EventHandler<ActionEvent>() {
 
                             @Override
                             public void handle(ActionEvent event) {
                                 // Hide the message after the specified duration
-                                txtCommand.setText("");
+                                txtErrorMessageForPrice.setText("");
                             }
                         }));
 
                 // Start the Timeline
                 timeline.play();
-
             }
 
         });
@@ -1200,7 +1256,7 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
         intBuffaloChickenPizzaCount = 0;
 
         txtFieldNameInput.clear();
-        txtFieldAddressInput.clear();
+        txtAreaAddressInput.clear();
         txtFieldPhoneNumber.clear();
 
         // Reset all counter variables
@@ -1332,11 +1388,3 @@ public class AJ_Week15_GUI_Program_Final_DominosApp extends Application {
     }
 
 }
-
-// Tab order should be consistent (optional)
-// Fix the spaces in plain pizza - Fixed
-// Error checking for price $0.00
-// Word wrapping in text field ( use textArea )
-// Use Mysql (side project)
-// duplicate objects added - Fixed
-// documented
