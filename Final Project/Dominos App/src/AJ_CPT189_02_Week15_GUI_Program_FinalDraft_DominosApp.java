@@ -929,6 +929,14 @@ public class AJ_CPT189_02_Week15_GUI_Program_FinalDraft_DominosApp extends Appli
             cbGreenPeppers.setSelected(false);
             cbMushrooms.setSelected(false);
 
+            // Resetting the price for dblPlainPizzaCost
+            dblPlainPizzaCost = 10.50;
+
+            // Updating the text node "txtCurrentPrice"
+            txtCurrentPrice.setText("Your Current Total Price: $" + String.format("%.2f", dblPlainPizzaCost));
+
+
+
         });
 
         // Setting the button "btnViewYourCart" on action
