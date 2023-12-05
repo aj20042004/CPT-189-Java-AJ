@@ -41,7 +41,7 @@ import javafx.scene.text.Font;
 import javafx.util.Duration;
 
 // Creating the class
-public class AJ_CPT189_02_Week15_GUI_Program_FinalDraft_DominosApp extends Application {
+public class AJ_CPT189_02_Week15_GUI_Program_Final_DominosApp extends Application {
 
     // Creating and initializing private variables
     private int intpepCnt;
