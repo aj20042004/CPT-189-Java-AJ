@@ -298,9 +298,10 @@ public class AJ_CPT189_02_Week15_GUI_Program_FinalDraft_DominosApp extends Appli
         paneMain.getChildren().addAll(txtDominos, txtBuildYourOwn, txtFrenchFries, txtYourPrice,
                 txtBuffaloChicken, txtPepperoni, txtWisconsin6Chesse, txtDrinks, txtStuffedCheesyBread,
                 txtNumberOfItems);
-        paneMain.getChildren().addAll(btnBuildYourOwnPizza, btnAddToYourCartFrenchFries, btnAddToYourCartForPepperoni,
-                btnAddToYourCartDrinks, btnAddToYourCartStuffedCheesyBread,
-                btnAddToYourCartForBuffaloChicken, btnAddToYourCartForWisconsin6Cheese);
+        paneMain.getChildren().addAll(btnBuildYourOwnPizza, btnAddToYourCartForPepperoni,
+                btnAddToYourCartForBuffaloChicken,
+                btnAddToYourCartForWisconsin6Cheese, btnAddToYourCartFrenchFries, btnAddToYourCartStuffedCheesyBread,
+                btnAddToYourCartDrinks);
         paneMain.getChildren().add(btnCheckout);
         paneMain.getChildren().addAll(imageViewBuildYourOwnPizza, imageViewPepperoniPizza,
                 imageViewBuffaloChicken, imageViewWisconsin6Cheese, imageViewFrenchFries, imageViewStuffedCheesyBread,
@@ -410,11 +411,11 @@ public class AJ_CPT189_02_Week15_GUI_Program_FinalDraft_DominosApp extends Appli
 
         // Adding all the objects to the build yourn own pizza pane
         paneBuildYourPizza.getChildren().add(rectangleBackground_2);
-        paneBuildYourPizza.getChildren().addAll(btnBack, btnAddToYourCart, btnViewYourCart);
+        paneBuildYourPizza.getChildren().addAll(btnBack, cbGreenPeppers, cbMushrooms, cbOlives, cbPepperoni, cbChicken);
         paneBuildYourPizza.getChildren().add(imageViewBuildYourOwnPizza_1);
         paneBuildYourPizza.getChildren().addAll(txtOriginalPizzaLabel, txtEachToppings, txtCurrentPrice,
                 txtMessageForAddToYourCart);
-        paneBuildYourPizza.getChildren().addAll(cbPepperoni, cbChicken, cbGreenPeppers, cbMushrooms, cbOlives);
+        paneBuildYourPizza.getChildren().addAll(btnAddToYourCart, btnViewYourCart);
 
         // ---------------------------------------------------------------------------------------------------------------------------
 
@@ -935,8 +936,6 @@ public class AJ_CPT189_02_Week15_GUI_Program_FinalDraft_DominosApp extends Appli
             // Updating the text node "txtCurrentPrice"
             txtCurrentPrice.setText("Your Current Total Price: $" + String.format("%.2f", dblPlainPizzaCost));
 
-
-
         });
 
         // Setting the button "btnViewYourCart" on action
@@ -1100,11 +1099,11 @@ public class AJ_CPT189_02_Week15_GUI_Program_FinalDraft_DominosApp extends Appli
 
             // Checking if the objects were added already. If not, we're adding all the
             // objects to the checkout pane
-            if (paneCheckout.lookup("#txtAreaAddressInput") == null) {
-                paneCheckout.getChildren().addAll(txtAreaAddressInput);
-            }
             if (paneCheckout.lookup("#txtFieldNameInput") == null) {
                 paneCheckout.getChildren().addAll(txtFieldNameInput);
+            }
+            if (paneCheckout.lookup("#txtAreaAddressInput") == null) {
+                paneCheckout.getChildren().addAll(txtAreaAddressInput);
             }
             if (paneCheckout.lookup("#txtFieldPhoneNumber") == null) {
                 paneCheckout.getChildren().addAll(txtFieldPhoneNumber);
